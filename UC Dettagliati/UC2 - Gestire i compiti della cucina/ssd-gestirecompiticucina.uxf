@@ -4,7 +4,7 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>264</x>
+      <x>88</x>
       <y>104</y>
       <w>48</w>
       <h>88</h>
@@ -17,7 +17,7 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>712</x>
+      <x>536</x>
       <y>160</y>
       <w>24</w>
       <h>600</h>
@@ -28,7 +28,7 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
+      <x>104</x>
       <y>264</y>
       <w>456</w>
       <h>32</h>
@@ -40,7 +40,7 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
+      <x>104</x>
       <y>312</y>
       <w>456</w>
       <h>32</h>
@@ -52,7 +52,7 @@ foglio precompilato</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
+      <x>104</x>
       <y>184</y>
       <w>24</w>
       <h>688</h>
@@ -63,7 +63,7 @@ foglio precompilato</panel_attributes>
   <element>
     <id>UMLDeployment</id>
     <coordinates>
-      <x>672</x>
+      <x>496</x>
       <y>120</y>
       <w>88</w>
       <h>40</h>
@@ -75,7 +75,7 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>288</x>
+      <x>112</x>
       <y>0</y>
       <w>352</w>
       <h>48</h>
@@ -92,7 +92,7 @@ bg=#F9FF47</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>288</x>
+      <x>112</x>
       <y>48</y>
       <w>352</w>
       <h>24</h>
@@ -107,9 +107,9 @@ fontsize=18</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>176</x>
+      <x>24</x>
       <y>216</y>
-      <w>640</w>
+      <w>608</w>
       <h>624</h>
     </coordinates>
     <panel_attributes>LOOP
@@ -120,7 +120,7 @@ bg=#8CB4FF</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>712</x>
+      <x>536</x>
       <y>368</y>
       <w>16</w>
       <h>16</h>
@@ -133,7 +133,7 @@ lw=2</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
+      <x>104</x>
       <y>552</y>
       <w>456</w>
       <h>32</h>
@@ -145,7 +145,7 @@ lw=2</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
+      <x>104</x>
       <y>576</y>
       <w>456</w>
       <h>32</h>
@@ -157,9 +157,9 @@ aggiorna foglio</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>256</x>
+      <x>72</x>
       <y>544</y>
-      <w>496</w>
+      <w>512</w>
       <h>72</h>
     </coordinates>
     <panel_attributes>OPT
@@ -174,9 +174,9 @@ bg=#B8E0E0
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>256</x>
+      <x>72</x>
       <y>296</y>
-      <w>496</w>
+      <w>512</w>
       <h>104</h>
     </coordinates>
     <panel_attributes>ALT
@@ -192,7 +192,7 @@ lw=2
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
+      <x>104</x>
       <y>920</y>
       <w>456</w>
       <h>32</h>
@@ -204,7 +204,7 @@ lw=2
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
+      <x>104</x>
       <y>960</y>
       <w>456</w>
       <h>32</h>
@@ -216,7 +216,7 @@ aggiorna foglio e tabellone</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
+      <x>104</x>
       <y>848</y>
       <w>24</w>
       <h>816</h>
@@ -227,7 +227,7 @@ aggiorna foglio e tabellone</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>712</x>
+      <x>536</x>
       <y>736</y>
       <w>24</w>
       <h>936</h>
@@ -238,7 +238,7 @@ aggiorna foglio e tabellone</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
+      <x>104</x>
       <y>440</y>
       <w>456</w>
       <h>48</h>
@@ -253,7 +253,7 @@ fg=#9E1C8C
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
+      <x>104</x>
       <y>1016</y>
       <w>456</w>
       <h>32</h>
@@ -266,7 +266,7 @@ fg=red
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
+      <x>104</x>
       <y>656</y>
       <w>456</w>
       <h>32</h>
@@ -279,7 +279,7 @@ fg=#9E1C8C</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
+      <x>104</x>
       <y>1168</y>
       <w>456</w>
       <h>32</h>
@@ -292,7 +292,7 @@ fg=#9E1C8C</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
+      <x>104</x>
       <y>1208</y>
       <w>456</w>
       <h>32</h>
@@ -305,7 +305,7 @@ fg=#9E1C8C</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
+      <x>104</x>
       <y>680</y>
       <w>456</w>
       <h>32</h>
@@ -318,7 +318,7 @@ fg=#9E1C8C</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
+      <x>104</x>
       <y>464</y>
       <w>456</w>
       <h>32</h>
@@ -331,7 +331,7 @@ fg=#9E1C8C</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>872</x>
+      <x>696</x>
       <y>752</y>
       <w>192</w>
       <h>72</h>
@@ -347,7 +347,7 @@ bg=orange</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>864</x>
+      <x>688</x>
       <y>240</y>
       <w>272</w>
       <h>80</h>
@@ -362,7 +362,7 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>888</x>
+      <x>712</x>
       <y>128</y>
       <w>224</w>
       <h>80</h>
@@ -378,7 +378,7 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
+      <x>104</x>
       <y>752</y>
       <w>456</w>
       <h>32</h>
@@ -390,7 +390,7 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
+      <x>104</x>
       <y>776</y>
       <w>456</w>
       <h>32</h>
@@ -402,7 +402,7 @@ aggiorna foglio</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>896</x>
+      <x>720</x>
       <y>360</y>
       <w>224</w>
       <h>56</h>
@@ -416,7 +416,7 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
+      <x>104</x>
       <y>360</y>
       <w>448</w>
       <h>32</h>
@@ -428,10 +428,10 @@ foglio precompilato</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>176</x>
+      <x>24</x>
       <y>880</y>
-      <w>640</w>
-      <h>680</h>
+      <w>608</w>
+      <h>672</h>
     </coordinates>
     <panel_attributes>LOOP
 fg=blue
@@ -441,9 +441,9 @@ bg=#8CB4FF</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>256</x>
+      <x>72</x>
       <y>736</y>
-      <w>496</w>
+      <w>512</w>
       <h>80</h>
     </coordinates>
     <panel_attributes>OPT
@@ -458,7 +458,7 @@ bg=#B8E0E0
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
+      <x>104</x>
       <y>1248</y>
       <w>456</w>
       <h>32</h>
@@ -471,7 +471,7 @@ fg=red
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>712</x>
+      <x>536</x>
       <y>1256</y>
       <w>16</w>
       <h>16</h>
@@ -484,7 +484,7 @@ lw=2</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>712</x>
+      <x>536</x>
       <y>1024</y>
       <w>16</w>
       <h>16</h>
@@ -497,7 +497,7 @@ lw=2</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>712</x>
+      <x>536</x>
       <y>1304</y>
       <w>16</w>
       <h>16</h>
@@ -510,7 +510,7 @@ lw=2</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
+      <x>104</x>
       <y>1296</y>
       <w>456</w>
       <h>32</h>
@@ -523,7 +523,7 @@ fg=red
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
+      <x>104</x>
       <y>1384</y>
       <w>456</w>
       <h>32</h>
@@ -536,7 +536,7 @@ fg=#9E1C8C</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
+      <x>104</x>
       <y>1464</y>
       <w>456</w>
       <h>32</h>
@@ -549,7 +549,7 @@ fg=#9E1C8C</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
+      <x>104</x>
       <y>1408</y>
       <w>456</w>
       <h>32</h>
@@ -562,7 +562,7 @@ fg=#9E1C8C</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
+      <x>104</x>
       <y>1488</y>
       <w>456</w>
       <h>32</h>
@@ -575,10 +575,10 @@ fg=#9E1C8C</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>224</x>
-      <y>240</y>
+      <x>48</x>
+      <y>248</y>
       <w>560</w>
-      <h>264</h>
+      <h>256</h>
     </coordinates>
     <panel_attributes>ALT
 fg=#761C8C
@@ -597,14 +597,13 @@ lw=2
 
 
 
-
 -.</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>224</x>
+      <x>48</x>
       <y>520</y>
       <w>560</w>
       <h>200</h>
@@ -627,7 +626,7 @@ lw=2
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
+      <x>104</x>
       <y>1072</y>
       <w>456</w>
       <h>32</h>
@@ -640,7 +639,7 @@ fg=red
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>712</x>
+      <x>536</x>
       <y>1080</y>
       <w>16</w>
       <h>16</h>
@@ -653,9 +652,9 @@ lw=2</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>256</x>
+      <x>72</x>
       <y>952</y>
-      <w>496</w>
+      <w>512</w>
       <h>160</h>
     </coordinates>
     <panel_attributes>ALT
@@ -676,7 +675,7 @@ layer=0
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>224</x>
+      <x>48</x>
       <y>904</y>
       <w>560</w>
       <h>624</h>
@@ -734,9 +733,9 @@ lw=2
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>256</x>
+      <x>72</x>
       <y>1200</y>
-      <w>496</w>
+      <w>512</w>
       <h>136</h>
     </coordinates>
     <panel_attributes>ALT
