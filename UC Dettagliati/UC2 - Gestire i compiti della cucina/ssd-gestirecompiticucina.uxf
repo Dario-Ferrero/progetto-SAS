@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>7</zoom_level>
+  <zoom_level>8</zoom_level>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>140</x>
-      <y>91</y>
-      <w>42</w>
-      <h>77</h>
+      <x>112</x>
+      <y>104</y>
+      <w>48</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>Chef
 fg=black
@@ -17,10 +17,10 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>532</x>
-      <y>140</y>
-      <w>21</w>
-      <h>525</h>
+      <x>560</x>
+      <y>160</y>
+      <w>24</w>
+      <h>600</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;730.0</additional_attributes>
@@ -28,10 +28,10 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>231</y>
-      <w>399</w>
-      <h>28</h>
+      <x>128</x>
+      <y>264</y>
+      <w>456</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 1) apriFoglioRiepilogativo(evento, servizio)</panel_attributes>
@@ -40,10 +40,10 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>259</y>
-      <w>399</w>
-      <h>28</h>
+      <x>128</x>
+      <y>296</y>
+      <w>456</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 foglio riepilogativo precompilato</panel_attributes>
@@ -52,10 +52,10 @@ foglio riepilogativo precompilato</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>161</y>
-      <w>21</w>
-      <h>602</h>
+      <x>128</x>
+      <y>184</y>
+      <w>24</w>
+      <h>688</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;840.0</additional_attributes>
@@ -63,10 +63,10 @@ foglio riepilogativo precompilato</panel_attributes>
   <element>
     <id>UMLDeployment</id>
     <coordinates>
-      <x>497</x>
-      <y>105</y>
-      <w>77</w>
-      <h>35</h>
+      <x>520</x>
+      <y>120</y>
+      <w>88</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>System
 bg=green</panel_attributes>
@@ -75,10 +75,10 @@ bg=green</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>161</x>
+      <x>136</x>
       <y>0</y>
-      <w>308</w>
-      <h>42</h>
+      <w>352</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>valign=center
 halign=center
@@ -92,10 +92,10 @@ bg=#F9FF47</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>161</x>
-      <y>42</y>
-      <w>308</w>
-      <h>21</h>
+      <x>136</x>
+      <y>48</y>
+      <w>352</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>valign=center
 halign=center
@@ -107,10 +107,10 @@ fontsize=18</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>84</x>
-      <y>189</y>
-      <w>532</w>
-      <h>518</h>
+      <x>48</x>
+      <y>216</y>
+      <w>608</w>
+      <h>592</h>
     </coordinates>
     <panel_attributes>LOOP
 fg=blue
@@ -120,10 +120,10 @@ bg=#8CB4FF</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>434</y>
-      <w>399</w>
-      <h>28</h>
+      <x>128</x>
+      <y>496</y>
+      <w>456</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
 2) aggiungiCompito(foglio, mansione)</panel_attributes>
@@ -132,10 +132,10 @@ bg=#8CB4FF</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>462</y>
-      <w>399</w>
-      <h>28</h>
+      <x>128</x>
+      <y>528</y>
+      <w>456</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 aggiorna foglio</panel_attributes>
@@ -144,10 +144,10 @@ aggiorna foglio</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>840</y>
-      <w>399</w>
-      <h>28</h>
+      <x>128</x>
+      <y>960</y>
+      <w>456</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
 5) assegnaCompito(foglio, compito, turno, cuoco?, stima tempo?, quantità?)</panel_attributes>
@@ -156,10 +156,10 @@ aggiorna foglio</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>875</y>
-      <w>399</w>
-      <h>28</h>
+      <x>128</x>
+      <y>1000</y>
+      <w>456</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 aggiorna foglio e tabellone</panel_attributes>
@@ -168,32 +168,32 @@ aggiorna foglio e tabellone</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>742</y>
-      <w>21</w>
-      <h>819</h>
+      <x>128</x>
+      <y>848</y>
+      <w>24</w>
+      <h>1208</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;1150.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;1490.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>532</x>
-      <y>644</y>
-      <w>21</w>
-      <h>917</h>
+      <x>560</x>
+      <y>736</y>
+      <w>24</w>
+      <h>1312</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;1290.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;1620.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>308</y>
-      <w>399</w>
-      <h>42</h>
+      <x>128</x>
+      <y>352</y>
+      <w>456</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
 1a.1) ripristinaFoglio(foglio)
@@ -205,23 +205,23 @@ fg=#9E1C8C
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>924</y>
-      <w>399</w>
-      <h>28</h>
+      <x>128</x>
+      <y>1056</y>
+      <w>456</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 fg=red
-5d.1) errore : cuoco non disponibile per turno</panel_attributes>
+5.1a) / 5.1b) errore : cuoco non disponibile per turno / turno passato</panel_attributes>
     <additional_attributes>10.0;20.0;550.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>511</y>
-      <w>399</w>
-      <h>28</h>
+      <x>128</x>
+      <y>584</y>
+      <w>456</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 2a.1) eliminaCompito(foglio, compito)
@@ -231,23 +231,23 @@ fg=#9E1C8C</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>1057</y>
-      <w>399</w>
-      <h>28</h>
+      <x>128</x>
+      <y>1144</y>
+      <w>456</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-5a.1) modificaCompito(foglio, compito, cuoco?, turno?, stima tempo?, quantità?)
+5a.1) modificaCuoco(foglio, compito, cuoco?)
 fg=#9E1C8C</panel_attributes>
     <additional_attributes>550.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>1092</y>
-      <w>399</w>
-      <h>28</h>
+      <x>128</x>
+      <y>1184</y>
+      <w>456</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 ok
@@ -257,10 +257,10 @@ fg=#9E1C8C</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>539</y>
-      <w>399</w>
-      <h>28</h>
+      <x>128</x>
+      <y>616</y>
+      <w>456</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 aggiorna foglio
@@ -270,10 +270,10 @@ fg=#9E1C8C</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>336</y>
-      <w>399</w>
-      <h>28</h>
+      <x>128</x>
+      <y>384</y>
+      <w>456</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 ok
@@ -283,10 +283,10 @@ fg=#9E1C8C</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>630</y>
-      <w>399</w>
-      <h>28</h>
+      <x>128</x>
+      <y>720</y>
+      <w>456</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
 3) ordinaCompiti(foglio, ordinamento)</panel_attributes>
@@ -295,10 +295,10 @@ fg=#9E1C8C</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>658</y>
-      <w>399</w>
-      <h>28</h>
+      <x>128</x>
+      <y>752</y>
+      <w>456</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 aggiorna foglio</panel_attributes>
@@ -307,10 +307,10 @@ aggiorna foglio</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>84</x>
-      <y>805</y>
-      <w>532</w>
-      <h>588</h>
+      <x>48</x>
+      <y>920</y>
+      <w>608</w>
+      <h>856</h>
     </coordinates>
     <panel_attributes>LOOP
 fg=blue
@@ -320,10 +320,10 @@ bg=#8CB4FF</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>105</x>
-      <y>616</y>
-      <w>490</w>
-      <h>77</h>
+      <x>72</x>
+      <y>704</y>
+      <w>560</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>OPT
 fg=#128C86
@@ -337,23 +337,23 @@ bg=#B8E0E0
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>1127</y>
-      <w>399</w>
-      <h>28</h>
+      <x>128</x>
+      <y>1224</y>
+      <w>456</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 fg=red
-5a.1a.1) errore : cuoco non disponibile per turno</panel_attributes>
+5a.1a.1) errore : cuoco non disponibile per turno </panel_attributes>
     <additional_attributes>10.0;20.0;550.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>532</x>
-      <y>1134</y>
-      <w>14</w>
-      <h>14</h>
+      <x>560</x>
+      <y>1232</y>
+      <w>16</w>
+      <h>16</h>
     </coordinates>
     <panel_attributes>type=termination
 fg=red
@@ -363,10 +363,10 @@ lw=2</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>532</x>
-      <y>931</y>
-      <w>14</w>
-      <h>14</h>
+      <x>560</x>
+      <y>1064</y>
+      <w>16</w>
+      <h>16</h>
     </coordinates>
     <panel_attributes>type=termination
 fg=red
@@ -374,260 +374,224 @@ lw=2</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLSpecialState</id>
+    <id>Relation</id>
     <coordinates>
-      <x>532</x>
+      <x>128</x>
+      <y>1600</y>
+      <w>456</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+5e.1) segnaCompitoDaPreparare(foglio, compito, sì/no)
+fg=#9E1C8C</panel_attributes>
+    <additional_attributes>550.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>128</x>
+      <y>1680</y>
+      <w>456</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+5f.1) segnaTurnoCompleto(turno, sì/no)
+fg=#9E1C8C</panel_attributes>
+    <additional_attributes>550.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>128</x>
+      <y>1632</y>
+      <w>456</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+ok
+fg=#9E1C8C</panel_attributes>
+    <additional_attributes>10.0;20.0;550.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>128</x>
+      <y>1712</y>
+      <w>456</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+ok
+fg=#9E1C8C</panel_attributes>
+    <additional_attributes>10.0;20.0;550.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>72</x>
+      <y>248</y>
+      <w>560</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>ALT
+fg=#761C8C
+bg=#e7bfff
+lw=2
+--
+
+
+
+
+
+-.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>96</x>
+      <y>480</y>
+      <w>512</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>ALT
+fg=#761C8C
+bg=#e7bfff
+lw=2
+--
+
+
+
+
+
+-.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>96</x>
+      <y>992</y>
+      <w>512</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>ALT
+bg=#ffaaaa
+fg=#D3001B
+layer=1
+--
+
+
+-.
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>72</x>
+      <y>944</y>
+      <w>560</w>
+      <h>808</h>
+    </coordinates>
+    <panel_attributes>ALT
+fg=#761C8C
+bg=#e7bfff
+lw=2
+--
+
+
+
+
+
+
+
+
+
+
+
+
+-.
+
+
+
+
+
+
+
+
+
+
+
+
+-.
+
+
+
+
+
+
+
+
+
+
+
+-.
+
+
+
+
+
+
+-.
+
+
+
+
+
+
+-.
+
+
+
+
+
+
+-.
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>96</x>
       <y>1176</y>
-      <w>14</w>
-      <h>14</h>
-    </coordinates>
-    <panel_attributes>type=termination
-fg=red
-lw=2</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>154</x>
-      <y>1169</y>
-      <w>399</w>
-      <h>28</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-fg=red
-5a.1b.1) errore : turno passato</panel_attributes>
-    <additional_attributes>10.0;20.0;550.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>154</x>
-      <y>1246</y>
-      <w>399</w>
-      <h>28</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-5b.1) segnaCompitoDaPreparare(foglio, compito, sì/no)
-fg=#9E1C8C</panel_attributes>
-    <additional_attributes>550.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>154</x>
-      <y>1316</y>
-      <w>399</w>
-      <h>28</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-5c.1) segnaTurnoCompleto(turno, sì/no)
-fg=#9E1C8C</panel_attributes>
-    <additional_attributes>550.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>154</x>
-      <y>1267</y>
-      <w>399</w>
-      <h>28</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-ok
-fg=#9E1C8C</panel_attributes>
-    <additional_attributes>10.0;20.0;550.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>154</x>
-      <y>1337</y>
-      <w>399</w>
-      <h>28</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-ok
-fg=#9E1C8C</panel_attributes>
-    <additional_attributes>10.0;20.0;550.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>105</x>
-      <y>217</y>
-      <w>490</w>
-      <h>154</h>
-    </coordinates>
-    <panel_attributes>ALT
-fg=#761C8C
-bg=#e7bfff
-lw=2
---
-
-
-
-
-
--.</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>126</x>
-      <y>420</y>
-      <w>448</w>
-      <h>154</h>
-    </coordinates>
-    <panel_attributes>ALT
-fg=#761C8C
-bg=#e7bfff
-lw=2
---
-
-
-
-
-
--.</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>154</x>
-      <y>973</y>
-      <w>399</w>
-      <h>28</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-fg=red
-5e.1) errore : turno passato</panel_attributes>
-    <additional_attributes>10.0;20.0;550.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLSpecialState</id>
-    <coordinates>
-      <x>532</x>
-      <y>980</y>
-      <w>14</w>
-      <h>14</h>
-    </coordinates>
-    <panel_attributes>type=termination
-fg=red
-lw=2</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>126</x>
-      <y>868</y>
-      <w>448</w>
-      <h>140</h>
+      <w>512</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>ALT
 bg=#ffaaaa
 fg=#D3001B
-layer=0
---
-
-
--.
-
-
-
-
--.</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>105</x>
-      <y>826</y>
-      <w>490</w>
-      <h>546</h>
-    </coordinates>
-    <panel_attributes>ALT
-fg=#761C8C
-bg=#e7bfff
-lw=2
---
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--.
-
-
-
-
-
-
--.</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>126</x>
-      <y>1085</y>
-      <w>448</w>
-      <h>119</h>
-    </coordinates>
-    <panel_attributes>ALT
-bg=#ffaaaa
-fg=#D3001B
-layer=0
+layer=1
 --
 
 -.
 
 
 
--.</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>105</x>
-      <y>399</y>
-      <w>490</w>
-      <h>196</h>
+      <x>72</x>
+      <y>456</y>
+      <w>560</w>
+      <h>224</h>
     </coordinates>
     <panel_attributes>LOOP
 fg=blue
@@ -637,10 +601,10 @@ bg=#8CB4FF</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>742</y>
-      <w>399</w>
-      <h>28</h>
+      <x>128</x>
+      <y>848</y>
+      <w>456</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
 4) consultaTabelloneTurni()</panel_attributes>
@@ -649,10 +613,10 @@ bg=#8CB4FF</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>770</y>
-      <w>399</w>
-      <h>28</h>
+      <x>128</x>
+      <y>880</y>
+      <w>456</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 tabellone dei turni</panel_attributes>
@@ -661,10 +625,10 @@ tabellone dei turni</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>63</x>
-      <y>735</y>
-      <w>574</w>
-      <h>679</h>
+      <x>24</x>
+      <y>840</y>
+      <w>656</w>
+      <h>960</h>
     </coordinates>
     <panel_attributes>OPT
 fg=#128C86
@@ -674,14 +638,122 @@ bg=#B8E0E0</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>42</x>
-      <y>385</y>
-      <w>616</w>
-      <h>1057</h>
+      <x>0</x>
+      <y>440</y>
+      <w>704</w>
+      <h>1384</h>
     </coordinates>
     <panel_attributes>LOOP
 fg=blue
 bg=#8CB4FF</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>128</x>
+      <y>1296</y>
+      <w>456</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+5b.1) modificaTurno(foglio, compito, turno?)
+fg=#9E1C8C</panel_attributes>
+    <additional_attributes>550.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>96</x>
+      <y>1328</y>
+      <w>512</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>ALT
+bg=#ffaaaa
+--
+
+-.
+fg=#D3001B
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>128</x>
+      <y>1336</y>
+      <w>456</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+ok
+fg=#9E1C8C</panel_attributes>
+    <additional_attributes>10.0;20.0;550.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>128</x>
+      <y>1376</y>
+      <w>456</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=red
+5b.1a.1) / 5b.1b.1) errore : cuoco non disponibile per turno / turno passato</panel_attributes>
+    <additional_attributes>10.0;20.0;550.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>128</x>
+      <y>1440</y>
+      <w>456</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+5c.1) modificaStimaTempo(foglio, compito, stima tempo?)
+fg=#9E1C8C</panel_attributes>
+    <additional_attributes>550.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>128</x>
+      <y>1472</y>
+      <w>456</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+ok
+fg=#9E1C8C</panel_attributes>
+    <additional_attributes>10.0;20.0;550.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>128</x>
+      <y>1520</y>
+      <w>456</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+5d.1) modificaQuantità(foglio, compito, quantità?)
+fg=#9E1C8C</panel_attributes>
+    <additional_attributes>550.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>128</x>
+      <y>1552</y>
+      <w>456</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+ok
+fg=#9E1C8C</panel_attributes>
+    <additional_attributes>10.0;20.0;550.0;20.0</additional_attributes>
   </element>
 </diagram>
