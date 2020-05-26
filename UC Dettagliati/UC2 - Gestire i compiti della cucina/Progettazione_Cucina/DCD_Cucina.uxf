@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>144</y>
+      <w>306</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>halign=center
+*Design Class Diagram (DCD)*
+lw=0
+fontsize=20
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>1044</x>
+      <y>432</y>
+      <w>270</w>
+      <h>459</h>
+    </coordinates>
+    <panel_attributes>UserManagement
+fg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>144</x>
+      <y>153</y>
+      <w>891</w>
+      <h>495</h>
+    </coordinates>
+    <panel_attributes>MenuManagement</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>1044</x>
+      <y>0</y>
+      <w>504</w>
+      <h>414</h>
+    </coordinates>
+    <panel_attributes>RecipeManagement
+fg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>225</x>
+      <y>189</y>
+      <w>315</w>
+      <h>261</h>
+    </coordinates>
+    <panel_attributes>MenuManager
+--
+- menuFeatures: String[]
+--
+*event sender methods*
++ addReceiver(er: MenuEventReceiver)
++ removeReceiver(er: MenuEventReceiver)
+- notifySectionAdded(sec: Section)
+- notifyMenuItemAdded(mi: MenuItem)
+- notifyMenuCreated(m: Menu)
+- notifyMenuDeleted(m: Menu)
+- notifySectionsRearranged(m: Menu)
+
+--
+*operations methods*
++ defineSection(name: String)
++ inserItem(r: Recipe, sec?: Section, desc?: String)
++ createMenu(title: String): Menu
++ getRecipeBook( ): ArrayList&lt;Recipe&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>639</x>
+      <y>180</y>
+      <w>297</w>
+      <h>234</h>
+    </coordinates>
+    <panel_attributes>Menu
+--
+- title: String
+- published: boolean
+- inUse: boolean
+- features: String[]
+- featureValues: boolean[]
+--
++ create(owner: User, title: String, features: String[])
++ addSection(name: String)
++ addItem(r: Recipe, sec?: Section,
+                                        desc?: String)
++ isOwner(user: User): boolean
++ isInUse(): boolean
++ hasSection(sec: Section): boolean
++ sectionsSize(): int
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>531</x>
+      <y>315</y>
+      <w>126</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+currentMenu
+m1=0..1</panel_attributes>
+    <additional_attributes>120.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>783</x>
+      <y>549</y>
+      <w>234</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>MenuItem
+--
+description: String
+--
++ create(rec: Recipe, desc?: String)
++ create(mi: MenuItem)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1062</x>
+      <y>234</y>
+      <w>108</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>Recipe
+fg=gray
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>954</x>
+      <y>234</y>
+      <w>126</w>
+      <h>333</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+itemRecipe</panel_attributes>
+    <additional_attributes>120.0;20.0;10.0;20.0;10.0;350.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>810</x>
+      <y>405</y>
+      <w>81</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n
+freeItems</panel_attributes>
+    <additional_attributes>10.0;160.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>585</x>
+      <y>477</y>
+      <w>189</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>Section
+--
+name: String
+--
++ create(name: String)
++ create(sec: Section)
++ addItem(mi: MenuItem)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>612</x>
+      <y>360</y>
+      <w>72</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n
+sections</panel_attributes>
+    <additional_attributes>10.0;130.0;10.0;10.0;30.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>612</x>
+      <y>576</y>
+      <w>189</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=0..n
+sectionItems</panel_attributes>
+    <additional_attributes>190.0;50.0;10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>153</x>
+      <y>684</y>
+      <w>198</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>UseCaseLogicException
+--
+fg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>459</x>
+      <y>684</y>
+      <w>117</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>Exception
+--
+
+fg=magenta
+fg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>342</x>
+      <y>711</y>
+      <w>135</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+fg=gray</panel_attributes>
+    <additional_attributes>130.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>216</x>
+      <y>504</y>
+      <w>351</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>MenuEventReceiver
+{interface}
+--
+
+--
+/+updateSectionAdded(m: Menu, sec: Section)/
+/+updateMenuItemAdded(m: Menu, mi: MenuItem)/
+/+updateMenuCreated(m: Menu)/
+/+updateMenuDeleted(m: Menu)/
+/+updateSectionsRearranged(m: Menu)/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>351</x>
+      <y>441</y>
+      <w>108</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+eventReceivers
+m1=0..n</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>144</x>
+      <y>657</y>
+      <w>486</w>
+      <h>216</h>
+    </coordinates>
+    <panel_attributes>General module
+fg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1062</x>
+      <y>648</y>
+      <w>234</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>UserManager
+--
+
+--
+*event sender methods*
+
+
+--
+*operations methods*
++ getCurrentUser(): User
+fg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1098</x>
+      <y>468</y>
+      <w>135</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>User
+
+--
+
+--
++ isChef( ): boolean
+
+fg=gray
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1161</x>
+      <y>558</y>
+      <w>90</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+currentUser
+m1=0..1
+fg=gray</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>900</x>
+      <y>405</y>
+      <w>216</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+owner
+m1=1</panel_attributes>
+    <additional_attributes>220.0;110.0;10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1053</x>
+      <y>324</y>
+      <w>171</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>RecipeManager
+--
+
+--
++ getRecipeBook(): 
+	ArrayList&lt;Recipe&gt;
+
+fg=gray
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1161</x>
+      <y>252</y>
+      <w>153</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+m2=0..n
+recipes
+fg=gray</panel_attributes>
+    <additional_attributes>70.0;120.0;110.0;120.0;110.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>0</x>
+      <y>900</y>
+      <w>1188</w>
+      <h>747</h>
+    </coordinates>
+    <panel_attributes>KitchenTaskManagement</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>18</x>
+      <y>936</y>
+      <w>315</w>
+      <h>261</h>
+    </coordinates>
+    <panel_attributes>KitchenTaskManager
+--
+- 
+--
+*event sender methods*
++ addReceiver(er: KitchenTaskEventReceiver)
++ removeReceiver(er: KitchenTaskEventReceiver)
+- 
+
+--
+*operations methods*
++ </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>18</x>
+      <y>1305</y>
+      <w>351</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>KitchenTaskEventReceiver
+{interface}
+--
+
+--
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>144</x>
+      <y>1188</y>
+      <w>108</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+eventReceivers
+m1=0..n</panel_attributes>
+    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>963</y>
+      <w>297</w>
+      <h>234</h>
+    </coordinates>
+    <panel_attributes>ServiceSheet
+--
+
+--
++ create(owner: User)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>639</x>
+      <y>1359</y>
+      <w>297</w>
+      <h>234</h>
+    </coordinates>
+    <panel_attributes>KitchenTask
+--
+- timeEstimated: int
+- toBePrepared: boolean
+- quantity: String
+--
++ create(owner: User)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1107</x>
+      <y>153</y>
+      <w>27</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1062</x>
+      <y>99</y>
+      <w>108</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>KitchenProcedure
+fg=gray
+--
+- name</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>927</x>
+      <y>126</y>
+      <w>612</w>
+      <h>1386</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+procedure
+m1=0..1</panel_attributes>
+    <additional_attributes>270.0;10.0;600.0;10.0;600.0;1520.0;10.0;1520.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>774</x>
+      <y>1188</y>
+      <w>54</w>
+      <h>189</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+tasks
+m1=0..n</panel_attributes>
+    <additional_attributes>10.0;190.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
