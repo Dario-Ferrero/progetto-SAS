@@ -53,10 +53,11 @@ bg=green</panel_attributes>
       <x>190</x>
       <y>160</y>
       <w>480</w>
-      <h>50</h>
+      <h>60</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
-1) Opzionalmente consulta il tabellone dei turni per verificare
+1) consulta_tabellone(tabellone , stato_cucina)
+consulta il tabellone dei turni per verificare
 lo stato della cucina nei giorni precedenti all’evento</panel_attributes>
     <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
   </element>
@@ -78,10 +79,11 @@ Restituisce il tabellone dei turni</panel_attributes>
       <x>190</x>
       <y>260</y>
       <w>480</w>
-      <h>90</h>
+      <h>110</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
-2) Opzionalmente Compila una scheda per un evento,
+2) Compila_scheda_evento(sched)
+Compila una scheda per un evento,
 annotando la durata e il numero di servizi richiesti,
 la data/e, il luogo, il numero previsto di   partecipanti,
 i tipo di servizio richiesto, e alcune note sulla tipologia
@@ -126,10 +128,11 @@ altrimenti termina</panel_attributes>
       <x>190</x>
       <y>450</y>
       <w>480</w>
-      <h>40</h>
+      <h>50</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
-3) Sceglie lo chef per l’evento</panel_attributes>
+3) scelta_chef(nome)
+ Sceglie lo chef per l’evento</panel_attributes>
     <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
   </element>
   <element>
@@ -560,6 +563,7 @@ fg=#761C8C
 bg=#e7bfff
 lw=2
 --
+
 
 -.</panel_attributes>
     <additional_attributes/>
