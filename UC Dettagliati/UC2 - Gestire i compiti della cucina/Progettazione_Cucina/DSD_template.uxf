@@ -32,7 +32,7 @@
       <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-messageReceived(param?)</panel_attributes>
+resetServiceSheet(sheet)</panel_attributes>
     <additional_attributes>290.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -60,9 +60,9 @@ messageReceived(param?)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>264</x>
+      <x>320</x>
       <y>56</y>
-      <w>232</w>
+      <w>128</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>ktm:
@@ -96,13 +96,13 @@ notifyMenuAdded(m)</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>272</x>
-      <y>784</y>
-      <w>672</w>
-      <h>64</h>
+      <x>248</x>
+      <y>304</y>
+      <w>712</w>
+      <h>112</h>
     </coordinates>
-    <panel_attributes>for each
-er in receivers
+    <panel_attributes>for each task
+in sheet.tasks
 fg=blue</panel_attributes>
     <additional_attributes/>
   </element>
@@ -183,14 +183,15 @@ KitchenTaskEventReceiver
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>48</x>
+      <x>32</x>
       <y>192</y>
-      <w>960</w>
+      <w>976</w>
       <h>688</h>
     </coordinates>
     <panel_attributes>alt 
 fg=#761C8C
-[!user.isChef()]
+[ ! user.isChef() ||
+  ! ktm.hasSheet(sheet) ]
 --
 
 
@@ -208,10 +209,82 @@ fontsize=11
       <h>32</h>
     </coordinates>
     <panel_attributes>halign=center
-*x. titleAction*
+*1a.1 resetServiceSheet*
 lw=0
 fontsize=20
 </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>480</x>
+      <y>56</y>
+      <w>96</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>userMgr:
+UserManager
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>88</y>
+      <w>24</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>520</x>
+      <y>160</y>
+      <w>16</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>144</y>
+      <w>152</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+getCurrentUser( )</panel_attributes>
+    <additional_attributes>170.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>160</y>
+      <w>152</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+user</panel_attributes>
+    <additional_attributes>10.0;20.0;170.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>288</x>
+      <y>800</y>
+      <w>672</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>for each
+er in receivers
+fg=blue</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
