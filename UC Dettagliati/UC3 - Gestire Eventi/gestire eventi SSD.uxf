@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>14</zoom_level>
+  <zoom_level>9</zoom_level>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>98</x>
-      <y>0</y>
-      <w>140</w>
-      <h>154</h>
+      <x>135</x>
+      <y>18</y>
+      <w>90</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>Organizzatore
 bg=green</panel_attributes>
@@ -16,10 +16,10 @@ bg=green</panel_attributes>
   <element>
     <id>UMLDeployment</id>
     <coordinates>
-      <x>728</x>
-      <y>42</y>
-      <w>154</w>
-      <h>70</h>
+      <x>558</x>
+      <y>63</y>
+      <w>99</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>Sistema
 bg=green</panel_attributes>
@@ -28,10 +28,10 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>196</y>
-      <w>42</w>
-      <h>2786</h>
+      <x>189</x>
+      <y>117</y>
+      <w>27</w>
+      <h>1791</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;1970.0</additional_attributes>
@@ -39,64 +39,46 @@ bg=green</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>784</x>
-      <y>196</y>
-      <w>42</w>
-      <h>2786</h>
+      <x>594</x>
+      <y>117</y>
+      <w>27</w>
+      <h>1791</h>
     </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
+    <panel_attributes>lt=.
+fg=dark_gray</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;1970.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>224</y>
-      <w>672</w>
-      <h>84</h>
+      <x>189</x>
+      <y>135</y>
+      <w>432</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
-1) consulta_tabellone(tabellone , stato_cucina)
-consulta il tabellone dei turni per verificare
-lo stato della cucina nei giorni precedenti all’evento</panel_attributes>
+1) consulta_tabellone</panel_attributes>
     <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>322</y>
-      <w>672</w>
-      <h>56</h>
+      <x>189</x>
+      <y>198</y>
+      <w>432</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 Restituisce il tabellone dei turni</panel_attributes>
     <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>154</x>
-      <y>364</y>
-      <w>672</w>
-      <h>154</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;&gt;&gt;
-2) Compila_scheda_evento(foglio_riepilogativo)
-Compila una scheda per un evento,
-annotando la durata e il numero di servizi richiesti,
-la data/e, il luogo, il numero previsto di   partecipanti,
-i tipo di servizio richiesto, e alcune note sulla tipologia
-(quanti giorni/servizi, elegante/informale, privato/aziendale)</panel_attributes>
-    <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>168</x>
-      <y>14</y>
-      <w>616</w>
-      <h>84</h>
+      <x>207</x>
+      <y>0</y>
+      <w>396</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>valign=center
 halign=center
@@ -110,38 +92,22 @@ bg=#F9FF47</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>504</y>
-      <w>672</w>
-      <h>112</h>
+      <x>189</x>
+      <y>297</y>
+      <w>432</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
-Restituisce la scheda compilata.
-
-Se almeno ho un evento a cui lavorare procedo con questo ,
-altrimenti termina</panel_attributes>
+Evento creato</panel_attributes>
     <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>630</y>
-      <w>672</w>
-      <h>70</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;&gt;&gt;
-3) scelta_chef(nome)
- Sceglie lo chef per l’evento</panel_attributes>
-    <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>154</x>
-      <y>686</y>
-      <w>672</w>
-      <h>56</h>
+      <x>189</x>
+      <y>396</y>
+      <w>432</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 Scelta effettuata correttamente</panel_attributes>
@@ -150,99 +116,202 @@ Scelta effettuata correttamente</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>756</y>
-      <w>672</w>
-      <h>56</h>
+      <x>189</x>
+      <y>477</y>
+      <w>432</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
-4) Opzionalmente modifica il numero di partecipanti(num_partecipanti)</panel_attributes>
+4) scegliChef(chef : Chef)</panel_attributes>
     <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>812</y>
-      <w>672</w>
-      <h>56</h>
+      <x>189</x>
+      <y>513</y>
+      <w>432</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
-Aggiorna modifica</panel_attributes>
+Restituisce il nomedello scef scelto</panel_attributes>
     <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>896</y>
-      <w>672</w>
-      <h>70</h>
+      <x>189</x>
+      <y>567</y>
+      <w>432</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
-5) Sceglie un membro(nome) del personale che sia reso disponibile
-per un servizio,  opzionalmente specificandone il ruolo.</panel_attributes>
+5. modificaPartecipantiAttesi(numeroPartecipanti : intero)</panel_attributes>
     <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>952</y>
-      <w>672</w>
-      <h>56</h>
+      <x>189</x>
+      <y>603</y>
+      <w>432</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
-Aggiorna la scheda </panel_attributes>
+Ok</panel_attributes>
     <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>1036</y>
-      <w>672</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;&gt;&gt;
-6) Opzionalmente cancella un evento(nome evento)</panel_attributes>
-    <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>154</x>
-      <y>1078</y>
-      <w>672</w>
-      <h>112</h>
+      <x>189</x>
+      <y>693</y>
+      <w>432</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 Registra la modifica 
-Torna al passo 4 se vuole ulteriori modifche
-Altrimenti fine uc.
+
 </panel_attributes>
     <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
   </element>
   <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>144</x>
+      <y>126</y>
+      <w>513</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>OPT
+fg=#128C86
+bg=#B8E0E0</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>144</x>
+      <y>747</y>
+      <w>513</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>OPT
+fg=#128C86
+bg=#B8E0E0</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>144</x>
+      <y>558</y>
+      <w>513</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>OPT
+fg=#128C86
+bg=#B8E0E0</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>1232</y>
-      <w>672</w>
-      <h>56</h>
+      <x>189</x>
+      <y>351</y>
+      <w>432</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;
+3)aggiungiServizio(tipoServizio : testo, durata : intero,
+data : Data, partecipanti : intero)</panel_attributes>
+    <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>144</x>
+      <y>450</y>
+      <w>513</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>OPT
+fg=#128C86
+bg=#B8E0E0</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>144</x>
+      <y>342</y>
+      <w>513</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>OPT
+fg=#128C86
+bg=#B8E0E0</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>144</x>
+      <y>234</y>
+      <w>513</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>OPT
+fg=#128C86
+bg=#B8E0E0</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>189</x>
+      <y>252</y>
+      <w>432</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;
+2) creaEvento(luogo : testo,partecipanti:intero, 
+    elegante : sì/no, privato : sì/no)</panel_attributes>
+    <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>144</x>
+      <y>648</y>
+      <w>513</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>OPT
+fg=#128C86
+bg=#B8E0E0</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>189</x>
+      <y>882</y>
+      <w>432</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-estensione 4a.1  propone una modifica ai menù
+estensione 5a.1  propone una modifica ai menù
 fg=#9E1C8C</panel_attributes>
     <additional_attributes>460.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>1302</y>
-      <w>672</w>
-      <h>56</h>
+      <x>189</x>
+      <y>927</y>
+      <w>432</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 Registra una proposta
@@ -252,127 +321,114 @@ fg=#9E1C8C</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
+      <x>189</x>
+      <y>981</y>
+      <w>432</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+estensione 5b.1  approva i menu dello chef
+fg=#9E1C8C</panel_attributes>
+    <additional_attributes>460.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>189</x>
+      <y>1026</y>
+      <w>432</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+Registra la modifica
+fg=#9E1C8C</panel_attributes>
+    <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>189</x>
+      <y>1116</y>
+      <w>432</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+Registra la modifica
+fg=#9E1C8C</panel_attributes>
+    <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>189</x>
+      <y>1170</y>
+      <w>432</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+estensione 5d.1 modifica la data di un evento
+fg=#9E1C8C</panel_attributes>
+    <additional_attributes>460.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>189</x>
+      <y>1215</y>
+      <w>432</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+Registra la modifica
+fg=#9E1C8C</panel_attributes>
+    <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>189</x>
+      <y>1260</y>
+      <w>432</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+5e.1 estensione modifica un servizio 
+fg=#9E1C8C</panel_attributes>
+    <additional_attributes>460.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>189</x>
+      <y>1305</y>
+      <w>432</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+Registra la modifica
+fg=#9E1C8C</panel_attributes>
+    <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>189</x>
+      <y>1350</y>
+      <w>432</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+estensione 5f.1 OPPURE indica un evento come “terminato
+fg=#9E1C8C</panel_attributes>
+    <additional_attributes>460.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>189</x>
       <y>1386</y>
-      <w>672</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-estensione 4b.1  approva i menu dello chef
-fg=#9E1C8C</panel_attributes>
-    <additional_attributes>460.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>154</x>
-      <y>1456</y>
-      <w>672</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-Registra la modifica
-fg=#9E1C8C</panel_attributes>
-    <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>154</x>
-      <y>1526</y>
-      <w>672</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-estensione 4c.1 rimuove il personale in eccesso
-fg=#9E1C8C</panel_attributes>
-    <additional_attributes>460.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>154</x>
-      <y>1596</y>
-      <w>672</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-Registra la modifica
-fg=#9E1C8C</panel_attributes>
-    <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>154</x>
-      <y>1680</y>
-      <w>672</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-estensione 4d.1 modifica la data di un evento
-fg=#9E1C8C</panel_attributes>
-    <additional_attributes>460.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>154</x>
-      <y>1750</y>
-      <w>672</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-Registra la modifica
-fg=#9E1C8C</panel_attributes>
-    <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>154</x>
-      <y>1820</y>
-      <w>672</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-estensione 4e.1
-fg=#9E1C8C</panel_attributes>
-    <additional_attributes>460.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>154</x>
-      <y>1890</y>
-      <w>672</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-Registra la modifica
-fg=#9E1C8C</panel_attributes>
-    <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>154</x>
-      <y>1960</y>
-      <w>672</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-estensione 4f.1 OPPURE indica un evento come “terminato
-fg=#9E1C8C</panel_attributes>
-    <additional_attributes>460.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>154</x>
-      <y>2016</y>
-      <w>672</w>
-      <h>56</h>
+      <w>432</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 Aggiorna la scheda
@@ -382,13 +438,13 @@ fg=#9E1C8C</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>2086</y>
-      <w>672</w>
-      <h>84</h>
+      <x>189</x>
+      <y>1431</y>
+      <w>432</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-estensione 4g.1 segna delle note riguardanti l’evento,
+estensione 5g.1 segna delle note riguardanti l’evento,
 annotando menù, distribuzione del personale ed ulteriori 
 informazioni
 fg=#9E1C8C</panel_attributes>
@@ -397,10 +453,10 @@ fg=#9E1C8C</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>2156</y>
-      <w>672</w>
-      <h>56</h>
+      <x>189</x>
+      <y>1476</y>
+      <w>432</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 Aggiorna la scheda
@@ -410,23 +466,23 @@ fg=#9E1C8C</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>2226</y>
-      <w>672</w>
-      <h>56</h>
+      <x>189</x>
+      <y>1521</y>
+      <w>432</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-estensione 4h.1  modifica la location dell’evento
+estensione 5h.1  modifica la location dell’evento
 fg=#9E1C8C</panel_attributes>
     <additional_attributes>460.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>2296</y>
-      <w>672</w>
-      <h>56</h>
+      <x>189</x>
+      <y>1566</y>
+      <w>432</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 Registra la modifica
@@ -436,23 +492,23 @@ fg=#9E1C8C</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>2366</y>
-      <w>672</w>
-      <h>56</h>
+      <x>189</x>
+      <y>1611</y>
+      <w>432</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-estensione 6a.1 annulla un evento
+estensione 7a.1 annulla un evento
 fg=#9E1C8C</panel_attributes>
     <additional_attributes>460.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>2436</y>
-      <w>672</w>
-      <h>56</h>
+      <x>189</x>
+      <y>1656</y>
+      <w>432</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 Registra la modifica
@@ -462,10 +518,10 @@ fg=#9E1C8C</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>2576</y>
-      <w>672</w>
-      <h>56</h>
+      <x>189</x>
+      <y>1746</y>
+      <w>432</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 Registra la modifica
@@ -475,36 +531,36 @@ fg=#9E1C8C</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>2506</y>
-      <w>672</w>
-      <h>56</h>
+      <x>189</x>
+      <y>1701</y>
+      <w>432</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-estensione 6b.1 annulla un servizio
+estensione 7b.1 annulla un servizio
 fg=#9E1C8C</panel_attributes>
     <additional_attributes>460.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>2660</y>
-      <w>672</w>
-      <h>56</h>
+      <x>189</x>
+      <y>1800</y>
+      <w>432</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-estensione 6c.1 cancella un sevizio
+estensione 7c.1 cancella un sevizio
 fg=#9E1C8C</panel_attributes>
     <additional_attributes>460.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>154</x>
-      <y>2716</y>
-      <w>672</w>
-      <h>56</h>
+      <x>189</x>
+      <y>1836</y>
+      <w>432</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 Registra la modifica
@@ -514,49 +570,10 @@ fg=#9E1C8C</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>98</x>
-      <y>742</y>
-      <w>784</w>
-      <h>140</h>
-    </coordinates>
-    <panel_attributes>OPT
-fg=#128C86
-bg=#B8E0E0</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>98</x>
-      <y>1022</y>
-      <w>784</w>
-      <h>154</h>
-    </coordinates>
-    <panel_attributes>OPT
-fg=#128C86
-bg=#B8E0E0</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>98</x>
-      <y>882</y>
-      <w>784</w>
-      <h>140</h>
-    </coordinates>
-    <panel_attributes>OPT
-fg=#128C86
-bg=#B8E0E0</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>98</x>
-      <y>1176</y>
-      <w>784</w>
-      <h>182</h>
+      <x>144</x>
+      <y>1062</y>
+      <w>513</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>ALT
 fg=#761C8C
@@ -564,36 +581,17 @@ bg=#e7bfff
 lw=2
 --
 
-
-
--.</panel_attributes>
+-.
+group=1</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>98</x>
-      <y>1358</y>
-      <w>784</w>
-      <h>154</h>
-    </coordinates>
-    <panel_attributes>ALT
-fg=#761C8C
-bg=#e7bfff
-lw=2
---
-
-
--.</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>98</x>
-      <y>1512</y>
-      <w>784</w>
-      <h>154</h>
+      <x>144</x>
+      <y>1161</y>
+      <w>513</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>ALT
 fg=#761C8C
@@ -607,10 +605,10 @@ lw=2
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>98</x>
-      <y>1666</y>
-      <w>784</w>
-      <h>140</h>
+      <x>144</x>
+      <y>1251</y>
+      <w>513</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>ALT
 fg=#761C8C
@@ -624,10 +622,10 @@ lw=2
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>98</x>
-      <y>1806</y>
-      <w>784</w>
-      <h>126</h>
+      <x>144</x>
+      <y>1332</y>
+      <w>513</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>ALT
 fg=#761C8C
@@ -641,27 +639,10 @@ lw=2
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>98</x>
-      <y>1932</y>
-      <w>784</w>
-      <h>140</h>
-    </coordinates>
-    <panel_attributes>ALT
-fg=#761C8C
-bg=#e7bfff
-lw=2
---
-
--.</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>98</x>
-      <y>2072</y>
-      <w>784</w>
-      <h>140</h>
+      <x>144</x>
+      <y>1422</y>
+      <w>513</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>ALT
 fg=#761C8C
@@ -676,10 +657,10 @@ lw=2
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>98</x>
-      <y>2212</y>
-      <w>784</w>
-      <h>140</h>
+      <x>144</x>
+      <y>1521</y>
+      <w>513</w>
+      <h>81</h>
     </coordinates>
     <panel_attributes>ALT
 fg=#761C8C
@@ -693,10 +674,10 @@ lw=2
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>98</x>
-      <y>2352</y>
-      <w>784</w>
-      <h>140</h>
+      <x>144</x>
+      <y>1602</y>
+      <w>513</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>ALT
 fg=#761C8C
@@ -710,10 +691,10 @@ lw=2
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>98</x>
-      <y>2492</y>
-      <w>784</w>
-      <h>140</h>
+      <x>144</x>
+      <y>1692</y>
+      <w>513</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>ALT
 fg=#761C8C
@@ -727,10 +708,10 @@ lw=2
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>98</x>
-      <y>2632</y>
-      <w>784</w>
-      <h>140</h>
+      <x>144</x>
+      <y>1782</y>
+      <w>513</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>ALT
 fg=#761C8C
@@ -742,12 +723,86 @@ lw=2
     <additional_attributes/>
   </element>
   <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>189</x>
+      <y>1071</y>
+      <w>432</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+estensione 5c.1 rimuove il personale in eccesso
+fg=#9E1C8C</panel_attributes>
+    <additional_attributes>460.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>0</x>
-      <y>182</y>
-      <w>994</w>
-      <h>420</h>
+      <x>144</x>
+      <y>963</y>
+      <w>513</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>ALT
+fg=#761C8C
+bg=#e7bfff
+lw=2
+--
+
+
+-.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>144</x>
+      <y>846</y>
+      <w>513</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>ALT
+fg=#761C8C
+bg=#e7bfff
+lw=2
+--
+
+
+
+-.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>189</x>
+      <y>756</y>
+      <w>432</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;
+7. cancellaEvento(evento : Evento)</panel_attributes>
+    <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>189</x>
+      <y>801</y>
+      <w>432</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+Evento cancellato</panel_attributes>
+    <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>99</x>
+      <y>342</y>
+      <w>603</w>
+      <h>306</h>
     </coordinates>
     <panel_attributes>LOOP
 fg=blue
@@ -757,10 +812,10 @@ bg=#8CB4FF</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>0</x>
-      <y>140</y>
-      <w>994</w>
-      <h>1036</h>
+      <x>1053</x>
+      <y>198</y>
+      <w>198</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>LOOP
 fg=blue
@@ -770,10 +825,10 @@ bg=#8CB4FF</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>0</x>
-      <y>602</y>
-      <w>994</w>
-      <h>574</h>
+      <x>99</x>
+      <y>648</y>
+      <w>603</w>
+      <h>198</h>
     </coordinates>
     <panel_attributes>LOOP
 fg=blue
@@ -783,23 +838,36 @@ bg=#8CB4FF</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>0</x>
-      <y>1176</y>
-      <w>994</w>
-      <h>1596</h>
+      <x>72</x>
+      <y>126</y>
+      <w>657</w>
+      <h>720</h>
     </coordinates>
     <panel_attributes>LOOP
 fg=blue
 bg=#8CB4FF</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>189</x>
+      <y>657</y>
+      <w>432</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;
+6. scegliMembroPersonale(membro : PersonaleDiServizio,
+servizio : Servizio, ruolo? : testo)</panel_attributes>
+    <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>784</x>
-      <y>1050</y>
-      <w>28</w>
-      <h>28</h>
+      <x>594</x>
+      <y>765</y>
+      <w>18</w>
+      <h>18</h>
     </coordinates>
     <panel_attributes>type=termination
 lw=2</panel_attributes>
@@ -808,78 +876,14 @@ lw=2</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>784</x>
-      <y>770</y>
-      <w>28</w>
-      <h>28</h>
+      <x>594</x>
+      <y>576</y>
+      <w>18</w>
+      <h>18</h>
     </coordinates>
     <panel_attributes>type=termination
-lw=2</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>98</x>
-      <y>210</y>
-      <w>770</w>
-      <h>182</h>
-    </coordinates>
-    <panel_attributes>OPT
-fg=green
-bg=green</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>98</x>
-      <y>392</y>
-      <w>784</w>
-      <h>210</h>
-    </coordinates>
-    <panel_attributes>OPT
-fg=#128C86
-bg=green</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>98</x>
-      <y>602</y>
-      <w>784</w>
-      <h>140</h>
-    </coordinates>
-    <panel_attributes>OPT
-fg=#128C86
-bg=green</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>126</x>
-      <y>238</y>
-      <w>770</w>
-      <h>182</h>
-    </coordinates>
-    <panel_attributes>OPT
-fg=green
-bg=green</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>154</x>
-      <y>266</y>
-      <w>770</w>
-      <h>182</h>
-    </coordinates>
-    <panel_attributes>OPT
-fg=green
-bg=green</panel_attributes>
+lw=2
+bg=black</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
