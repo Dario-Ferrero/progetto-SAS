@@ -456,15 +456,18 @@ fg=gray</panel_attributes>
 - notifyServiceSheetOpened(sheet: ServiceSheet)
 - notifyKitchenTaskDeleted(sheet: ServiceSheet, task: KitchenTask)
 - notifyKitchenTaskUpdated(sheet: ServiceSheet, task: KitchenTask)
+- notifyKitchenTasksRearranged(sheet: ServiceSheet)
 
 
 
 --
 *operations methods*
-+ insertKitchenTask(sheet: ServiceSheet, proc: KitchenProcedure)
-+ assignKitchenTask(sheet: ServiceSheet, task: KitchenTask, turn: Turn, cook: Cook, time: Date, quantity: String)
 + openServiceSheet(ev: Event, serv: Service)
 + resetServiceSheet(sheet: ServiceSheet)
++ insertKitchenTask(sheet: ServiceSheet, proc: KitchenProcedure)
++ moveKitchenTask(sheet: ServiceSheet, task: KitchenTask, position: int)
++ assignKitchenTask(sheet: ServiceSheet, task: KitchenTask, turn: Turn, cook: Cook, time: Date, quantity: String)
+
 + hasSheet(sheet: ServiceSheet) : boolean
 
 </panel_attributes>
@@ -487,7 +490,8 @@ fg=gray</panel_attributes>
 /+ updateKitchenTaskAssigned(sheet: ServiceSheet, task: KitchenTask, turn: Turn)/
 /+ updateServiceSheetOpened(sheet: ServiceSheet)/
 /+ updateKitchenTaskDeleted(sheet: ServiceSheet, task: KitchenTask)/
-/+ updateKitchenTaskUpdated(sheet: ServiceSheet, task: KitchenTask)/</panel_attributes>
+/+ updateKitchenTaskUpdated(sheet: ServiceSheet, task: KitchenTask)/
+/+ updateKitchenTasksRearranged(sheet: ServiceSheet)/</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -538,7 +542,8 @@ m1=0..n</panel_attributes>
 + setTurn(turn: Turn)
 + setTimeRequired(time: int)
 + setQuantity(quantity: String)
-+ setPrepared(prepared: boolean)</panel_attributes>
++ setPrepared(prepared: boolean)
++ moveKitchenTask(task, position)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
