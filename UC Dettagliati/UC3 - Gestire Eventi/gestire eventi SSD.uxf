@@ -876,9 +876,23 @@ lw=2
       <w>432</w>
       <h>45</h>
     </coordinates>
-    <panel_attributes>lt=-&gt;&gt;&gt;
+    <panel_attributes>lt=&lt;&lt;&lt;-
 estensione 6a.1
-Rimuove un membro del personale</panel_attributes>
+Rimuove un membro del personale
+fg=#9E1C8C</panel_attributes>
+    <additional_attributes>460.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>189</x>
+      <y>1566</y>
+      <w>432</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+registra la modifica
+fg=#9E1C8C</panel_attributes>
     <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
   </element>
 </diagram>
