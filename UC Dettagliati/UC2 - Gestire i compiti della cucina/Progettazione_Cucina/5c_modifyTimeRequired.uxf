@@ -4,7 +4,7 @@
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>312</x>
+      <x>192</x>
       <y>40</y>
       <w>72</w>
       <h>56</h>
@@ -15,44 +15,44 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>336</x>
+      <x>216</x>
       <y>88</y>
       <w>24</w>
-      <h>576</h>
+      <h>464</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;700.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;560.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>336</x>
+      <x>216</x>
       <y>128</y>
       <w>248</w>
       <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-modifyCook(sheet, task, cook)</panel_attributes>
+modifyTimeRequired(sheet, task, time)</panel_attributes>
     <additional_attributes>290.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>568</x>
+      <x>448</x>
       <y>88</y>
       <w>24</w>
-      <h>552</h>
+      <h>456</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;670.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;550.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>568</x>
+      <x>448</x>
       <y>144</y>
       <w>16</w>
-      <h>432</h>
+      <h>360</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -60,7 +60,7 @@ modifyCook(sheet, task, cook)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>512</x>
+      <x>392</x>
       <y>56</y>
       <w>128</w>
       <h>40</h>
@@ -72,7 +72,7 @@ KitchenTaskManager</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>336</x>
+      <x>216</x>
       <y>208</y>
       <w>248</w>
       <h>32</h>
@@ -84,8 +84,8 @@ throw UseCaseLogicException</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>576</x>
-      <y>448</y>
+      <x>456</x>
+      <y>368</y>
       <w>264</w>
       <h>48</h>
     </coordinates>
@@ -96,8 +96,8 @@ notifyKitchenTaskUpdated(sheet, task)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>576</x>
-      <y>480</y>
+      <x>456</x>
+      <y>400</y>
       <w>16</w>
       <h>88</h>
     </coordinates>
@@ -107,21 +107,21 @@ notifyKitchenTaskUpdated(sheet, task)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>584</x>
-      <y>528</y>
-      <w>408</w>
+      <x>464</x>
+      <y>448</y>
+      <w>528</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 updateKitchenTaskUpdated(sheet, task)
 </panel_attributes>
-    <additional_attributes>490.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>640.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
       <x>976</x>
-      <y>544</y>
+      <y>464</y>
       <w>16</w>
       <h>16</h>
     </coordinates>
@@ -135,11 +135,11 @@ updateKitchenTaskUpdated(sheet, task)
       <x>976</x>
       <y>160</y>
       <w>24</w>
-      <h>432</h>
+      <h>352</h>
     </coordinates>
     <panel_attributes>lt=.
 </panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;520.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;420.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
@@ -158,14 +158,14 @@ KitchenTaskEventReceiver
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>120</x>
+      <x>24</x>
       <y>192</y>
-      <w>920</w>
-      <h>408</h>
+      <w>1056</w>
+      <h>328</h>
     </coordinates>
     <panel_attributes>alt 
 fg=#761C8C
-[ ! user.isChef() ||
+[ ! user.isChef()  ||
   ! ktm.hasSheet(sheet)  ||
   ! sheet.hasKitchenTask(task) ]
 --
@@ -175,7 +175,7 @@ fg=#761C8C
 
 
 
--.
+
 fontsize=14
 </panel_attributes>
     <additional_attributes/>
@@ -183,13 +183,13 @@ fontsize=14
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>568</x>
+      <x>448</x>
       <y>0</y>
       <w>272</w>
       <h>32</h>
     </coordinates>
     <panel_attributes>halign=center
-*5a.1 modifyCook*
+*5c.1 modifyTimeRequired*
 lw=0
 fontsize=20
 </panel_attributes>
@@ -198,7 +198,7 @@ fontsize=20
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>672</x>
+      <x>552</x>
       <y>56</y>
       <w>96</w>
       <h>40</h>
@@ -211,7 +211,7 @@ UserManager
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>712</x>
+      <x>592</x>
       <y>88</y>
       <w>24</w>
       <h>112</h>
@@ -222,7 +222,7 @@ UserManager
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>712</x>
+      <x>592</x>
       <y>160</y>
       <w>16</w>
       <h>16</h>
@@ -233,7 +233,7 @@ UserManager
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>576</x>
+      <x>456</x>
       <y>144</y>
       <w>152</w>
       <h>32</h>
@@ -245,7 +245,7 @@ getCurrentUser( )</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>576</x>
+      <x>456</x>
       <y>160</y>
       <w>152</w>
       <h>32</h>
@@ -257,9 +257,9 @@ user</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>480</x>
-      <y>512</y>
-      <w>528</w>
+      <x>360</x>
+      <y>432</y>
+      <w>672</w>
       <h>64</h>
     </coordinates>
     <panel_attributes>for each
@@ -268,36 +268,9 @@ fg=blue</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>Text</id>
-    <coordinates>
-      <x>136</x>
-      <y>272</y>
-      <w>200</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>[ cook != null &amp;&amp; task.shift != null &amp;&amp;
- ! task.shift.hasCookAvailable(cook) ]
-style=wordwrap
-fontsize=14
-fg=#761C8C</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>336</x>
-      <y>280</y>
-      <w>248</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-throw KitchenTaskException</panel_attributes>
-    <additional_attributes>10.0;20.0;290.0;20.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>760</x>
+      <x>640</x>
       <y>128</y>
       <w>96</w>
       <h>40</h>
@@ -310,19 +283,19 @@ KitchenTask
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>576</x>
-      <y>336</y>
+      <x>456</x>
+      <y>272</y>
       <w>240</w>
       <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-setCook(cook)</panel_attributes>
+setTimeRequired(time)</panel_attributes>
     <additional_attributes>280.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>800</x>
+      <x>680</x>
       <y>160</y>
       <w>24</w>
       <h>280</h>
@@ -333,8 +306,8 @@ setCook(cook)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>800</x>
-      <y>352</y>
+      <x>680</x>
+      <y>288</y>
       <w>16</w>
       <h>56</h>
     </coordinates>
@@ -344,13 +317,13 @@ setCook(cook)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>808</x>
-      <y>360</y>
-      <w>136</w>
+      <x>688</x>
+      <y>296</y>
+      <w>176</w>
       <h>48</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-this.cook = cook</panel_attributes>
+this.timeRequired = time</panel_attributes>
     <additional_attributes>10.0;40.0;50.0;40.0;50.0;10.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>

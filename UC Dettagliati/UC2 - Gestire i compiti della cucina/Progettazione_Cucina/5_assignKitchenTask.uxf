@@ -178,8 +178,9 @@ KitchenTaskEventReceiver
     </coordinates>
     <panel_attributes>alt 
 fg=#761C8C
-[!user.isChef()  ||
- !ktm.hasSheet(sheet)]
+[! user.isChef()  ||
+ ! ktm.hasSheet(sheet)  ||
+ ! sheet.hasKitchenTask(task) ]
 --
 
 
@@ -212,7 +213,7 @@ fontsize=20
     <id>Text</id>
     <coordinates>
       <x>8</x>
-      <y>272</y>
+      <y>280</y>
       <w>200</w>
       <h>56</h>
     </coordinates>
@@ -254,7 +255,7 @@ KitchenTask
     <id>Relation</id>
     <coordinates>
       <x>192</x>
-      <y>280</y>
+      <y>288</y>
       <w>416</w>
       <h>32</h>
     </coordinates>
@@ -266,7 +267,7 @@ throw KitchenTaskException</panel_attributes>
     <id>UMLGeneric</id>
     <coordinates>
       <x>792</x>
-      <y>352</y>
+      <y>360</y>
       <w>16</w>
       <h>24</h>
     </coordinates>
@@ -279,16 +280,16 @@ throw KitchenTaskException</panel_attributes>
       <x>792</x>
       <y>152</y>
       <w>24</w>
-      <h>248</h>
+      <h>256</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;290.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;300.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>600</x>
-      <y>336</y>
+      <y>344</y>
       <w>208</w>
       <h>32</h>
     </coordinates>
@@ -314,16 +315,16 @@ ArrayList&lt;KitchenTask&gt;</panel_attributes>
       <x>888</x>
       <y>88</y>
       <w>24</w>
-      <h>320</h>
+      <h>328</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;380.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;390.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
       <x>888</x>
-      <y>368</y>
+      <y>376</y>
       <w>16</w>
       <h>16</h>
     </coordinates>
@@ -334,7 +335,7 @@ ArrayList&lt;KitchenTask&gt;</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>800</x>
-      <y>352</y>
+      <y>360</y>
       <w>104</w>
       <h>32</h>
     </coordinates>
