@@ -57,7 +57,7 @@ fg=dark_gray</panel_attributes>
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
-1) consulta_tabellone</panel_attributes>
+1) consulta_tabellone()</panel_attributes>
     <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
   </element>
   <element>
@@ -296,12 +296,14 @@ bg=#B8E0E0</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>189</x>
-      <y>882</y>
+      <y>864</y>
       <w>432</w>
-      <h>36</h>
+      <h>54</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-estensione 5a.1  propone una modifica ai menù
+estensione 5a.1 
+Propone un piatto da aggiungere 
+ad un menù dell’evento
 fg=#9E1C8C</panel_attributes>
     <additional_attributes>460.0;20.0;10.0;20.0</additional_attributes>
   </element>
@@ -324,10 +326,11 @@ fg=#9E1C8C</panel_attributes>
       <x>189</x>
       <y>981</y>
       <w>432</w>
-      <h>36</h>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-estensione 5b.1  approva i menu dello chef
+estensione 5b.1  
+Propone un piatto da rimuovere ad un menù dell’evento
 fg=#9E1C8C</panel_attributes>
     <additional_attributes>460.0;20.0;10.0;20.0</additional_attributes>
   </element>
@@ -340,7 +343,7 @@ fg=#9E1C8C</panel_attributes>
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
-Registra la modifica
+Registra la proposta
 fg=#9E1C8C</panel_attributes>
     <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
   </element>
@@ -353,7 +356,7 @@ fg=#9E1C8C</panel_attributes>
       <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
-Registra la modifica
+Registra la proposta 
 fg=#9E1C8C</panel_attributes>
     <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
   </element>
@@ -363,10 +366,11 @@ fg=#9E1C8C</panel_attributes>
       <x>189</x>
       <y>1170</y>
       <w>432</w>
-      <h>36</h>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-estensione 5d.1 modifica la data di un evento
+estensione 5d.1 Modifica un servizio,
+opzionalmente specificandone il tipo, la data o il numero di partecipanti
 fg=#9E1C8C</panel_attributes>
     <additional_attributes>460.0;20.0;10.0;20.0</additional_attributes>
   </element>
@@ -389,10 +393,11 @@ fg=#9E1C8C</panel_attributes>
       <x>189</x>
       <y>1260</y>
       <w>432</w>
-      <h>36</h>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-5e.1 estensione modifica un servizio 
+estensione 5e.1
+Indica un evento come “terminato”
 fg=#9E1C8C</panel_attributes>
     <additional_attributes>460.0;20.0;10.0;20.0</additional_attributes>
   </element>
@@ -415,10 +420,11 @@ fg=#9E1C8C</panel_attributes>
       <x>189</x>
       <y>1350</y>
       <w>432</w>
-      <h>36</h>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-estensione 5f.1 OPPURE indica un evento come “terminato
+estensione 5f.1 
+Segna delle note riguardanti l’evento “terminato
 fg=#9E1C8C</panel_attributes>
     <additional_attributes>460.0;20.0;10.0;20.0</additional_attributes>
   </element>
@@ -441,53 +447,13 @@ fg=#9E1C8C</panel_attributes>
       <x>189</x>
       <y>1431</y>
       <w>432</w>
-      <h>54</h>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-estensione 5g.1 segna delle note riguardanti l’evento,
-annotando menù, distribuzione del personale ed ulteriori 
-informazioni
+estensione 5g.1 
+Modifica la location dell’evento
 fg=#9E1C8C</panel_attributes>
     <additional_attributes>460.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>189</x>
-      <y>1476</y>
-      <w>432</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-Aggiorna la scheda
-fg=#9E1C8C</panel_attributes>
-    <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>189</x>
-      <y>1521</y>
-      <w>432</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-
-estensione 5h.1  modifica la location dell’evento
-fg=#9E1C8C</panel_attributes>
-    <additional_attributes>460.0;20.0;10.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>189</x>
-      <y>1566</y>
-      <w>432</w>
-      <h>36</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-Registra la modifica
-fg=#9E1C8C</panel_attributes>
-    <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -633,6 +599,7 @@ bg=#e7bfff
 lw=2
 --
 
+
 -.</panel_attributes>
     <additional_attributes/>
   </element>
@@ -650,23 +617,6 @@ bg=#e7bfff
 lw=2
 --
 
-
--.</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>144</x>
-      <y>1521</y>
-      <w>513</w>
-      <h>81</h>
-    </coordinates>
-    <panel_attributes>ALT
-fg=#761C8C
-bg=#e7bfff
-lw=2
---
 
 -.</panel_attributes>
     <additional_attributes/>
@@ -728,10 +678,11 @@ lw=2
       <x>189</x>
       <y>1071</y>
       <w>432</w>
-      <h>36</h>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-estensione 5c.1 rimuove il personale in eccesso
+estensione 5c.1
+Approva i menu dello chef
 fg=#9E1C8C</panel_attributes>
     <additional_attributes>460.0;20.0;10.0;20.0</additional_attributes>
   </element>
@@ -766,6 +717,7 @@ fg=#761C8C
 bg=#e7bfff
 lw=2
 --
+
 
 
 
@@ -885,5 +837,48 @@ lw=2</panel_attributes>
 lw=2
 bg=black</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>189</x>
+      <y>1485</y>
+      <w>432</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+Registra la modifica
+fg=#9E1C8C</panel_attributes>
+    <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>144</x>
+      <y>1521</y>
+      <w>513</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>ALT
+fg=#761C8C
+bg=#e7bfff
+lw=2
+--
+
+-.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>189</x>
+      <y>1521</y>
+      <w>432</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;
+estensione 6a.1
+Rimuove un membro del personale</panel_attributes>
+    <additional_attributes>10.0;20.0;460.0;20.0</additional_attributes>
   </element>
 </diagram>
