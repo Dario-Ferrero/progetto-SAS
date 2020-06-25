@@ -444,7 +444,7 @@ fg=gray</panel_attributes>
       <x>650</x>
       <y>1040</y>
       <w>520</w>
-      <h>300</h>
+      <h>330</h>
     </coordinates>
     <panel_attributes>KitchenTaskManager
 --
@@ -465,6 +465,7 @@ fg=gray</panel_attributes>
 + openServiceSheet(ev: Event, serv: Service)
 + resetServiceSheet(sheet: ServiceSheet)
 + insertKitchenTask(sheet: ServiceSheet, proc: KitchenProcedure)
++ deleteKitchenTask(sheet: ServiceSheet, task: KitchenTask)
 + moveKitchenTask(sheet: ServiceSheet, task: KitchenTask, position: int)
 + assignKitchenTask(sheet: ServiceSheet, task: KitchenTask, shift: Shift, cook: Cook, time: Date, quantity: String)
 + modifyCook(sheet: ServiceSheet, task: KitchenTask, cook: Cook)
@@ -479,7 +480,7 @@ fg=gray</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>650</x>
-      <y>1410</y>
+      <y>1440</y>
       <w>390</w>
       <h>150</h>
     </coordinates>
@@ -500,7 +501,7 @@ fg=gray</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>840</x>
-      <y>1330</y>
+      <y>1360</y>
       <w>100</w>
       <h>100</h>
     </coordinates>
@@ -616,7 +617,7 @@ m1=0..n</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1270</x>
-      <y>1330</y>
+      <y>1400</y>
       <w>120</w>
       <h>80</h>
     </coordinates>
@@ -716,14 +717,14 @@ m1=0..n</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1380</x>
-      <y>1360</y>
+      <y>1430</y>
       <w>130</w>
-      <h>170</h>
+      <h>100</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 cook
 m1=0..1</panel_attributes>
-    <additional_attributes>10.0;20.0;110.0;20.0;110.0;150.0</additional_attributes>
+    <additional_attributes>10.0;20.0;110.0;20.0;110.0;80.0</additional_attributes>
   </element>
   <element>
     <id>UMLPackage</id>
@@ -887,13 +888,13 @@ m1=0..n</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1140</x>
-      <y>1370</y>
+      <y>1440</y>
       <w>150</w>
-      <h>240</h>
+      <h>170</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 cooksAvailable
 m2=0..n</panel_attributes>
-    <additional_attributes>10.0;220.0;10.0;10.0;130.0;10.0</additional_attributes>
+    <additional_attributes>10.0;150.0;10.0;10.0;130.0;10.0</additional_attributes>
   </element>
 </diagram>

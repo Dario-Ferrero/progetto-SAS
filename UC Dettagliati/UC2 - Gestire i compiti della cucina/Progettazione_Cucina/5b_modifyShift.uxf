@@ -4,7 +4,7 @@
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>272</x>
+      <x>280</x>
       <y>40</y>
       <w>72</w>
       <h>56</h>
@@ -15,7 +15,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>296</x>
+      <x>304</x>
       <y>88</y>
       <w>24</w>
       <h>576</h>
@@ -26,7 +26,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>296</x>
+      <x>304</x>
       <y>128</y>
       <w>248</w>
       <h>32</h>
@@ -38,7 +38,7 @@ modifyShift(sheet, task, shift)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>528</x>
+      <x>536</x>
       <y>88</y>
       <w>24</w>
       <h>552</h>
@@ -49,7 +49,7 @@ modifyShift(sheet, task, shift)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>528</x>
+      <x>536</x>
       <y>144</y>
       <w>16</w>
       <h>432</h>
@@ -60,7 +60,7 @@ modifyShift(sheet, task, shift)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>472</x>
+      <x>480</x>
       <y>56</y>
       <w>128</w>
       <h>40</h>
@@ -72,7 +72,7 @@ KitchenTaskManager</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>296</x>
+      <x>304</x>
       <y>208</y>
       <w>248</w>
       <h>32</h>
@@ -84,7 +84,7 @@ throw UseCaseLogicException</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>536</x>
+      <x>544</x>
       <y>448</y>
       <w>264</w>
       <h>48</h>
@@ -96,7 +96,7 @@ notifyKitchenTaskUpdated(sheet, task)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>536</x>
+      <x>544</x>
       <y>480</y>
       <w>16</w>
       <h>88</h>
@@ -107,7 +107,7 @@ notifyKitchenTaskUpdated(sheet, task)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>544</x>
+      <x>552</x>
       <y>528</y>
       <w>528</w>
       <h>40</h>
@@ -120,7 +120,7 @@ updateKitchenTaskUpdated(sheet, task)
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1056</x>
+      <x>1064</x>
       <y>544</y>
       <w>16</w>
       <h>16</h>
@@ -132,7 +132,7 @@ updateKitchenTaskUpdated(sheet, task)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1056</x>
+      <x>1064</x>
       <y>160</y>
       <w>24</w>
       <h>432</h>
@@ -144,7 +144,7 @@ updateKitchenTaskUpdated(sheet, task)
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>992</x>
+      <x>1000</x>
       <y>128</y>
       <w>152</w>
       <h>40</h>
@@ -158,7 +158,7 @@ KitchenTaskEventReceiver
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>0</x>
+      <x>8</x>
       <y>192</y>
       <w>1160</w>
       <h>408</h>
@@ -183,7 +183,7 @@ fontsize=14
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>528</x>
+      <x>536</x>
       <y>0</y>
       <w>272</w>
       <h>32</h>
@@ -198,7 +198,7 @@ fontsize=20
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>632</x>
+      <x>640</x>
       <y>56</y>
       <w>96</w>
       <h>40</h>
@@ -211,7 +211,7 @@ UserManager
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>672</x>
+      <x>680</x>
       <y>88</y>
       <w>24</w>
       <h>112</h>
@@ -222,7 +222,7 @@ UserManager
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>672</x>
+      <x>680</x>
       <y>160</y>
       <w>16</w>
       <h>16</h>
@@ -233,7 +233,7 @@ UserManager
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>536</x>
+      <x>544</x>
       <y>144</y>
       <w>152</w>
       <h>32</h>
@@ -245,7 +245,7 @@ getCurrentUser( )</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>536</x>
+      <x>544</x>
       <y>160</y>
       <w>152</w>
       <h>32</h>
@@ -257,7 +257,7 @@ user</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>440</x>
+      <x>448</x>
       <y>512</y>
       <w>672</w>
       <h>64</h>
@@ -270,7 +270,7 @@ fg=blue</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>8</x>
+      <x>16</x>
       <y>272</y>
       <w>288</w>
       <h>40</h>
@@ -285,7 +285,7 @@ fg=#761C8C</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>296</x>
+      <x>304</x>
       <y>280</y>
       <w>248</w>
       <h>32</h>
@@ -297,7 +297,7 @@ throw KitchenTaskException</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>720</x>
+      <x>728</x>
       <y>128</y>
       <w>96</w>
       <h>40</h>
@@ -310,7 +310,7 @@ KitchenTask
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>536</x>
+      <x>544</x>
       <y>328</y>
       <w>240</w>
       <h>32</h>
@@ -322,7 +322,7 @@ setShift(shift)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>760</x>
+      <x>768</x>
       <y>160</y>
       <w>24</w>
       <h>280</h>
@@ -333,7 +333,7 @@ setShift(shift)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>760</x>
+      <x>768</x>
       <y>344</y>
       <w>16</w>
       <h>56</h>
@@ -344,7 +344,7 @@ setShift(shift)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>768</x>
+      <x>776</x>
       <y>352</y>
       <w>128</w>
       <h>48</h>
