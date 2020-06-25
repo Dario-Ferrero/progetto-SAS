@@ -32,7 +32,7 @@
       <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-assignKitchenTask(sheet, task, turn, cook, time, quantity)</panel_attributes>
+assignKitchenTask(sheet, task, shift, cook, time, quantity)</panel_attributes>
     <additional_attributes>500.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -90,7 +90,7 @@ throw UseCaseLogicException</panel_attributes>
       <h>48</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
-notifyKitchenTaskAssigned(sheet, task, turn)</panel_attributes>
+notifyKitchenTaskAssigned(sheet, task, shift)</panel_attributes>
     <additional_attributes>10.0;10.0;70.0;10.0;70.0;40.0;20.0;40.0</additional_attributes>
   </element>
   <element>
@@ -126,7 +126,7 @@ fg=blue</panel_attributes>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-updateKitchenTaskAssigned(sheet, task, turn)
+updateKitchenTaskAssigned(sheet, task, shift)
 </panel_attributes>
     <additional_attributes>590.0;20.0;10.0;20.0</additional_attributes>
   </element>
@@ -217,8 +217,8 @@ fontsize=20
       <h>56</h>
     </coordinates>
     <panel_attributes>[ ( cook != null ||
-    turn.hasCookAvailable(cook) )
-&amp;&amp; ! turn.isPast() &amp;&amp; ! turn.isFull() ]
+    shift.hasCookAvailable(cook) )
+&amp;&amp; ! shift.isPast() &amp;&amp; ! shift.isFull() ]
 style=wordwrap
 fontsize=14
 fg=#761C8C</panel_attributes>
@@ -232,8 +232,8 @@ fg=#761C8C</panel_attributes>
       <w>88</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>turn:
-Turn
+    <panel_attributes>shift:
+Shift
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -304,7 +304,7 @@ assignKitchenTask(sheet, task)</panel_attributes>
       <w>128</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>turn.assignedTasks:
+    <panel_attributes>shift.assignedTasks:
 ArrayList&lt;KitchenTask&gt;</panel_attributes>
     <additional_attributes/>
   </element>
@@ -506,7 +506,7 @@ this.quantity = quantity</panel_attributes>
       <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-setTurn(turn)</panel_attributes>
+setShift(shift)</panel_attributes>
     <additional_attributes>440.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -529,7 +529,7 @@ setTurn(turn)</panel_attributes>
       <h>48</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-this.turn = turn</panel_attributes>
+this.shift = shift</panel_attributes>
     <additional_attributes>10.0;40.0;50.0;40.0;50.0;10.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>

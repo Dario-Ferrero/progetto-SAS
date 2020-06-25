@@ -506,7 +506,7 @@ this.cook = null</panel_attributes>
       <w>624</w>
       <h>160</h>
     </coordinates>
-    <panel_attributes>opt [ task.turn != null ]
+    <panel_attributes>opt [ task.shift != null ]
 fg=#128C86
 fontsize=14</panel_attributes>
     <additional_attributes/>
@@ -520,7 +520,7 @@ fontsize=14</panel_attributes>
       <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-setTurn(null)</panel_attributes>
+setShift(null)</panel_attributes>
     <additional_attributes>270.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -543,7 +543,7 @@ setTurn(null)</panel_attributes>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
-this.turn = null</panel_attributes>
+this.shift = null</panel_attributes>
     <additional_attributes>10.0;10.0;40.0;10.0;40.0;30.0;10.0;30.0</additional_attributes>
   </element>
   <element>
@@ -554,8 +554,8 @@ this.turn = null</panel_attributes>
       <w>64</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>turn:
-Turn
+    <panel_attributes>shift:
+Shift
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -624,7 +624,7 @@ remove(task)</panel_attributes>
       <w>128</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>turn.assignedTasks:
+    <panel_attributes>shift.assignedTasks:
 ArrayList&lt;KitchenTask&gt;
 </panel_attributes>
     <additional_attributes/>
