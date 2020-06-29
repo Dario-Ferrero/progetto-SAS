@@ -10,7 +10,7 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class EventInfo implements EventItemInfo {
+public class Event implements EventItemInfo {
     private int id;
     private String name;
     private Date dateStart;
@@ -18,14 +18,14 @@ public class EventInfo implements EventItemInfo {
     private int participants;
     private User organizer;
 
-    private ObservableList<ServiceInfo> services;
+    private ObservableList<Service> services;
 
-    public EventInfo(String name) {
+    public Event(String name) {
         this.name = name;
         id = 0;
     }
 
-    public ObservableList<ServiceInfo> getServices() {
+    public ObservableList<Service> getServices() {
         return FXCollections.unmodifiableObservableList(this.services);
     }
 
@@ -35,14 +35,14 @@ public class EventInfo implements EventItemInfo {
 
     // STATIC METHODS FOR PERSISTENCE
 
-    public static ObservableList<EventInfo> loadAllEventInfo() {
-        ObservableList<EventInfo> all = FXCollections.observableArrayList();
+    public static ObservableList<Event> loadAllEvents() {
+        ObservableList<Event> all = FXCollections.observableArrayList();
         String query = "SELECT * FROM Events WHERE true";
         PersistenceManager.executeQuery(query, new ResultHandler() {
             @Override
             public void handle(ResultSet rs) throws SQLException {
                 String n = rs.getString("name");
-                EventInfo e = new EventInfo(n);
+                Event e = new Event(n);
                 e.id = rs.getInt("id");
                 e.dateStart = rs.getDate("date_start");
                 e.dateEnd = rs.getDate("date_end");
@@ -53,9 +53,17 @@ public class EventInfo implements EventItemInfo {
             }
         });
 
-        for (EventInfo e : all) {
-            e.services = ServiceInfo.loadServiceInfoForEvent(e.id);
+        for (Event e : all) {
+            e.services = Service.loadServicesForEvent(e.id);
         }
         return all;
+    }
+
+    public User getOrganizer() {
+        return this.organizer;
+    }
+
+    public boolean hasService(Service service) {
+        return services.contains(service);
     }
 }

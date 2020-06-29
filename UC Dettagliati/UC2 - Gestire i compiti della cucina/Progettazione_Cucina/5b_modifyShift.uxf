@@ -275,7 +275,7 @@ fg=blue</panel_attributes>
       <w>288</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>[ shift != null &amp;&amp; (shift.isPast() ||  shift.isFull() || 
+    <panel_attributes>[ shift != null &amp;&amp; (shift.isPastShift() ||  shift.isFull() || 
 (task.cook != null &amp;&amp; ! shift.hasCookAvailable(cook)) ]
 style=wordwrap
 fontsize=14

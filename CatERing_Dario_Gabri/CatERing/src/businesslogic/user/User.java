@@ -126,4 +126,13 @@ public class User {
         }
         return u;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj != null && obj instanceof User) {
+            User that = (User)obj;
+            return this.id == that.id;
+        }
+        return false;
+    }
 }

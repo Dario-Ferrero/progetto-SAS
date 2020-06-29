@@ -9,13 +9,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
 
-public class Recipe {
+public class Recipe extends KitchenProcedure {
+
     private static Map<Integer, Recipe> all = new HashMap<>();
 
-    private int id;
-    private String name;
-
-    private Recipe() {
+    public Recipe() {
 
     }
 
