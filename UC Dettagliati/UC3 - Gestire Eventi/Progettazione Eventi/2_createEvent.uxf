@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>8</zoom_level>
+  <zoom_level>9</zoom_level>
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>104</x>
-      <y>40</y>
-      <w>72</w>
-      <h>56</h>
+      <x>117</x>
+      <y>45</y>
+      <w>81</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>UI</panel_attributes>
     <additional_attributes/>
@@ -15,44 +15,44 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>128</x>
-      <y>88</y>
-      <w>24</w>
-      <h>1064</h>
+      <x>144</x>
+      <y>99</y>
+      <w>27</w>
+      <h>1242</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;1310.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;1360.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>128</x>
-      <y>128</y>
-      <w>288</w>
-      <h>32</h>
+      <x>144</x>
+      <y>144</y>
+      <w>360</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-createEvent(name, loc, guests, private, elegant)</panel_attributes>
-    <additional_attributes>340.0;20.0;10.0;20.0</additional_attributes>
+createEvent(name, loc, date, guests, private, elegant)</panel_attributes>
+    <additional_attributes>380.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>400</x>
-      <y>88</y>
-      <w>24</w>
-      <h>1064</h>
+      <x>486</x>
+      <y>99</y>
+      <w>27</w>
+      <h>1233</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;1310.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;1350.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>400</x>
-      <y>144</y>
-      <w>16</w>
-      <h>944</h>
+      <x>486</x>
+      <y>162</y>
+      <w>18</w>
+      <h>1125</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -60,10 +60,10 @@ createEvent(name, loc, guests, private, elegant)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>360</x>
-      <y>56</y>
-      <w>96</w>
-      <h>40</h>
+      <x>441</x>
+      <y>63</y>
+      <w>108</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>em:
 EventManager</panel_attributes>
@@ -72,22 +72,22 @@ EventManager</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>128</x>
-      <y>208</y>
-      <w>288</w>
-      <h>32</h>
+      <x>144</x>
+      <y>234</y>
+      <w>360</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 throw UseCaseLogicException</panel_attributes>
-    <additional_attributes>10.0;20.0;340.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;380.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>408</x>
-      <y>960</y>
-      <w>184</w>
-      <h>48</h>
+      <x>495</x>
+      <y>1134</y>
+      <w>207</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
 notifyEventCreated(ev)</panel_attributes>
@@ -96,10 +96,10 @@ notifyEventCreated(ev)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>408</x>
-      <y>992</y>
-      <w>16</w>
-      <h>88</h>
+      <x>495</x>
+      <y>1170</y>
+      <w>18</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -107,10 +107,10 @@ notifyEventCreated(ev)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>416</x>
-      <y>1040</y>
-      <w>560</w>
-      <h>40</h>
+      <x>504</x>
+      <y>1224</y>
+      <w>630</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 updateEventCreated(ev)
@@ -120,10 +120,10 @@ updateEventCreated(ev)
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>960</x>
-      <y>1056</y>
-      <w>16</w>
-      <h>16</h>
+      <x>1116</x>
+      <y>1242</y>
+      <w>18</w>
+      <h>18</h>
     </coordinates>
     <panel_attributes>
 </panel_attributes>
@@ -132,22 +132,22 @@ updateEventCreated(ev)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>960</x>
-      <y>160</y>
-      <w>24</w>
-      <h>944</h>
+      <x>1116</x>
+      <y>180</y>
+      <w>27</w>
+      <h>1116</h>
     </coordinates>
     <panel_attributes>lt=.
 </panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;1160.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;1220.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>904</x>
-      <y>128</y>
-      <w>128</w>
-      <h>40</h>
+      <x>1053</x>
+      <y>144</y>
+      <w>144</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>er:
 EventManagerReceiver
@@ -159,9 +159,9 @@ EventManagerReceiver
     <id>UMLFrame</id>
     <coordinates>
       <x>0</x>
-      <y>192</y>
-      <w>1000</w>
-      <h>936</h>
+      <y>216</y>
+      <w>1161</w>
+      <h>1107</h>
     </coordinates>
     <panel_attributes>alt 
 fg=#761C8C
@@ -182,10 +182,10 @@ fontsize=14
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>400</x>
+      <x>486</x>
       <y>0</y>
-      <w>272</w>
-      <h>32</h>
+      <w>306</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>halign=center
 *2. createEvent*
@@ -197,10 +197,10 @@ fontsize=20
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>504</x>
-      <y>56</y>
-      <w>96</w>
-      <h>40</h>
+      <x>603</x>
+      <y>63</y>
+      <w>108</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>userMgr:
 UserManager
@@ -210,10 +210,10 @@ UserManager
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>544</x>
-      <y>88</y>
-      <w>24</w>
-      <h>112</h>
+      <x>648</x>
+      <y>99</y>
+      <w>27</w>
+      <h>126</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
@@ -221,10 +221,10 @@ UserManager
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>544</x>
-      <y>160</y>
-      <w>16</w>
-      <h>16</h>
+      <x>648</x>
+      <y>180</y>
+      <w>18</w>
+      <h>18</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -232,10 +232,10 @@ UserManager
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>408</x>
-      <y>144</y>
-      <w>152</w>
-      <h>32</h>
+      <x>495</x>
+      <y>162</y>
+      <w>171</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 getCurrentUser( )</panel_attributes>
@@ -244,10 +244,10 @@ getCurrentUser( )</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>408</x>
-      <y>160</y>
-      <w>152</w>
-      <h>32</h>
+      <x>495</x>
+      <y>180</y>
+      <w>171</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 user</panel_attributes>
@@ -256,10 +256,10 @@ user</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>312</x>
-      <y>1024</y>
-      <w>680</w>
-      <h>64</h>
+      <x>378</x>
+      <y>1206</y>
+      <w>774</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>for each
 er in receivers
@@ -269,10 +269,10 @@ fg=blue</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>608</x>
-      <y>272</y>
-      <w>96</w>
-      <h>40</h>
+      <x>720</x>
+      <y>306</y>
+      <w>108</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>ev:
 Event
@@ -282,34 +282,34 @@ Event
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>408</x>
-      <y>280</y>
-      <w>216</w>
-      <h>40</h>
+      <x>495</x>
+      <y>315</y>
+      <w>243</w>
+      <h>45</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-create (name, user, loc, guests,
-eventFlags)</panel_attributes>
+create (name, user, loc, date,
+          guests, eventFlags)</panel_attributes>
     <additional_attributes>250.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>648</x>
-      <y>304</y>
-      <w>24</w>
-      <h>600</h>
+      <x>765</x>
+      <y>342</y>
+      <w>27</w>
+      <h>738</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;730.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;800.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>648</x>
-      <y>328</y>
-      <w>16</w>
-      <h>288</h>
+      <x>765</x>
+      <y>369</y>
+      <w>18</w>
+      <h>378</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -317,10 +317,10 @@ eventFlags)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>656</x>
-      <y>328</y>
-      <w>136</w>
-      <h>48</h>
+      <x>774</x>
+      <y>369</y>
+      <w>153</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 this.name = name</panel_attributes>
@@ -329,10 +329,10 @@ this.name = name</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>656</x>
-      <y>376</y>
-      <w>136</w>
-      <h>48</h>
+      <x>774</x>
+      <y>423</y>
+      <w>153</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 this.location = loc</panel_attributes>
@@ -341,10 +341,10 @@ this.location = loc</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>656</x>
-      <y>424</y>
-      <w>200</w>
-      <h>48</h>
+      <x>774</x>
+      <y>531</y>
+      <w>225</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 this.guestsExpercted = guests</panel_attributes>
@@ -353,10 +353,10 @@ this.guestsExpercted = guests</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>656</x>
-      <y>472</y>
-      <w>152</w>
-      <h>48</h>
+      <x>774</x>
+      <y>585</y>
+      <w>171</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 this.organizer = user</panel_attributes>
@@ -365,10 +365,10 @@ this.organizer = user</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>656</x>
-      <y>584</y>
-      <w>176</w>
-      <h>32</h>
+      <x>774</x>
+      <y>711</y>
+      <w>198</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;.
 create(eventFlags.length)</panel_attributes>
@@ -377,10 +377,10 @@ create(eventFlags.length)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>816</x>
-      <y>584</y>
-      <w>136</w>
-      <h>32</h>
+      <x>954</x>
+      <y>711</y>
+      <w>153</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>flagValues:
 boolean [ eventFlags.length ]
@@ -390,10 +390,10 @@ fontsize=12</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>408</x>
-      <y>640</y>
-      <w>256</w>
-      <h>32</h>
+      <x>495</x>
+      <y>774</y>
+      <w>288</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 setPrivate(private)</panel_attributes>
@@ -402,10 +402,10 @@ setPrivate(private)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>408</x>
-      <y>776</y>
-      <w>256</w>
-      <h>32</h>
+      <x>495</x>
+      <y>927</y>
+      <w>288</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 setElegant(elegant)</panel_attributes>
@@ -414,10 +414,10 @@ setElegant(elegant)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>408</x>
-      <y>880</y>
-      <w>168</w>
-      <h>56</h>
+      <x>495</x>
+      <y>1044</y>
+      <w>189</w>
+      <h>63</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 setCurrentEvent(ev)</panel_attributes>
@@ -426,10 +426,10 @@ setCurrentEvent(ev)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>408</x>
-      <y>920</y>
-      <w>16</w>
-      <h>16</h>
+      <x>495</x>
+      <y>1089</y>
+      <w>18</w>
+      <h>18</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -437,22 +437,22 @@ setCurrentEvent(ev)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>128</x>
-      <y>1088</y>
-      <w>296</w>
-      <h>32</h>
+      <x>144</x>
+      <y>1269</y>
+      <w>369</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 ev</panel_attributes>
-    <additional_attributes>10.0;20.0;350.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;390.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>656</x>
-      <y>656</y>
-      <w>216</w>
-      <h>48</h>
+      <x>774</x>
+      <y>792</y>
+      <w>243</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 int index = getFlagIndex("private")</panel_attributes>
@@ -461,10 +461,10 @@ int index = getFlagIndex("private")</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>648</x>
-      <y>656</y>
-      <w>16</w>
-      <h>88</h>
+      <x>765</x>
+      <y>792</y>
+      <w>18</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -472,10 +472,10 @@ int index = getFlagIndex("private")</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>648</x>
-      <y>792</y>
-      <w>16</w>
-      <h>88</h>
+      <x>765</x>
+      <y>945</y>
+      <w>18</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -483,10 +483,10 @@ int index = getFlagIndex("private")</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>656</x>
-      <y>520</y>
-      <w>160</w>
-      <h>48</h>
+      <x>774</x>
+      <y>639</y>
+      <w>180</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 this.flags = eventFlags</panel_attributes>
@@ -495,22 +495,22 @@ this.flags = eventFlags</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>656</x>
-      <y>696</y>
-      <w>192</w>
-      <h>48</h>
+      <x>774</x>
+      <y>837</y>
+      <w>234</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-this.flagValues [ index ] = true</panel_attributes>
+this.flagValues [ index ] = private</panel_attributes>
     <additional_attributes>10.0;40.0;40.0;40.0;40.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>656</x>
-      <y>792</y>
-      <w>216</w>
-      <h>48</h>
+      <x>774</x>
+      <y>945</y>
+      <w>243</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 int index = getFlagIndex("elegant")</panel_attributes>
@@ -519,13 +519,25 @@ int index = getFlagIndex("elegant")</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>656</x>
-      <y>832</y>
-      <w>192</w>
-      <h>48</h>
+      <x>774</x>
+      <y>990</y>
+      <w>234</w>
+      <h>54</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-this.flagValues [ index ] = true</panel_attributes>
+this.flagValues [ index ] = elegant</panel_attributes>
+    <additional_attributes>10.0;40.0;40.0;40.0;40.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>774</x>
+      <y>477</y>
+      <w>162</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+this.startDate = date</panel_attributes>
     <additional_attributes>10.0;40.0;40.0;40.0;40.0;10.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
