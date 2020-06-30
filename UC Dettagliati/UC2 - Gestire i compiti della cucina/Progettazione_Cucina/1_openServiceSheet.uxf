@@ -183,15 +183,15 @@ KitchenTaskEventReceiver
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>136</x>
+      <x>120</x>
       <y>192</y>
-      <w>1024</w>
+      <w>1040</w>
       <h>1152</h>
     </coordinates>
     <panel_attributes>alt 
 fg=#761C8C
 [ ! user.isChef() ||
-    ev.getOwner() != user ||
+    ev.getOrganizer() != user ||
   ! ev.hasService(serv) ]
 --
 
