@@ -4,7 +4,7 @@
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>224</x>
+      <x>192</x>
       <y>40</y>
       <w>72</w>
       <h>56</h>
@@ -15,44 +15,44 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>248</x>
+      <x>216</x>
       <y>88</y>
       <w>24</w>
-      <h>520</h>
+      <h>728</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;630.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;890.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>248</x>
+      <x>216</x>
       <y>128</y>
-      <w>248</w>
+      <w>264</w>
       <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-modifyGuestsExpected(guests)</panel_attributes>
-    <additional_attributes>290.0;20.0;10.0;20.0</additional_attributes>
+proposeMenuItemAddition(serv, menu, rec)</panel_attributes>
+    <additional_attributes>310.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>480</x>
+      <x>464</x>
       <y>88</y>
       <w>24</w>
-      <h>512</h>
+      <h>728</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;620.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;890.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>480</x>
+      <x>464</x>
       <y>144</y>
       <w>16</w>
-      <h>424</h>
+      <h>640</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -60,7 +60,7 @@ modifyGuestsExpected(guests)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>440</x>
+      <x>424</x>
       <y>56</y>
       <w>96</w>
       <h>40</h>
@@ -72,32 +72,32 @@ EventManager</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>248</x>
-      <y>208</y>
-      <w>248</w>
+      <x>216</x>
+      <y>224</y>
+      <w>264</w>
       <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 throw UseCaseLogicException</panel_attributes>
-    <additional_attributes>10.0;20.0;290.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;310.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>488</x>
-      <y>432</y>
-      <w>200</w>
+      <x>472</x>
+      <y>648</y>
+      <w>296</w>
       <h>48</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
-notifyEventUpdated(event)</panel_attributes>
+notifyProposedItemAddition(serv, menu, rec)</panel_attributes>
     <additional_attributes>10.0;10.0;70.0;10.0;70.0;40.0;20.0;40.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>488</x>
-      <y>464</y>
+      <x>472</x>
+      <y>680</y>
       <w>16</w>
       <h>88</h>
     </coordinates>
@@ -107,21 +107,21 @@ notifyEventUpdated(event)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>496</x>
-      <y>512</y>
-      <w>400</w>
+      <x>480</x>
+      <y>728</y>
+      <w>448</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-updateEventUpdated(event)
+updateProposedItemAddition(serv, menu, rec)
 </panel_attributes>
-    <additional_attributes>480.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>540.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>880</x>
-      <y>528</y>
+      <x>912</x>
+      <y>744</y>
       <w>16</w>
       <h>16</h>
     </coordinates>
@@ -132,19 +132,19 @@ updateEventUpdated(event)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>880</x>
+      <x>912</x>
       <y>160</y>
       <w>24</w>
-      <h>416</h>
+      <h>632</h>
     </coordinates>
     <panel_attributes>lt=.
 </panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;500.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;770.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>816</x>
+      <x>848</x>
       <y>128</y>
       <w>152</w>
       <h>40</h>
@@ -158,14 +158,17 @@ EventManagerReceiver
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>88</x>
+      <x>0</x>
       <y>192</y>
-      <w>864</w>
-      <h>400</h>
+      <w>968</w>
+      <h>608</h>
     </coordinates>
     <panel_attributes>alt 
 fg=#761C8C
-[ ! user.isOrganizer() ]
+[ ! user.isOrganizer() 
+   ||  currentEvent == null
+     ||  ! currentEvent.hasService(serv)
+       ||  serv.menu != menu ]
 --
 
 
@@ -174,7 +177,7 @@ fg=#761C8C
 
 
 
--.
+
 fontsize=14
 </panel_attributes>
     <additional_attributes/>
@@ -182,13 +185,13 @@ fontsize=14
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>480</x>
+      <x>464</x>
       <y>0</y>
       <w>272</w>
       <h>32</h>
     </coordinates>
     <panel_attributes>halign=center
-*5. modifyGuestsExpected*
+*5a. proposeMenuItemAddition*
 lw=0
 fontsize=20
 </panel_attributes>
@@ -197,7 +200,7 @@ fontsize=20
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>584</x>
+      <x>568</x>
       <y>56</y>
       <w>96</w>
       <h>40</h>
@@ -210,7 +213,7 @@ UserManager
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>624</x>
+      <x>608</x>
       <y>88</y>
       <w>24</w>
       <h>112</h>
@@ -221,7 +224,7 @@ UserManager
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>624</x>
+      <x>608</x>
       <y>160</y>
       <w>16</w>
       <h>16</h>
@@ -232,7 +235,7 @@ UserManager
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>488</x>
+      <x>472</x>
       <y>144</y>
       <w>152</w>
       <h>32</h>
@@ -244,7 +247,7 @@ getCurrentUser( )</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>488</x>
+      <x>472</x>
       <y>160</y>
       <w>152</w>
       <h>32</h>
@@ -256,9 +259,9 @@ user</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>392</x>
-      <y>496</y>
-      <w>528</w>
+      <x>376</x>
+      <y>712</y>
+      <w>568</w>
       <h>64</h>
     </coordinates>
     <panel_attributes>for each
@@ -267,75 +270,139 @@ fg=blue</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>Text</id>
-    <coordinates>
-      <x>88</x>
-      <y>264</y>
-      <w>184</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>[ currentEvent.hasService(serv)
-  &amp;&amp;  serv.guests &gt; guests ]
-style=wordwrap
-fontsize=14
-fg=#761C8C</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>248</x>
-      <y>272</y>
-      <w>248</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-throw EventException</panel_attributes>
-    <additional_attributes>10.0;20.0;290.0;20.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>672</x>
+      <x>688</x>
       <y>128</y>
       <w>96</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>event:
-Event
+    <panel_attributes>menu:
+Menu
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>488</x>
-      <y>336</y>
-      <w>240</w>
+      <x>472</x>
+      <y>296</y>
+      <w>272</w>
       <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-setGuests(guests)</panel_attributes>
-    <additional_attributes>280.0;20.0;10.0;20.0</additional_attributes>
+getSection("Proposte dell'organizzatore")</panel_attributes>
+    <additional_attributes>320.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>712</x>
+      <x>728</x>
       <y>160</y>
       <w>24</w>
-      <h>280</h>
+      <h>440</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;330.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;530.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>712</x>
-      <y>352</y>
+      <x>728</x>
+      <y>312</y>
       <w>16</w>
-      <h>56</h>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>368</x>
+      <y>376</y>
+      <w>520</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>opt 
+fg=#128C86
+[ sec == null ]
+--
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+fontsize=14
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>472</x>
+      <y>320</y>
+      <w>264</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+sec</panel_attributes>
+    <additional_attributes>10.0;20.0;310.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>472</x>
+      <y>400</y>
+      <w>312</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+sec = create("Proposte dell'organizzatore")</panel_attributes>
+    <additional_attributes>370.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>768</x>
+      <y>400</y>
+      <w>96</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>sec:
+Section
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>472</x>
+      <y>456</y>
+      <w>272</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+addSection(sec)</panel_attributes>
+    <additional_attributes>320.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>728</x>
+      <y>472</y>
+      <w>16</w>
+      <h>16</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -343,13 +410,24 @@ setGuests(guests)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>720</x>
-      <y>360</y>
-      <w>152</w>
-      <h>48</h>
+      <x>472</x>
+      <y>544</y>
+      <w>272</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-this.guests = guests</panel_attributes>
-    <additional_attributes>10.0;40.0;50.0;40.0;50.0;10.0;10.0;10.0</additional_attributes>
+addItem(rec, sec)</panel_attributes>
+    <additional_attributes>320.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>728</x>
+      <y>560</y>
+      <w>16</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
   </element>
 </diagram>
