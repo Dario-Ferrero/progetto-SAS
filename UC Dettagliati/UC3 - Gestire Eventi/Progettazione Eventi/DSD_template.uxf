@@ -32,7 +32,7 @@
       <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-modifyGuestsExpected(guests)</panel_attributes>
+addNotes(notes)</panel_attributes>
     <additional_attributes>290.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -165,7 +165,8 @@ EventManagerReceiver
     </coordinates>
     <panel_attributes>alt 
 fg=#761C8C
-[ ! user.isOrganizer() ]
+[ ! user.isOrganizer()
+ || currentEvent == null ]
 --
 
 
@@ -183,12 +184,12 @@ fontsize=14
     <id>UMLClass</id>
     <coordinates>
       <x>480</x>
-      <y>0</y>
+      <y>8</y>
       <w>272</w>
       <h>32</h>
     </coordinates>
     <panel_attributes>halign=center
-*5. modifyGuestsExpected*
+*6a.1 removeStaffAssigned*
 lw=0
 fontsize=20
 </panel_attributes>

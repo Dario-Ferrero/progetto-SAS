@@ -165,7 +165,8 @@ EventManagerReceiver
     </coordinates>
     <panel_attributes>alt 
 fg=#761C8C
-[ ! user.isOrganizer() ]
+[ !  user.isOrganizer() 
+  || currentMenu == null ]
 --
 
 
@@ -270,7 +271,7 @@ fg=blue</panel_attributes>
     <id>Text</id>
     <coordinates>
       <x>56</x>
-      <y>296</y>
+      <y>304</y>
       <w>184</w>
       <h>40</h>
     </coordinates>

@@ -4,8 +4,8 @@
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>208</x>
-      <y>48</y>
+      <x>224</x>
+      <y>40</y>
       <w>72</w>
       <h>56</h>
     </coordinates>
@@ -15,44 +15,44 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>232</x>
-      <y>96</y>
+      <x>248</x>
+      <y>88</y>
       <w>24</w>
-      <h>536</h>
+      <h>520</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;650.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;630.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>232</x>
-      <y>136</y>
+      <x>248</x>
+      <y>128</y>
       <w>248</w>
       <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-chooseChef(chef)</panel_attributes>
+terminateEvent(event)</panel_attributes>
     <additional_attributes>290.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>464</x>
-      <y>96</y>
+      <x>480</x>
+      <y>88</y>
       <w>24</w>
-      <h>528</h>
+      <h>512</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;640.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;620.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>464</x>
-      <y>152</y>
+      <x>480</x>
+      <y>144</y>
       <w>16</w>
-      <h>416</h>
+      <h>424</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -60,8 +60,8 @@ chooseChef(chef)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>424</x>
-      <y>64</y>
+      <x>440</x>
+      <y>56</y>
       <w>96</w>
       <h>40</h>
     </coordinates>
@@ -72,8 +72,8 @@ EventManager</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>232</x>
-      <y>216</y>
+      <x>248</x>
+      <y>208</y>
       <w>248</w>
       <h>32</h>
     </coordinates>
@@ -84,19 +84,19 @@ throw UseCaseLogicException</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>472</x>
+      <x>488</x>
       <y>432</y>
-      <w>232</w>
+      <w>200</w>
       <h>48</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
-notifyChefModified(currentEvent)</panel_attributes>
+notifyEventUpdated(event)</panel_attributes>
     <additional_attributes>10.0;10.0;70.0;10.0;70.0;40.0;20.0;40.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>472</x>
+      <x>488</x>
       <y>464</y>
       <w>16</w>
       <h>88</h>
@@ -107,20 +107,20 @@ notifyChefModified(currentEvent)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>480</x>
+      <x>496</x>
       <y>512</y>
-      <w>392</w>
+      <w>400</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-updateChefModified(currentEvent)
+updateEventUpdated(event)
 </panel_attributes>
-    <additional_attributes>470.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>480.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>856</x>
+      <x>880</x>
       <y>528</y>
       <w>16</w>
       <h>16</h>
@@ -132,21 +132,21 @@ updateChefModified(currentEvent)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>856</x>
-      <y>168</y>
+      <x>880</x>
+      <y>160</y>
       <w>24</w>
-      <h>408</h>
+      <h>416</h>
     </coordinates>
     <panel_attributes>lt=.
 </panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;490.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;500.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>800</x>
-      <y>136</y>
-      <w>136</w>
+      <x>816</x>
+      <y>128</y>
+      <w>152</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>er:
@@ -158,15 +158,15 @@ EventManagerReceiver
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>88</x>
-      <y>200</y>
-      <w>848</w>
-      <h>392</h>
+      <x>40</x>
+      <y>192</y>
+      <w>912</w>
+      <h>400</h>
     </coordinates>
     <panel_attributes>alt 
 fg=#761C8C
-[ ! user.isOrganizer() 
- || currentEvent == null ]
+[ ! user.isOrganizer()  ||
+  ! event.getOrganizer().equals(user) ]
 --
 
 
@@ -183,13 +183,13 @@ fontsize=14
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>464</x>
-      <y>8</y>
+      <x>480</x>
+      <y>0</y>
       <w>272</w>
       <h>32</h>
     </coordinates>
     <panel_attributes>halign=center
-*4. chooseChef*
+*5e.1 terminateEvent*
 lw=0
 fontsize=20
 </panel_attributes>
@@ -198,9 +198,9 @@ fontsize=20
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>568</x>
-      <y>64</y>
-      <w>88</w>
+      <x>584</x>
+      <y>56</y>
+      <w>96</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>userMgr:
@@ -211,8 +211,8 @@ UserManager
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>608</x>
-      <y>96</y>
+      <x>624</x>
+      <y>88</y>
       <w>24</w>
       <h>112</h>
     </coordinates>
@@ -222,8 +222,8 @@ UserManager
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>608</x>
-      <y>168</y>
+      <x>624</x>
+      <y>160</y>
       <w>16</w>
       <h>16</h>
     </coordinates>
@@ -233,8 +233,8 @@ UserManager
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>472</x>
-      <y>152</y>
+      <x>488</x>
+      <y>144</y>
       <w>152</w>
       <h>32</h>
     </coordinates>
@@ -245,8 +245,8 @@ getCurrentUser( )</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>472</x>
-      <y>168</y>
+      <x>488</x>
+      <y>160</y>
       <w>152</w>
       <h>32</h>
     </coordinates>
@@ -257,9 +257,9 @@ user</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>368</x>
+      <x>392</x>
       <y>496</y>
-      <w>520</w>
+      <w>528</w>
       <h>64</h>
     </coordinates>
     <panel_attributes>for each
@@ -270,12 +270,12 @@ fg=blue</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>96</x>
-      <y>288</y>
-      <w>136</w>
-      <h>40</h>
+      <x>80</x>
+      <y>280</y>
+      <w>144</w>
+      <h>32</h>
     </coordinates>
-    <panel_attributes>[ event.isTerminated() ]
+    <panel_attributes>[ ! event.hasStarted() ]
 style=wordwrap
 fontsize=14
 fg=#761C8C</panel_attributes>
@@ -284,7 +284,7 @@ fg=#761C8C</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>232</x>
+      <x>248</x>
       <y>272</y>
       <w>248</w>
       <h>32</h>
@@ -296,12 +296,12 @@ throw EventException</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>656</x>
-      <y>136</y>
+      <x>672</x>
+      <y>128</y>
       <w>96</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>currentEvent:
+    <panel_attributes>event:
 Event
 </panel_attributes>
     <additional_attributes/>
@@ -309,33 +309,33 @@ Event
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>472</x>
-      <y>344</y>
+      <x>488</x>
+      <y>336</y>
       <w>240</w>
       <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-setChef(chef)</panel_attributes>
+setTerminated()</panel_attributes>
     <additional_attributes>280.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>696</x>
-      <y>168</y>
+      <x>712</x>
+      <y>160</y>
       <w>24</w>
-      <h>272</h>
+      <h>304</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;320.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;360.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>696</x>
-      <y>360</y>
+      <x>712</x>
+      <y>352</y>
       <w>16</w>
-      <h>48</h>
+      <h>88</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -343,13 +343,25 @@ setChef(chef)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>704</x>
-      <y>360</y>
-      <w>120</w>
+      <x>720</x>
+      <y>352</y>
+      <w>232</w>
       <h>48</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-this.chef = chef</panel_attributes>
+int index = getFlagIndex("terminated")</panel_attributes>
+    <additional_attributes>10.0;40.0;40.0;40.0;40.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>720</x>
+      <y>392</y>
+      <w>192</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+this.flagValues [ index ] = true</panel_attributes>
     <additional_attributes>10.0;40.0;40.0;40.0;40.0;10.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
