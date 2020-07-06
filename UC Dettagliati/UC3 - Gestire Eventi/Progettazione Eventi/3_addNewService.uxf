@@ -109,18 +109,18 @@ notifyServiceCreated(serv)</panel_attributes>
     <coordinates>
       <x>456</x>
       <y>816</y>
-      <w>608</w>
+      <w>688</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 updateServiceCreated(serv)
 </panel_attributes>
-    <additional_attributes>740.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>840.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>1048</x>
+      <x>1128</x>
       <y>832</y>
       <w>16</w>
       <h>16</h>
@@ -132,7 +132,7 @@ updateServiceCreated(serv)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1048</x>
+      <x>1128</x>
       <y>96</y>
       <w>24</w>
       <h>784</h>
@@ -144,7 +144,7 @@ updateServiceCreated(serv)
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>984</x>
+      <x>1064</x>
       <y>64</y>
       <w>152</w>
       <h>40</h>
@@ -259,7 +259,7 @@ user</panel_attributes>
     <coordinates>
       <x>344</x>
       <y>800</y>
-      <w>736</w>
+      <w>816</w>
       <h>64</h>
     </coordinates>
     <panel_attributes>for each
@@ -445,14 +445,14 @@ add(shift)</panel_attributes>
       <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-add(serv)</panel_attributes>
+addService(serv)</panel_attributes>
     <additional_attributes>290.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>624</x>
-      <y>120</y>
+      <x>992</x>
+      <y>136</y>
       <w>128</w>
       <h>40</h>
     </coordinates>
@@ -466,12 +466,12 @@ ArrayList&lt;Service&gt;
     <id>Relation</id>
     <coordinates>
       <x>680</x>
-      <y>152</y>
+      <y>168</y>
       <w>24</w>
-      <h>600</h>
+      <h>584</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;730.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;710.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
@@ -520,5 +520,53 @@ create()</panel_attributes>
 ArrayList&lt;ServiceShift&gt;
 </panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>640</x>
+      <y>136</y>
+      <w>96</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>currentEvent:
+Event
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1048</x>
+      <y>168</y>
+      <w>24</w>
+      <h>600</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;730.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1048</x>
+      <y>736</y>
+      <w>16</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>688</x>
+      <y>720</y>
+      <w>376</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+add(serv)</panel_attributes>
+    <additional_attributes>450.0;20.0;10.0;20.0</additional_attributes>
   </element>
 </diagram>

@@ -43,7 +43,9 @@ public class ServiceSheet {
     // STATIC METHODS FOR PERSISTENCE
 
     public static ServiceSheet loadServiceSheet(Service s) {
-        String query = "SELECT * FROM ServiceSheets sh join KitchenTasks kts on (sh.id=kts.service_sheet_id) WHERE sh.service_id=" + s.getId() ;
+        String query = "SELECT * FROM ServiceSheets sh " +
+                "join SheetTasks st on (sh.id=st.sheet_id) " +
+                "join KitchenTasks kts on (st.kitchentask_id=kts.id) WHERE sh.service_id=" + s.getId();
         ServiceSheet newSheet = new ServiceSheet();
         ObservableList<KitchenTask> newTasks = FXCollections.observableArrayList();
         ArrayList<Integer> procedureIds = new ArrayList<>(),
@@ -63,14 +65,14 @@ public class ServiceSheet {
                 int position = rs.getInt("position");
                 newTasks.add(position, kt);
                 cookIds.add(position, rs.getInt("cook_id"));
-                shiftIds.add(position, rs.getInt("shift_id"));
-                procedureIds.add(position, rs.getInt("shift_id"));
+                shiftIds.add(position, rs.getInt("kitchenshift_id"));
+                procedureIds.add(position, rs.getInt("procedure_id"));
             }
         });
 
         newSheet.setService(s);
 
-        for (int i = 1; i < newTasks.size(); i++) {
+        for (int i = 0; i < newTasks.size(); i++) {
             User cook = User.loadUserById(cookIds.get(i));
             newTasks.get(i).setCook((cook.getId() > 0) ? cook : null);
 
@@ -78,7 +80,7 @@ public class ServiceSheet {
             newTasks.get(i).setKitchenShift((shift.getId() > 0) ? shift : null);
 
             Recipe recipe = Recipe.loadRecipeById(procedureIds.get(i));
-            newTasks.get(i).setKitchenProcedure(Recipe.loadRecipeById(procedureIds.get(i)));
+            newTasks.get(i).setKitchenProcedure((recipe.getId() > 0) ? recipe : null);
 
             newSheet.tasks = newTasks;
             KitchenTask.addLoadedKitchenTask(newTasks.get(i));
@@ -86,6 +88,5 @@ public class ServiceSheet {
 
         return newSheet;
     }
-
 
 }

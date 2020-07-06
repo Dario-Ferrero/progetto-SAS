@@ -18,10 +18,10 @@
       <x>128</x>
       <y>88</y>
       <w>24</w>
-      <h>1104</h>
+      <h>1160</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;1360.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;1430.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -52,7 +52,7 @@ createEvent(name, loc, date, guests, private, elegant)</panel_attributes>
       <x>432</x>
       <y>144</y>
       <w>16</w>
-      <h>1000</h>
+      <h>1064</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -161,7 +161,7 @@ EventManagerReceiver
       <x>0</x>
       <y>192</y>
       <w>1032</w>
-      <h>984</h>
+      <h>1040</h>
     </coordinates>
     <panel_attributes>alt 
 fg=#761C8C

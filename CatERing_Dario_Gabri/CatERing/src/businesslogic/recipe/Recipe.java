@@ -12,26 +12,24 @@ import java.util.*;
 public class Recipe extends KitchenProcedure {
 
     private static Map<Integer, Recipe> all = new HashMap<>();
-
-    public Recipe() {
-
-    }
-
-    public Recipe(String name) {
-        id = 0;
-        this.name = name;
-    }
+    private int id;
+    private String name;
 
     public String getName() {
         return name;
     }
 
-    public int getId() {
-        return id;
-    }
+    public int getId() { return id; }
 
     public String toString() {
         return name;
+    }
+
+    public Recipe() { this(""); }
+
+    public Recipe(String name) {
+        id = 0;
+        this.name = name;
     }
 
     // STATIC METHODS FOR PERSISTENCE

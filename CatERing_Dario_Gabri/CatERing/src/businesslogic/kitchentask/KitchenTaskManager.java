@@ -4,7 +4,6 @@ import businesslogic.CatERing;
 import businesslogic.UseCaseLogicException;
 import businesslogic.event.Event;
 import businesslogic.event.Service;
-import businesslogic.menu.MenuEventReceiver;
 import businesslogic.menu.MenuItem;
 import businesslogic.menu.Section;
 import businesslogic.user.User;
@@ -22,7 +21,6 @@ public class KitchenTaskManager {
     }
 
     public ServiceSheet openServiceSheet(Event event, Service service) throws UseCaseLogicException {
-
         User user = CatERing.getInstance().getUserManager().getCurrentUser();
         if (!user.isChef() || event.getOrganizer().equals(user) || !event.hasService(service)) {
             throw new UseCaseLogicException();
@@ -30,7 +28,7 @@ public class KitchenTaskManager {
 
         ServiceSheet openedSheet = ServiceSheet.loadServiceSheet(service);
 
-        if (openedSheet.getService().equals(service)) {
+        if (openedSheet.getId() == 0) {
             openedSheet = new ServiceSheet(service);
             for (Section sec : service.getMenu().getSections()) {
                 for (MenuItem item : sec.getItems()) {

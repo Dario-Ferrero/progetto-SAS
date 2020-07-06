@@ -29,6 +29,10 @@ public class KitchenTask {
         this.procedure = procedure;
     }
 
+    public String toString() {
+        return procedure + ": " + "quantity " + quantity + ", time required " + timeRequired + " minutes";
+    }
+
     // GETTER METHODS
 
     public int getId() {
@@ -59,7 +63,7 @@ public class KitchenTask {
     public void setQuantity(String quantity) {
         this.quantity = quantity;
     }
-    public KitchenProcedure getkitchenProcedure() {
+    public KitchenProcedure getKitchenProcedure() {
         return procedure;
     }
     public void setKitchenProcedure(KitchenProcedure procedure) {
@@ -89,29 +93,32 @@ public class KitchenTask {
 
         KitchenTask newTask = new KitchenTask();
         String query = "SELECT * FROM KitchenTasks WHERE id="+ taskId;
-        int ids[] = new int[3];
+        int fieldIds[] = new int[3];
 
         PersistenceManager.executeQuery(query, new ResultHandler() {
             @Override
             public void handle(ResultSet rs) throws SQLException {
+                newTask.id = rs.getInt("id");
                 newTask.prepared = rs.getBoolean("prepared");
                 newTask.quantity = rs.getString("quantity");
                 newTask.timeRequired = rs.getInt("time_required");
-                ids[0] = rs.getInt("cook_id");
-                ids[1] = rs.getInt("procedure_id");
-                ids[2] = rs.getInt("shift_id");
+                fieldIds[0] = rs.getInt("cook_id");
+                fieldIds[1] = rs.getInt("procedure_id");
+                fieldIds[2] = rs.getInt("kitchenshift_id");
             }
         });
-        newTask.id = taskId;
+        if (newTask.id > 0) {
+            User cook = User.loadUserById(fieldIds[0]);
+            newTask.setCook((cook.getId() > 0) ? cook : null);
 
-        User cook = User.loadUserById(ids[0]);
-        newTask.setCook((cook.getId() > 0) ? cook : null);
-        Recipe procedure = Recipe.loadRecipeById(ids[1]);
-        newTask.setKitchenProcedure((procedure.getId() > 0) ? procedure : null);
-        KitchenShift shift = KitchenShift.loadKitchenShiftById(ids[2]);
-        newTask.setKitchenShift((shift.getId() > 0) ? shift : null);
+            Recipe procedure = Recipe.loadRecipeById(fieldIds[1]);
+            newTask.setKitchenProcedure((procedure.getId() > 0) ? procedure : null);
 
-        loadedKitchenTasks.putIfAbsent(newTask.id, newTask);
+            KitchenShift shift = KitchenShift.loadKitchenShiftById(fieldIds[2]);
+            newTask.setKitchenShift((shift.getId() > 0) ? shift : null);
+
+            loadedKitchenTasks.putIfAbsent(newTask.id, newTask);
+        }
         return newTask;
     }
 }

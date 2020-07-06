@@ -25,8 +25,19 @@ public class Event implements EventItemInfo {
         id = 0;
     }
 
+    public int getId() { return this.id; }
+    public String getName() { return this.name; }
+    public Date getDateStart() { return this.dateStart; }
+    public Date getDateEnd() { return this.dateEnd; }
     public ObservableList<Service> getServices() {
         return FXCollections.unmodifiableObservableList(this.services);
+    }
+    public User getOrganizer() {
+        return this.organizer;
+    }
+
+    public boolean hasService(Service service) {
+        return services.contains(service);
     }
 
     public String toString() {
@@ -59,11 +70,4 @@ public class Event implements EventItemInfo {
         return all;
     }
 
-    public User getOrganizer() {
-        return this.organizer;
-    }
-
-    public boolean hasService(Service service) {
-        return services.contains(service);
-    }
 }
