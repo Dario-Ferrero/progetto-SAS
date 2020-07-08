@@ -397,6 +397,46 @@ public class Menu {
         loadedMenus.remove(m);
     }
 
+    public static Menu loadMenuById(int menuId) {
+        if (loadedMenus.containsKey(menuId)) return loadedMenus.get(menuId);
+
+        String query = "SELECT * FROM Menus WHERE id=" + menuId;
+        Menu loadedMenu = new Menu();
+        int[] ownerId = new int[1];
+        PersistenceManager.executeQuery(query, new ResultHandler() {
+            @Override
+            public void handle(ResultSet rs) throws SQLException {
+                loadedMenu.id = menuId;
+                loadedMenu.title = rs.getString("title");
+                loadedMenu.published = rs.getBoolean("published");
+                ownerId[0] = rs.getInt("owner_id");
+            }
+        });
+        if (loadedMenu.id > 0) { //TODO: metodo privato per query di features, sections e free items ?
+            loadedMenu.owner = User.loadUserById(ownerId[0]);
+            String featQ = "SELECT * FROM MenuFeatures WHERE menu_id = " + loadedMenu.id;
+            PersistenceManager.executeQuery(featQ, new ResultHandler() {
+                @Override
+                public void handle(ResultSet rs) throws SQLException {
+                    loadedMenu.featuresMap.put(rs.getString("name"), rs.getBoolean("value"));
+                }
+            });
+
+            loadedMenu.sections = Section.loadSectionsFor(loadedMenu.id);
+            loadedMenu.freeItems = MenuItem.loadItemsFor(loadedMenu.id, 0);
+
+            String inuseQuery = "SELECT * FROM Services WHERE approved_menu_id = " + loadedMenu.id;
+            PersistenceManager.executeQuery(inuseQuery, new ResultHandler() {
+                @Override
+                public void handle(ResultSet rs) throws SQLException {
+                    loadedMenu.inUse = true;
+                }
+            });
+        }
+        loadedMenus.put(loadedMenu.id, loadedMenu);
+        return loadedMenu;
+    }
+
     public static ObservableList<Menu> loadAllMenus() {
         String query = "SELECT * FROM Menus WHERE " + true;
         ArrayList<Menu> newMenus = new ArrayList<>();

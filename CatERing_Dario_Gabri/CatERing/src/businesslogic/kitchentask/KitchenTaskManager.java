@@ -22,7 +22,8 @@ public class KitchenTaskManager {
 
     public ServiceSheet openServiceSheet(Event event, Service service) throws UseCaseLogicException {
         User user = CatERing.getInstance().getUserManager().getCurrentUser();
-        if (!user.isChef() || event.getOrganizer().equals(user) || !event.hasService(service)) {
+        if (!user.isChef() || !event.getOrganizer().equals(user) || !event.hasService(service)) {
+            System.err.println("Error in KitchenTaskManager$openServiceSheet");
             throw new UseCaseLogicException();
         }
 
@@ -30,12 +31,12 @@ public class KitchenTaskManager {
 
         if (openedSheet.getId() == 0) {
             openedSheet = new ServiceSheet(service);
-            for (Section sec : service.getMenu().getSections()) {
+            for (Section sec : service.getApprovedMenu().getSections()) {
                 for (MenuItem item : sec.getItems()) {
                     openedSheet.addKitchenTask(new KitchenTask(item.getItemRecipe()));
                 }
             }
-            for (MenuItem item : service.getMenu().getFreeItems()) {
+            for (MenuItem item : service.getApprovedMenu().getFreeItems()) {
                 openedSheet.addKitchenTask(new KitchenTask(item.getItemRecipe()));
             }
             notifyServiceSheetCreated(openedSheet);

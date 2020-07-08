@@ -735,7 +735,7 @@ cook</panel_attributes>
       <x>1550</x>
       <y>1250</y>
       <w>240</w>
-      <h>200</h>
+      <h>210</h>
     </coordinates>
     <panel_attributes>Service
 --
@@ -746,6 +746,7 @@ cook</panel_attributes>
 --
 + create(type: ServiceType, date: Date, guests: int)
 + approveMenu()
++ hasMenuApproved(): boolean
 + setType(type: ServiceType)
 + setDate(date: Date)
 + setGuests(guests: int)
@@ -1039,14 +1040,14 @@ person</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1590</x>
-      <y>1440</y>
+      <y>1450</y>
       <w>50</w>
-      <h>470</h>
+      <h>460</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 shifts
 m2=1..n</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;450.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;440.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>

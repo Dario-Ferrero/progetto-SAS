@@ -9,8 +9,10 @@ import persistence.ResultHandler;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Map;
 
 public class Event implements EventItemInfo {
+    private static Map<Integer, Event> loadedEvents = FXCollections.observableHashMap();
     private int id;
     private String name;
     private Date dateStart;
@@ -20,15 +22,19 @@ public class Event implements EventItemInfo {
 
     private ObservableList<Service> services;
 
+    public Event() {
+        this("");
+    }
+
     public Event(String name) {
         this.name = name;
         id = 0;
     }
 
+    public static boolean isLoadedEvent(int eventId) { return loadedEvents.containsKey(eventId); }
+    public static Event getLoadedEvent(int eventId) { return loadedEvents.get(eventId); }
+
     public int getId() { return this.id; }
-    public String getName() { return this.name; }
-    public Date getDateStart() { return this.dateStart; }
-    public Date getDateEnd() { return this.dateEnd; }
     public ObservableList<Service> getServices() {
         return FXCollections.unmodifiableObservableList(this.services);
     }
@@ -45,6 +51,32 @@ public class Event implements EventItemInfo {
     }
 
     // STATIC METHODS FOR PERSISTENCE
+
+    public static Event loadEventById(int eventId) {
+        if (loadedEvents.containsKey(eventId)) return loadedEvents.get(eventId);
+
+        String query = "SELECT * FROM Events WHERE id=" + eventId;
+        Event ev = new Event();
+        int[] org = new int[1];
+        PersistenceManager.executeQuery(query, new ResultHandler() {
+            @Override
+            public void handle(ResultSet rs) throws SQLException {
+                ev.name = rs.getString("name");
+                ev.id = rs.getInt("id");
+                ev.dateStart = rs.getDate("date_start");
+                ev.dateEnd = rs.getDate("date_end");
+                ev.participants = rs.getInt("expected_participants");
+                org[0] = rs.getInt("organizer_id");
+            }
+        });
+
+        if (ev.id > 0) {
+            ev.organizer = User.loadUserById(org[0]);
+            ev.services = Service.loadServicesForEvent(ev.id);
+            loadedEvents.put(ev.id, ev);
+        }
+        return ev;
+    }
 
     public static ObservableList<Event> loadAllEvents() {
         ObservableList<Event> all = FXCollections.observableArrayList();

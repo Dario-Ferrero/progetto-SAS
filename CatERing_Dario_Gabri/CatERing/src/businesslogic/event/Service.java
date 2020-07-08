@@ -10,15 +10,18 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
+import java.util.ArrayList;
+import java.util.Map;
 
 public class Service implements EventItemInfo {
+    private static Map<Integer, Service> loadedServices = FXCollections.observableHashMap();
     private int id;
     private String name;
     private Date date;
     private Time timeStart;
     private Time timeEnd;
     private int participants;
-    private Menu menu;  // TODO: loading del (dei) menu dal database
+    private Menu proposedMenu, approvedMenu;  // TODO: loading del (dei) menu dal database
 
     public Service(String name) {
         this.name = name;
@@ -28,32 +31,45 @@ public class Service implements EventItemInfo {
         return name + ": " + date + " (" + timeStart + "-" + timeEnd + "), " + participants + " pp.";
     }
 
-    public Menu getMenu() { return this.menu; }
+    public int getId() { return this.id; }
+    public Menu getApprovedMenu()       { return this.approvedMenu; }
+    public void setApprovedMenu(Menu m) { this.approvedMenu = m; }
 
     // STATIC METHODS FOR PERSISTENCE
 
-    public static ObservableList<Service> loadServicesForEvent(int event_id) {
+    public static ObservableList<Service> loadServicesForEvent(int eventId) {
+        if (Event.isLoadedEvent(eventId)) {
+            Event ev = Event.getLoadedEvent(eventId);
+            return ev.getServices();
+        }
+
         ObservableList<Service> result = FXCollections.observableArrayList();
-        String query = "SELECT id, name, service_date, time_start, time_end, expected_participants " +
-                "FROM Services WHERE event_id = " + event_id;
+        String query = "SELECT id, name, service_date, time_start, time_end, expected_participants, approved_menu_id " +
+                "FROM Services WHERE event_id = " + eventId;
+        ArrayList<Integer> approvedMenuIds = new ArrayList<>();
         PersistenceManager.executeQuery(query, new ResultHandler() {
             @Override
             public void handle(ResultSet rs) throws SQLException {
-                String s = rs.getString("name");
-                Service serv = new Service(s);
+                String name = rs.getString("name");
+                Service serv = new Service(name);
                 serv.id = rs.getInt("id");
                 serv.date = rs.getDate("service_date");
                 serv.timeStart = rs.getTime("time_start");
                 serv.timeEnd = rs.getTime("time_end");
                 serv.participants = rs.getInt("expected_participants");
+                approvedMenuIds.add(rs.getInt("approved_menu_id"));
                 result.add(serv);
             }
         });
-
+        for (int i = 0; i < result.size(); i++) {
+            Service s = result.get(i);
+            int menuId = approvedMenuIds.get(i);
+            Menu menuApproved = (menuId > 0) ? Menu.loadMenuById(menuId) : null;
+            s.setApprovedMenu((menuId > 0) ? menuApproved : null);
+            loadedServices.put(s.id, s);
+        }
         return result;
     }
-
-    public int getId() { return this.id; }
 
     @Override
     public boolean equals(Object obj) {

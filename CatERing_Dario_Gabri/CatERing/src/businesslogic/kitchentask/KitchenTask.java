@@ -93,7 +93,7 @@ public class KitchenTask {
 
         KitchenTask newTask = new KitchenTask();
         String query = "SELECT * FROM KitchenTasks WHERE id="+ taskId;
-        int fieldIds[] = new int[3];
+        int[] fieldIds = new int[3];
 
         PersistenceManager.executeQuery(query, new ResultHandler() {
             @Override
