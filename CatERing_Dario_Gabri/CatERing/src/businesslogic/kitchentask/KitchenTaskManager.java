@@ -4,8 +4,10 @@ import businesslogic.CatERing;
 import businesslogic.UseCaseLogicException;
 import businesslogic.event.Event;
 import businesslogic.event.Service;
+import businesslogic.menu.MenuEventReceiver;
 import businesslogic.menu.MenuItem;
 import businesslogic.menu.Section;
+import businesslogic.recipe.KitchenProcedure;
 import businesslogic.user.User;
 
 import java.util.ArrayList;
@@ -46,10 +48,36 @@ public class KitchenTaskManager {
         return openedSheet;
     }
 
+    public KitchenTask insertKitchenTask(ServiceSheet sheet, KitchenProcedure proc) throws UseCaseLogicException {
+        User user = CatERing.getInstance().getUserManager().getCurrentUser();
+        if (!user.isChef() || !openSheets.contains(sheet)) {
+            System.err.println("Error in KitchenTaskManager$insertKitchenTask");
+            throw new UseCaseLogicException();
+        }
+
+        KitchenTask newTask = new KitchenTask(proc);
+        sheet.addKitchenTask(newTask);
+        notifyKitchenTaskAdded(sheet, newTask);
+
+        return newTask;
+    }
 
     private void notifyServiceSheetCreated(ServiceSheet sheet) {
         for (KitchenTaskEventReceiver er : this.eventReceivers) {
             er.updateServiceSheetCreated(sheet);
         }
+    }
+
+    private void notifyKitchenTaskAdded(ServiceSheet sheet, KitchenTask task) {
+        for (KitchenTaskEventReceiver er : this.eventReceivers) {
+            er.updateKitchenTaskAdded(sheet, task);
+        }
+    }
+
+    public void addEventReceiver(KitchenTaskEventReceiver rec) {
+        this.eventReceivers.add(rec);
+    }
+    public void removeEventReceiver(KitchenTaskEventReceiver rec) {
+        this.eventReceivers.remove(rec);
     }
 }

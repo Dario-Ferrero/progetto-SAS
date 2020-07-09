@@ -1,13 +1,17 @@
 package businesslogic.kitchentask;
 
 import businesslogic.event.Service;
+import businesslogic.menu.MenuItem;
+import businesslogic.menu.Section;
 import businesslogic.recipe.Recipe;
 import businesslogic.user.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import persistence.BatchUpdateHandler;
 import persistence.PersistenceManager;
 import persistence.ResultHandler;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -41,6 +45,30 @@ public class ServiceSheet {
     public boolean hasKitchenTask(KitchenTask task)     { return this.tasks.contains(task); }
 
     // STATIC METHODS FOR PERSISTENCE
+
+    public static void saveNewServiceSheet(ServiceSheet sheet) {
+        String sheetInsert = "INSERT INTO catering.ServiceSheets (service_id) VALUES (?);";
+        int[] result = PersistenceManager.executeBatchUpdate(sheetInsert, 1, new BatchUpdateHandler() {
+            @Override
+            public void handleBatchItem(PreparedStatement ps, int batchCount) throws SQLException {
+                ps.setInt(1, sheet.getService().getId());
+            }
+
+            @Override
+            public void handleGeneratedIds(ResultSet rs, int count) throws SQLException {
+                if (count == 0) {
+                    sheet.id = rs.getInt(1);
+                }
+            }
+        });
+
+        if (result[0] > 0) { // sheet effettivamente inserito
+            // salva i compiti
+            if (sheet.tasks.size() > 0) {
+                KitchenTask.saveAllNewKitchenTasks(sheet.id, sheet.tasks);
+            }
+        }
+    }
 
     public static ServiceSheet loadServiceSheet(Service s) {
         String query = "SELECT * FROM ServiceSheets sh " +

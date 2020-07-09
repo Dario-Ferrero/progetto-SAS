@@ -549,7 +549,7 @@ m1=0..n</panel_attributes>
 - prepared: boolean
 - quantity: String
 --
-+ create(sheet: ServiceSheet, proc: KitchenProcedure)
++ create(proc: KitchenProcedure)
 + setCook(cook: Cook)
 + setShift(shift: KitchenShift)
 + setTimeRequired(time: int)

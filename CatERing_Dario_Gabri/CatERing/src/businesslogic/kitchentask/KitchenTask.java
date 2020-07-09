@@ -6,9 +6,11 @@ import businesslogic.recipe.Recipe;
 import businesslogic.user.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import persistence.BatchUpdateHandler;
 import persistence.PersistenceManager;
 import persistence.ResultHandler;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Map;
@@ -27,6 +29,8 @@ public class KitchenTask {
     public KitchenTask(KitchenProcedure procedure) {
         this.id = 0;
         this.procedure = procedure;
+        this.quantity = "";
+        this.timeRequired = 0;
     }
 
     public String toString() {
@@ -87,6 +91,71 @@ public class KitchenTask {
     public static void addLoadedKitchenTask(KitchenTask task) { loadedKitchenTasks.putIfAbsent(task.id, task); }
 
     // STATIC METHODS FOR PERSISTENCE
+
+
+    public static void saveNewKitchenTask(int sheetId, KitchenTask task, int position) {
+        String taskInsert = "INSERT INTO catering.KitchenTasks " +
+                "(service_sheet_id, procedure_id, position, time_required, prepared, quantity, cook_id, kitchenshift_id) " +
+                "VALUES (" + sheetId +
+                ", " + task.procedure.getId() +
+                ", " + position +
+                ", " + task.timeRequired +
+                ", " + task.prepared +
+                ", '" + PersistenceManager.escapeString(task.quantity) +
+                "', " + ((task.cook != null) ? task.cook.getId() : 0) +
+                ", " + ((task.shift != null) ? task.shift.getId() : 0) + ");";
+
+        PersistenceManager.executeUpdate(taskInsert);
+        task.id = PersistenceManager.getLastId();
+
+        String sheetTasksInsert = "INSERT INTO catering.SheetTasks (sheet_id, kitchentask_id) " +
+                                  "VALUES (" + sheetId + ", " + task.id + ");";
+        PersistenceManager.executeUpdate(sheetTasksInsert);
+
+        loadedKitchenTasks.put(task.id, task);
+    }
+
+    public static void saveAllNewKitchenTasks(int sheetId, ObservableList<KitchenTask> tasks) {
+        String taskInsert = "INSERT INTO catering.KitchenTasks " +
+        "(service_sheet_id, procedure_id, position, time_required, prepared, quantity, cook_id, kitchenshift_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+
+        PersistenceManager.executeBatchUpdate(taskInsert, tasks.size(), new BatchUpdateHandler() {
+            @Override
+            public void handleBatchItem(PreparedStatement ps, int batchCount) throws SQLException {
+                KitchenTask t = tasks.get(batchCount);
+                ps.setInt(1, sheetId);
+                ps.setInt(2, t.procedure.getId());
+                ps.setInt(3, batchCount);
+                ps.setInt(4, t.timeRequired);
+                ps.setBoolean(5, t.prepared);
+                ps.setString(6, PersistenceManager.escapeString(t.quantity));
+                ps.setInt(7, (t.cook != null) ? t.cook.getId() : 0);
+                ps.setInt(8, (t.shift != null) ? t.shift.getId() : 0);
+            }
+
+            @Override
+            public void handleGeneratedIds(ResultSet rs, int count) throws SQLException {
+                tasks.get(count).id = rs.getInt(1);
+            }
+        });
+        
+        String sheetTasksInsert = "INSERT INTO catering.SheetTasks (sheet_id, kitchentask_id) VALUES (?, ?);";
+        PersistenceManager.executeBatchUpdate(sheetTasksInsert, tasks.size(), new BatchUpdateHandler() {
+            @Override
+            public void handleBatchItem(PreparedStatement ps, int batchCount) throws SQLException {
+                ps.setInt(1, sheetId);
+                ps.setInt(2, tasks.get(batchCount).id);
+            }
+
+            @Override
+            public void handleGeneratedIds(ResultSet rs, int count) throws SQLException {
+                // non ci sono id generati per questa tabella
+            }
+        });
+
+        for (KitchenTask task : tasks)
+            loadedKitchenTasks.put(task.id, task);
+    }
 
     public static KitchenTask loadKitchenTaskById(int taskId) {
         if (loadedKitchenTasks.containsKey(taskId)) return loadedKitchenTasks.get(taskId);
