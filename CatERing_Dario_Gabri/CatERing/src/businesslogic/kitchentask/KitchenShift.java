@@ -23,10 +23,32 @@ public class KitchenShift extends Shift {
         this.cooksAvailable = FXCollections.observableArrayList();
     }
 
+    public String toString() {
+        String result = "id: " + this.id + ", start time: " + this.startTime + ", end time: " + this.endTime + ", full: " + full + ".";
+        result = result + "\nCOOKS AVAILABLE ("+ this.cooksAvailable.size() +")\n";
+        for (User cook : cooksAvailable)
+            result = result + cook.toString() + "\n";
+        result = result + "\nASSIGNED TASKS ("+ this.assignedTasks.size() +")\n";
+        for (KitchenTask task : assignedTasks)
+            result = result + task.toString() + "\n";
+
+        return result + "\n";
+    }
+
+    public boolean hasCookAvailable(User cook) {
+        return this.cooksAvailable.contains(cook);
+    }
 
     public boolean isFull() { return this.full; }
-
+    public boolean isPastShift() {
+        // Da implementare tramite il tempo di login
+        return false;
+    }
     public void setFull(boolean full) { this.full = full; }
+
+    public void assignKitchenTask(KitchenTask task) {
+        this.assignedTasks.add(task);
+    }
 
     // STATIC METHODS FOR PERSISTENCE
 
@@ -34,16 +56,24 @@ public class KitchenShift extends Shift {
         if (loadedKitchenShifts.containsKey(shiftId)) return loadedKitchenShifts.get(shiftId);
 
         KitchenShift shift = new KitchenShift();
-        String query = "SELECT * FROM KitchenShifts WHERE id="+ shiftId;
+        String query = "SELECT * FROM KitchenShifts KS join AssignedTasks AT on (KS.id=AT.kitchenshift_id) " +
+                "join CooksAvailable CA on (KS.id=CA.kitchenshift_id) WHERE KS.id="+ shiftId;
         ArrayList<Integer> availableCookIds = new ArrayList<>(),
                            assignedTaskIds = new ArrayList<>();
         
         PersistenceManager.executeQuery(query, new ResultHandler() {
             @Override
             public void handle(ResultSet rs) throws SQLException {
+                shift.id = shiftId;
                 shift.full = rs.getBoolean("isFull");
-                availableCookIds.add(rs.getInt("available_cook_id"));
-                assignedTaskIds.add(rs.getInt("kitchen_task_id"));
+                shift.startTime = rs.getTime("start_time");
+                shift.endTime = rs.getTime("end_time");
+                int cookId = rs.getInt("cook_id"),
+                    taskId = rs.getInt("task_id");
+                if (!availableCookIds.contains(cookId))
+                    availableCookIds.add(cookId);
+                if (!assignedTaskIds.contains(taskId))
+                    assignedTaskIds.add(taskId);
             }
         });
 
@@ -51,7 +81,6 @@ public class KitchenShift extends Shift {
             for (Integer cookId : availableCookIds) {
                 shift.cooksAvailable.add(User.loadUserById(cookId));
             }
-
             for (Integer taskId : assignedTaskIds) {
                 shift.assignedTasks.add(KitchenTask.loadKitchenTaskById(taskId));
             }
@@ -60,4 +89,24 @@ public class KitchenShift extends Shift {
         loadedKitchenShifts.putIfAbsent(shift.id, shift);
         return shift;
     }
+
+    public static ObservableList<KitchenShift> loadAllKitchenShifts() {
+        String query = "SELECT id FROM KitchenShifts";
+        ArrayList<Integer> shiftIds = new ArrayList<>();
+        ObservableList<KitchenShift> result = FXCollections.observableArrayList();
+        PersistenceManager.executeQuery(query, new ResultHandler() {
+            @Override
+            public void handle(ResultSet rs) throws SQLException {
+                shiftIds.add(rs.getInt("id"));
+            }
+        });
+
+        for (Integer i : shiftIds) {
+            result.add(loadKitchenShiftById(i));
+        }
+
+        return result;
+    }
+
+
 }

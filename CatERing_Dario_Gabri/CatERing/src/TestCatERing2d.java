@@ -27,8 +27,8 @@ public class TestCatERing2d {
             System.out.println(m.testString());
 
             System.out.println("\nTEST MOVE SECTION");
-            CatERing.getInstance().getMenuManager().moveSection(sec, 2);
-            CatERing.getInstance().getMenuManager().moveSection(sec2, 0);
+            CatERing.getInstance().getMenuManager().moveSection(sec2, 1);
+            //CatERing.getInstance().getMenuManager().moveSection(sec, 2);
             System.out.println(m.testString());
 
         } catch (UseCaseLogicException ex) {

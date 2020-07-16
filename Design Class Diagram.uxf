@@ -459,7 +459,7 @@ fg=gray</panel_attributes>
 + removeReceiver(er: KitchenTaskEventReceiver)
 - notifyServiceSheetCreated(sheet: ServiceSheet)
 - notifyKitchenTaskAdded(sheet: ServiceSheet, task: KitchenTask)
-- notifyKitchenTaskAssigned(sheet: ServiceSheet, task: KitchenTask, shift: KitchenShift)
+- notifyKitchenTaskAssigned(task: KitchenTask, shift: KitchenShift)
 - notifyKitchenTaskDeleted(sheet: ServiceSheet, task: KitchenTask)
 - notifyKitchenTaskUpdated(sheet: ServiceSheet, task: KitchenTask)
 - notifyKitchenTasksRearranged(sheet: ServiceSheet)
@@ -471,6 +471,7 @@ fg=gray</panel_attributes>
 + insertKitchenTask(sheet: ServiceSheet, proc: KitchenProcedure)
 + deleteKitchenTask(sheet: ServiceSheet, task: KitchenTask)
 + moveKitchenTask(sheet: ServiceSheet, task: KitchenTask, position: int)
++ lookupShiftsBoard(): ArrayList&lt;KitchenShift&gt;
 + assignKitchenTask(sheet: ServiceSheet, task: KitchenTask, shift: KitchenShift, cook: Cook, time: Date, quantity: String)
 + modifyCook(sheet: ServiceSheet, task: KitchenTask, cook: Cook)
 + modifyShift(sheet: ServiceSheet, task: KitchenTask, shift: KitchenShift)
@@ -497,7 +498,7 @@ fg=gray</panel_attributes>
 
 --
 /+ updateKitchenTaskAdded(sheet: ServiceSheet, task: KitchenTask)/
-/+ updateKitchenTaskAssigned(sheet: ServiceSheet, task: KitchenTask, shift: KitcheShift)/
+/+ updateKitchenTaskAssigned(task: KitchenTask, shift: KitcheShift)/
 /+ updateServiceSheetCreated(sheet: ServiceSheet)/
 /+ updateKitchenTaskDeleted(sheet: ServiceSheet, task: KitchenTask)/
 /+ updateKitchenTaskUpdated(sheet: ServiceSheet, task: KitchenTask)/
@@ -887,7 +888,8 @@ m2=0..n</panel_attributes>
 + assignKitchenTask(task: KitchenTask)
 + unassignKitchenTask(task: KitchenTask)
 + hasCookAvailable(cook: Cook): boolean
-+ isFull(): booolean</panel_attributes>
++ isFull(): booolean
+_+ loadAllKitchenShifts(): ArrayList&lt;KitchenShift&gt;_</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

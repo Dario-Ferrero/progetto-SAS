@@ -157,6 +157,11 @@ public class KitchenTask {
             loadedKitchenTasks.put(task.id, task);
     }
 
+    public static void updateAssignedTask(KitchenTask task, KitchenShift shift) {
+        // inserire i dati nei campi
+        String upd = "UPDATE KitchenTasks SET time_required = ?, quantity = ?, cook_id = ?, kitchenshift_id = ? WHERE id = " + task.id;
+    }
+
     public static KitchenTask loadKitchenTaskById(int taskId) {
         if (loadedKitchenTasks.containsKey(taskId)) return loadedKitchenTasks.get(taskId);
 

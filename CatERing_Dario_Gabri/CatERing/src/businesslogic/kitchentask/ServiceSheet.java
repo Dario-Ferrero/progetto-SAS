@@ -1,8 +1,6 @@
 package businesslogic.kitchentask;
 
 import businesslogic.event.Service;
-import businesslogic.menu.MenuItem;
-import businesslogic.menu.Section;
 import businesslogic.recipe.Recipe;
 import businesslogic.user.User;
 import javafx.collections.FXCollections;
@@ -44,6 +42,18 @@ public class ServiceSheet {
     public ObservableList<KitchenTask> getAllTasks() { return this.tasks; }
     public boolean hasKitchenTask(KitchenTask task)     { return this.tasks.contains(task); }
 
+    // OPERATION METHODS
+
+    public void moveKitchenTask(KitchenTask task, int position) {
+        this.tasks.remove(task);
+        System.out.println("IN METHOD CALL\r\n");
+        for (KitchenTask t : this.tasks) {
+            System.out.println(tasks.indexOf(t) + ". " + t.toString());
+        }
+        this.tasks.add(position, task);
+    }
+
+
     // STATIC METHODS FOR PERSISTENCE
 
     public static void saveNewServiceSheet(ServiceSheet sheet) {
@@ -68,6 +78,22 @@ public class ServiceSheet {
                 KitchenTask.saveAllNewKitchenTasks(sheet.id, sheet.tasks);
             }
         }
+    }
+
+    public static void saveKitchenTasksOrder(ServiceSheet sheet) {
+        String upd = "UPDATE KitchenTasks SET position = ? WHERE id = ?";
+        PersistenceManager.executeBatchUpdate(upd, sheet.tasks.size(), new BatchUpdateHandler() {
+            @Override
+            public void handleBatchItem(PreparedStatement ps, int batchCount) throws SQLException {
+                ps.setInt(1, batchCount);
+                ps.setInt(2, sheet.tasks.get(batchCount).getId());
+            }
+
+            @Override
+            public void handleGeneratedIds(ResultSet rs, int count) throws SQLException {
+                // no generated ids to handle
+            }
+        });
     }
 
     public static ServiceSheet loadServiceSheet(Service s) {

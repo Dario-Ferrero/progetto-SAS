@@ -54,6 +54,10 @@ public class Main {
 
     }
 
+    public void startKitchenTaskManagement() {
+
+    }
+
     public void showStartPane() {
         startPaneController.initialize();
         paneContainer.getChildren().remove(menuManagementPane);

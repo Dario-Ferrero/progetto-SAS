@@ -11,6 +11,9 @@ public class Start {
         mainPaneController.startMenuManagement();
     }
 
+    @FXML
+    void beginKitchenTaskManagement() {}
+
     public void setParent(Main main) {
         this.mainPaneController = main;
     }
