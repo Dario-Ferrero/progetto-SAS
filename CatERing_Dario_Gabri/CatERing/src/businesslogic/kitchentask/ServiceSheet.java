@@ -112,7 +112,7 @@ public class ServiceSheet {
                 if (newSheet.getId() == 0)
                     newSheet.setId(rs.getInt("sh.id"));
                 KitchenTask kt = new KitchenTask();
-                kt.setId(rs.getInt("id"));
+                kt.setId(rs.getInt("kitchentask_id"));
                 kt.setPrepared(rs.getBoolean("prepared"));
                 kt.setQuantity(rs.getString("quantity"));
                 kt.setTimeRequired(rs.getInt("time_required"));
@@ -127,6 +127,7 @@ public class ServiceSheet {
         newSheet.setService(s);
 
         for (int i = 0; i < newTasks.size(); i++) {
+            System.out.println("Load sheet's task\n" + newTasks.get(i));
             User cook = User.loadUserById(cookIds.get(i));
             newTasks.get(i).setCook((cook.getId() > 0) ? cook : null);
 

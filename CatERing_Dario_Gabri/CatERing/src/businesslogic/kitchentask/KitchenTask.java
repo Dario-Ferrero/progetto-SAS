@@ -33,8 +33,11 @@ public class KitchenTask {
         this.timeRequired = 0;
     }
 
+
     public String toString() {
-        return procedure + ": " + "quantity " + quantity + ", time required " + timeRequired + " minutes";
+        return procedure + ": " + "quantity " + quantity + ", time required " + timeRequired + " minutes" +
+                "\ncook: " + ((this.cook != null)? this.cook.toString() : "") +
+                "\nshift: " + ((this.shift != null)? this.shift.getId() : "") + "\n";
     }
 
     // GETTER METHODS
@@ -42,47 +45,39 @@ public class KitchenTask {
     public int getId() {
         return id;
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
     public int getTimeRequired() {
         return timeRequired;
-    }
-    public void setTimeRequired(int timeRequired) {
-        this.timeRequired = timeRequired;
     }
     public boolean isPrepared() {
         return prepared;
     }
-    public void setPrepared(boolean prepared) {
-        this.prepared = prepared;
-    }
     public String getQuantity() {
         return quantity;
     }
+    public KitchenShift getKitchenShift() { return this.shift; }
+    public KitchenProcedure getKitchenProcedure() { return this.procedure; }
 
     // SETTER METHODS
 
+    public void setId(int id) {
+        this.id = id;
+    }
+    public void setTimeRequired(int timeRequired) {
+        this.timeRequired = timeRequired;
+    }
     public void setQuantity(String quantity) {
         this.quantity = quantity;
     }
-    public KitchenProcedure getKitchenProcedure() {
-        return procedure;
+    public void setPrepared(boolean prepared) {
+        this.prepared = prepared;
     }
     public void setKitchenProcedure(KitchenProcedure procedure) {
         this.procedure = procedure;
-    }
-    public KitchenShift getKitchenShift() {
-        return shift;
     }
     public void setKitchenShift(KitchenShift shift) {
         this.shift = shift;
     }
 
-    public User getCook() {
-        return cook;
-    }
 
     public void setCook(User cook) {
         this.cook = cook;
@@ -158,8 +153,21 @@ public class KitchenTask {
     }
 
     public static void updateAssignedTask(KitchenTask task, KitchenShift shift) {
-        // inserire i dati nei campi
-        String upd = "UPDATE KitchenTasks SET time_required = ?, quantity = ?, cook_id = ?, kitchenshift_id = ? WHERE id = " + task.id;
+        String taskUpdate = "UPDATE KitchenTasks SET " +
+                "time_required = " + task.timeRequired +
+                ", quantity = '"+ PersistenceManager.escapeString(task.quantity) +
+                "', cook_id = " + ((task.cook != null)? task.cook.getId() : 0) +
+                ", kitchenshift_id = " + task.shift.getId() +
+                " WHERE id = " + task.id;
+        PersistenceManager.executeUpdate(taskUpdate);
+
+        String assignment = "INSERT INTO AssignedTasks (kitchenshift_id, task_id) VALUES (" +
+                task.shift.getId() + ", " + task.id + ");";
+        PersistenceManager.executeUpdate(assignment);
+    }
+
+    public static void saveKitchenTaskUpdated(KitchenTask task) {
+
     }
 
     public static KitchenTask loadKitchenTaskById(int taskId) {
@@ -182,6 +190,8 @@ public class KitchenTask {
             }
         });
         if (newTask.id > 0) {
+            loadedKitchenTasks.putIfAbsent(newTask.id, newTask);
+
             User cook = User.loadUserById(fieldIds[0]);
             newTask.setCook((cook.getId() > 0) ? cook : null);
 
@@ -190,9 +200,19 @@ public class KitchenTask {
 
             KitchenShift shift = KitchenShift.loadKitchenShiftById(fieldIds[2]);
             newTask.setKitchenShift((shift.getId() > 0) ? shift : null);
-
-            loadedKitchenTasks.putIfAbsent(newTask.id, newTask);
         }
         return newTask;
+    }
+
+    public static void deleteKitchenTask(KitchenTask task) {
+        String unassignTask = "DELETE FROM AssignedTasks WHERE task_id = " + task.id;
+        PersistenceManager.executeUpdate(unassignTask);
+
+        String removeFromSheet = "DELETE FROM SheetTasks WHERE kitchentask_id = " + task.id;
+        PersistenceManager.executeUpdate(removeFromSheet);
+
+        String removeTask = "DELETE FROM KitchenTasks WHERE id = " + task.id;
+        PersistenceManager.executeUpdate(removeTask);
+        loadedKitchenTasks.remove(task.id);
     }
 }

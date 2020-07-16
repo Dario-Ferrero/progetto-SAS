@@ -11,7 +11,7 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Button mnemonicParsing="false" text="...to do">
+      <Button mnemonicParsing="false" onAction="#beginKitchenTaskManagement" text="Gestire compiti della cucina">
          <font>
             <Font size="15.0" />
          </font>

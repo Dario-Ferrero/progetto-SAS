@@ -1,6 +1,7 @@
 package businesslogic.menu;
 
 import businesslogic.CatERing;
+import businesslogic.recipe.KitchenProcedure;
 import businesslogic.recipe.Recipe;
 import businesslogic.user.User;
 import javafx.collections.FXCollections;
@@ -125,6 +126,20 @@ public class Menu {
 
     public String getTitle() {
         return this.title;
+    }
+
+    public boolean hasRecipe(KitchenProcedure proc) {
+        for (MenuItem free : freeItems) {
+            if (free.getItemRecipe().equals(proc))
+                return true;
+        }
+        for (Section sec : sections) {
+            for (MenuItem item : sec.getItems()) {
+                if (item.getItemRecipe().equals(proc))
+                    return true;
+            }
+        }
+        return false;
     }
 
     public void addFakeSections() {
@@ -565,4 +580,6 @@ public class Menu {
             }
         });
     }
+
+
 }

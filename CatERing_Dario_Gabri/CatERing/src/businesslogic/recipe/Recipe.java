@@ -19,6 +19,15 @@ public class Recipe extends KitchenProcedure {
         this.name = name;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj != null && obj instanceof Recipe) {
+            Recipe that = (Recipe)obj;
+            return this.id == that.id;
+        }
+        return false;
+    }
+
     // STATIC METHODS FOR PERSISTENCE
 
     public static ObservableList<Recipe> loadAllRecipes() {

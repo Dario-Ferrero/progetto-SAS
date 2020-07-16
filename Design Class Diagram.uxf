@@ -460,14 +460,14 @@ fg=gray</panel_attributes>
 - notifyServiceSheetCreated(sheet: ServiceSheet)
 - notifyKitchenTaskAdded(sheet: ServiceSheet, task: KitchenTask)
 - notifyKitchenTaskAssigned(task: KitchenTask, shift: KitchenShift)
-- notifyKitchenTaskDeleted(sheet: ServiceSheet, task: KitchenTask)
-- notifyKitchenTaskUpdated(sheet: ServiceSheet, task: KitchenTask)
+- notifyKitchenTaskDeleted(task: KitchenTask)
+- notifyKitchenTaskUpdated(task: KitchenTask)
 - notifyKitchenTasksRearranged(sheet: ServiceSheet)
 
 --
 *operations methods*
 + openServiceSheet(ev: Event, serv: Service): ServiceSheet
-+ resetServiceSheet(sheet: ServiceSheet)
++ resetServiceSheet(sheet: ServiceSheet): ServiceSheet
 + insertKitchenTask(sheet: ServiceSheet, proc: KitchenProcedure)
 + deleteKitchenTask(sheet: ServiceSheet, task: KitchenTask)
 + moveKitchenTask(sheet: ServiceSheet, task: KitchenTask, position: int)
@@ -500,8 +500,8 @@ fg=gray</panel_attributes>
 /+ updateKitchenTaskAdded(sheet: ServiceSheet, task: KitchenTask)/
 /+ updateKitchenTaskAssigned(task: KitchenTask, shift: KitcheShift)/
 /+ updateServiceSheetCreated(sheet: ServiceSheet)/
-/+ updateKitchenTaskDeleted(sheet: ServiceSheet, task: KitchenTask)/
-/+ updateKitchenTaskUpdated(sheet: ServiceSheet, task: KitchenTask)/
+/+ updateKitchenTaskDeleted(task: KitchenTask)/
+/+ updateKitchenTaskUpdated(task: KitchenTask)/
 /+ updateKitchenTasksRearranged(sheet: ServiceSheet)/</panel_attributes>
     <additional_attributes/>
   </element>
@@ -552,7 +552,7 @@ m1=0..n</panel_attributes>
 --
 + create(proc: KitchenProcedure)
 + setCook(cook: Cook)
-+ setShift(shift: KitchenShift)
++ setKitchenShift(shift: KitchenShift)
 + setTimeRequired(time: int)
 + setQuantity(quantity: String)
 + setPrepared(prepared: boolean)

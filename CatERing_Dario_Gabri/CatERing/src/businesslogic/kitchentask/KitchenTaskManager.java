@@ -25,7 +25,7 @@ public class KitchenTaskManager {
     public ServiceSheet openServiceSheet(Event event, Service service) throws UseCaseLogicException {
         User user = CatERing.getInstance().getUserManager().getCurrentUser();
         if (!user.isChef() || !event.getOrganizer().equals(user) || !event.hasService(service)) {
-            System.err.println("Error in KitchenTaskManager$openServiceSheet");
+            System.err.println("Error in openServiceSheet");
             throw new UseCaseLogicException();
         }
 
@@ -51,7 +51,7 @@ public class KitchenTaskManager {
     public KitchenTask insertKitchenTask(ServiceSheet sheet, KitchenProcedure proc) throws UseCaseLogicException {
         User user = CatERing.getInstance().getUserManager().getCurrentUser();
         if (!user.isChef() || !openSheets.contains(sheet)) {
-            System.err.println("Error in KitchenTaskManager$insertKitchenTask");
+            System.err.println("Error in insertKitchenTask");
             throw new UseCaseLogicException();
         }
 
@@ -65,7 +65,7 @@ public class KitchenTaskManager {
     public void moveKitchenTask(ServiceSheet sheet, KitchenTask task, int position) throws UseCaseLogicException, KitchenTaskException {
         User user = CatERing.getInstance().getUserManager().getCurrentUser();
         if (!user.isChef() || !openSheets.contains(sheet) || !sheet.hasKitchenTask(task)) {
-            System.err.println("Error in KitchenTaskManager$moveKitchenTask");
+            System.err.println("Error in moveKitchenTask");
             throw new UseCaseLogicException();
         } else if (position < 0 || position >= sheet.getAllTasks().size()) {
             System.err.println("Position parameter out of bounds");
@@ -89,7 +89,6 @@ public class KitchenTaskManager {
             throws UseCaseLogicException, KitchenTaskException {
         User user = CatERing.getInstance().getUserManager().getCurrentUser();
         if (!user.isChef() || !openSheets.contains(sheet) || !sheet.hasKitchenTask(task)) {
-            System.err.println("Error in KitchenTaskManager$assignKitchenTask");
             throw new UseCaseLogicException();
         } else if ((cook != null && !shift.hasCookAvailable(cook)) || shift.isPastShift() || shift.isFull()) {
             throw new KitchenTaskException();
@@ -99,12 +98,54 @@ public class KitchenTaskManager {
         task.setKitchenShift(shift);
         if (cook != null)
             task.setCook(cook);
-        if (timeRequired >= 0)
+        if (timeRequired > 0)
             task.setTimeRequired(timeRequired);
         if (quantity != null)
             task.setQuantity(quantity);
 
         notifyKitchenTaskAssigned(task, shift);
+    }
+    
+    public ServiceSheet resetServiceSheet(ServiceSheet sheet) throws UseCaseLogicException {
+        User user = CatERing.getInstance().getUserManager().getCurrentUser();
+        if (!user.isChef() || !openSheets.contains(sheet)) {
+            System.err.println("Error in resetServiceSheet");
+            throw new UseCaseLogicException();
+        }
+
+        for (KitchenTask task : sheet.getAllTasks()) {
+            if (!sheet.getService().getApprovedMenu().hasRecipe(task.getKitchenProcedure())) {
+                deleteKitchenTask(sheet, task);
+            } else {
+                task.setTimeRequired(0);
+                task.setPrepared(false);
+                task.setQuantity("");
+                task.setCook(null);
+                if (task.getKitchenShift() != null) {
+                    task.getKitchenShift().unassignKitchenTask(task);
+                    task.setKitchenShift(null);
+                }
+
+                notifyKitchenTaskUpdated(task);
+            }
+        }
+
+        return sheet;
+    }
+
+
+
+    public void deleteKitchenTask(ServiceSheet sheet, KitchenTask task) throws UseCaseLogicException {
+        User user = CatERing.getInstance().getUserManager().getCurrentUser();
+        if (!user.isChef() || !openSheets.contains(sheet) || !sheet.hasKitchenTask(task)) {
+            System.err.println("Error in deleteKitchenTask");
+            throw new UseCaseLogicException();
+        }
+        sheet.removeKitchenTask(task);
+        if (task.getKitchenShift() != null) {
+            task.getKitchenShift().unassignKitchenTask(task);
+        }
+        notifyKitchenTaskDeleted(task);
     }
 
 
@@ -136,9 +177,22 @@ public class KitchenTaskManager {
         }
     }
 
+    private void notifyKitchenTaskUpdated(KitchenTask task) {
+        for (KitchenTaskEventReceiver er : this.eventReceivers) {
+            er.updateKitchenTaskUpdated(task);
+        }
+    }
+
+    private void notifyKitchenTaskDeleted(KitchenTask task) {
+        for (KitchenTaskEventReceiver er : this.eventReceivers) {
+            er.updateKitchenTaskDeleted(task);
+        }
+    }
+
     public void addEventReceiver(KitchenTaskEventReceiver rec) {
         this.eventReceivers.add(rec);
     }
+
     public void removeEventReceiver(KitchenTaskEventReceiver rec) {
         this.eventReceivers.remove(rec);
     }

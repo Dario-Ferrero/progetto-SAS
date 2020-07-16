@@ -18,6 +18,16 @@ public class KitchenTaskPersistence implements KitchenTaskEventReceiver {
     }
 
     @Override
+    public void updateKitchenTaskUpdated(KitchenTask task) {
+        KitchenTask.saveKitchenTaskUpdated(task);
+    }
+
+    @Override
+    public void updateKitchenTaskDeleted(KitchenTask task) {
+        KitchenTask.deleteKitchenTask(task);
+    }
+
+    @Override
     public void updateKitchenTasksRearranged(ServiceSheet sheet) {
         ServiceSheet.saveKitchenTasksOrder(sheet);
     }
