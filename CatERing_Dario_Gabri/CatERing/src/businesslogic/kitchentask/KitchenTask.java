@@ -152,22 +152,41 @@ public class KitchenTask {
             loadedKitchenTasks.put(task.id, task);
     }
 
-    public static void updateAssignedTask(KitchenTask task, KitchenShift shift) {
+    public static void updateKitchenTask(KitchenTask task) {
         String taskUpdate = "UPDATE KitchenTasks SET " +
                 "time_required = " + task.timeRequired +
                 ", quantity = '"+ PersistenceManager.escapeString(task.quantity) +
-                "', cook_id = " + ((task.cook != null)? task.cook.getId() : 0) +
-                ", kitchenshift_id = " + task.shift.getId() +
+                "', prepared = " + task.prepared +
+                ", cook_id = " + ((task.cook != null) ? task.cook.getId() : 0) +
+                ", kitchenshift_id = " + ((task.shift != null) ? task.shift.getId() : 0) +
                 " WHERE id = " + task.id;
         PersistenceManager.executeUpdate(taskUpdate);
 
+        if (task.shift != null) {
+            updateTaskAssigned(task);
+        }
+    }
+
+    public static void updateAssignedTask(KitchenTask task) {
+        updateKitchenTask(task);
+        updateTaskAssigned(task);
+    }
+
+    public static void updateTaskAssigned(KitchenTask task) {
         String assignment = "INSERT INTO AssignedTasks (kitchenshift_id, task_id) VALUES (" +
                 task.shift.getId() + ", " + task.id + ");";
         PersistenceManager.executeUpdate(assignment);
     }
 
-    public static void saveKitchenTaskUpdated(KitchenTask task) {
+    public static void updateTaskUnassigned(KitchenTask task) {
+        String unassigned = "DELETE FROM AssignedTasks WHERE task_id = " + task.id;
+        PersistenceManager.executeUpdate(unassigned);
+    }
 
+    public static void updateKitchenTaskReset(ServiceSheet sheet, KitchenTask task) {
+        updateKitchenTask(task);
+        updateTaskUnassigned(task);
+        ServiceSheet.saveKitchenTasksOrder(sheet);
     }
 
     public static KitchenTask loadKitchenTaskById(int taskId) {
@@ -204,9 +223,8 @@ public class KitchenTask {
         return newTask;
     }
 
-    public static void deleteKitchenTask(KitchenTask task) {
-        String unassignTask = "DELETE FROM AssignedTasks WHERE task_id = " + task.id;
-        PersistenceManager.executeUpdate(unassignTask);
+    public static void deleteKitchenTask(ServiceSheet sheet, KitchenTask task) {
+        updateTaskUnassigned(task);
 
         String removeFromSheet = "DELETE FROM SheetTasks WHERE kitchentask_id = " + task.id;
         PersistenceManager.executeUpdate(removeFromSheet);
@@ -214,5 +232,7 @@ public class KitchenTask {
         String removeTask = "DELETE FROM KitchenTasks WHERE id = " + task.id;
         PersistenceManager.executeUpdate(removeTask);
         loadedKitchenTasks.remove(task.id);
+
+        ServiceSheet.saveKitchenTasksOrder(sheet);
     }
 }

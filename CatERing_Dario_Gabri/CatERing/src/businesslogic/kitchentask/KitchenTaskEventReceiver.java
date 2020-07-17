@@ -7,11 +7,13 @@ public interface KitchenTaskEventReceiver {
 
     void updateKitchenTaskAdded(ServiceSheet sheet, KitchenTask task);
 
-    void updateKitchenTaskDeleted(KitchenTask task);
+    void updateKitchenTaskDeleted(ServiceSheet sheet, KitchenTask task);
 
     void updateKitchenTasksRearranged(ServiceSheet sheet);
 
-    void updateKitchenTaskAssigned(KitchenTask task, KitchenShift shift);
+    void updateKitchenTaskAssigned(KitchenTask task);
+
+    void updateKitchenTaskReset(ServiceSheet sheet, KitchenTask task);
 
     void updateKitchenTaskUpdated(KitchenTask task);
 }

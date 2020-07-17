@@ -19,21 +19,24 @@ public class ServiceSheet {
     private Service service;
     private ObservableList<KitchenTask> tasks;
 
-    public ServiceSheet() { this(null); }
     public ServiceSheet(Service service) {
         this.id = 0;
         this.service = service;
         this.tasks = FXCollections.observableArrayList();
     }
 
+    public ServiceSheet(int tasksNumber) {
+        this.id = 0;
+        this.service = null;
+        this.tasks = FXCollections.observableArrayList(new ArrayList<>(tasksNumber));
+    }
+
     // SETTER METHODS
 
     public void addKitchenTask(KitchenTask task)        { this.tasks.add(task); }
+    public void addKitchenTask(int position, KitchenTask task)        { this.tasks.add(position, task); }
     public boolean removeKitchenTask(KitchenTask task)  { return this.tasks.remove(task); }
     public void setId(int id)         { this.id = id; }
-    public void setService(Service s) {
-        this.service = s;
-    }
 
     // GETTER METHODS
 
@@ -46,10 +49,6 @@ public class ServiceSheet {
 
     public void moveKitchenTask(KitchenTask task, int position) {
         this.tasks.remove(task);
-        System.out.println("IN METHOD CALL\r\n");
-        for (KitchenTask t : this.tasks) {
-            System.out.println(tasks.indexOf(t) + ". " + t.toString());
-        }
         this.tasks.add(position, task);
     }
 
@@ -100,45 +99,54 @@ public class ServiceSheet {
         String query = "SELECT * FROM ServiceSheets sh " +
                 "join SheetTasks st on (sh.id=st.sheet_id) " +
                 "join KitchenTasks kts on (st.kitchentask_id=kts.id) WHERE sh.service_id=" + s.getId();
-        ServiceSheet newSheet = new ServiceSheet();
         ObservableList<KitchenTask> newTasks = FXCollections.observableArrayList();
         ArrayList<Integer> procedureIds = new ArrayList<>(),
                            cookIds = new ArrayList<>(),
-                           shiftIds = new ArrayList<>();
+                           shiftIds = new ArrayList<>(),
+                           positions = new ArrayList<>();
+        int[] sheetId = new int[1];
 
         PersistenceManager.executeQuery(query, new ResultHandler() {
             @Override
             public void handle(ResultSet rs) throws SQLException {
-                if (newSheet.getId() == 0)
-                    newSheet.setId(rs.getInt("sh.id"));
+                if (sheetId[0] == 0)
+                    sheetId[0] = rs.getInt("sh.id");
                 KitchenTask kt = new KitchenTask();
                 kt.setId(rs.getInt("kitchentask_id"));
                 kt.setPrepared(rs.getBoolean("prepared"));
                 kt.setQuantity(rs.getString("quantity"));
                 kt.setTimeRequired(rs.getInt("time_required"));
-                int position = rs.getInt("position");
-                newTasks.add(position, kt);
-                cookIds.add(position, rs.getInt("cook_id"));
-                shiftIds.add(position, rs.getInt("kitchenshift_id"));
-                procedureIds.add(position, rs.getInt("procedure_id"));
+
+                newTasks.add(kt);
+                cookIds.add(rs.getInt("cook_id"));
+                shiftIds.add(rs.getInt("kitchenshift_id"));
+                procedureIds.add(rs.getInt("procedure_id"));
+                positions.add(rs.getInt("position"));
             }
         });
 
-        newSheet.setService(s);
+        ServiceSheet newSheet = new ServiceSheet(positions.size());
+        newSheet.id = sheetId[0];
+        newSheet.service = s;
 
-        for (int i = 0; i < newTasks.size(); i++) {
-            System.out.println("Load sheet's task\n" + newTasks.get(i));
-            User cook = User.loadUserById(cookIds.get(i));
-            newTasks.get(i).setCook((cook.getId() > 0) ? cook : null);
+        for (Integer position : positions) {
+            for (int i = 0; i < newTasks.size(); i++) {
+                if (positions.get(i) == position) {
+                    KitchenTask task = newTasks.get(i);
 
-            KitchenShift shift = KitchenShift.loadKitchenShiftById(shiftIds.get(i));
-            newTasks.get(i).setKitchenShift((shift.getId() > 0) ? shift : null);
+                    User cook = User.loadUserById(cookIds.get(i));
+                    task.setCook((cook.getId() > 0) ? cook : null);
 
-            Recipe recipe = Recipe.loadRecipeById(procedureIds.get(i));
-            newTasks.get(i).setKitchenProcedure((recipe.getId() > 0) ? recipe : null);
+                    KitchenShift shift = KitchenShift.loadKitchenShiftById(shiftIds.get(i));
+                    task.setKitchenShift((shift.getId() > 0) ? shift : null);
 
-            newSheet.tasks = newTasks;
-            KitchenTask.addLoadedKitchenTask(newTasks.get(i));
+                    Recipe recipe = Recipe.loadRecipeById(procedureIds.get(i));
+                    task.setKitchenProcedure((recipe.getId() > 0) ? recipe : null);
+
+                    newSheet.addKitchenTask(task);
+                    KitchenTask.addLoadedKitchenTask(task);
+                }
+            }
         }
 
         return newSheet;

@@ -86,11 +86,11 @@ throw UseCaseLogicException</panel_attributes>
     <coordinates>
       <x>464</x>
       <y>880</y>
-      <w>232</w>
+      <w>216</w>
       <h>48</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
-notifyKitchenTaskUpdated(task)</panel_attributes>
+notifyKitchenTaskReset(task)</panel_attributes>
     <additional_attributes>10.0;10.0;70.0;10.0;70.0;40.0;20.0;40.0</additional_attributes>
   </element>
   <element>
@@ -126,7 +126,7 @@ fg=blue</panel_attributes>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-updateKitchenTaskUpdated(task)
+updateKitchenTaskReset(task)
 </panel_attributes>
     <additional_attributes>620.0;20.0;10.0;20.0</additional_attributes>
   </element>

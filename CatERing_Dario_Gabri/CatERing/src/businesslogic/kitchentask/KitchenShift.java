@@ -59,7 +59,6 @@ public class KitchenShift extends Shift {
     public static KitchenShift loadKitchenShiftById(int shiftId) {
         if (loadedKitchenShifts.containsKey(shiftId)) return loadedKitchenShifts.get(shiftId);
 
-        System.out.println("Load Shift: " + shiftId);
         KitchenShift shift = new KitchenShift();
         String query = "SELECT * FROM KitchenShifts KS join AssignedTasks AT on (KS.id=AT.kitchenshift_id) " +
                 "join CooksAvailable CA on (KS.id=CA.kitchenshift_id) WHERE KS.id="+ shiftId;
@@ -88,7 +87,6 @@ public class KitchenShift extends Shift {
                 shift.cooksAvailable.add(User.loadUserById(cookId));
             }
             for (Integer taskId : assignedTaskIds) {
-                System.out.println("Task assigned: " + taskId);
                 shift.assignedTasks.add(KitchenTask.loadKitchenTaskById(taskId));
             }
         }

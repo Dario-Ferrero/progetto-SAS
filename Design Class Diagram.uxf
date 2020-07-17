@@ -450,7 +450,7 @@ fg=gray</panel_attributes>
       <x>870</x>
       <y>1680</y>
       <w>550</w>
-      <h>340</h>
+      <h>360</h>
     </coordinates>
     <panel_attributes>KitchenTaskManager
 --
@@ -459,8 +459,9 @@ fg=gray</panel_attributes>
 + removeReceiver(er: KitchenTaskEventReceiver)
 - notifyServiceSheetCreated(sheet: ServiceSheet)
 - notifyKitchenTaskAdded(sheet: ServiceSheet, task: KitchenTask)
-- notifyKitchenTaskAssigned(task: KitchenTask, shift: KitchenShift)
+- notifyKitchenTaskAssigned(task: KitchenTask)
 - notifyKitchenTaskDeleted(task: KitchenTask)
+- notifyKitchenTaskReset(task: KitchenTask)
 - notifyKitchenTaskUpdated(task: KitchenTask)
 - notifyKitchenTasksRearranged(sheet: ServiceSheet)
 
@@ -498,9 +499,10 @@ fg=gray</panel_attributes>
 
 --
 /+ updateKitchenTaskAdded(sheet: ServiceSheet, task: KitchenTask)/
-/+ updateKitchenTaskAssigned(task: KitchenTask, shift: KitcheShift)/
+/+ updateKitchenTaskAssigned(task: KitchenTask)/
 /+ updateServiceSheetCreated(sheet: ServiceSheet)/
 /+ updateKitchenTaskDeleted(task: KitchenTask)/
+/+ updateKitchenTaskReset(task: KitchenTask)/
 /+ updateKitchenTaskUpdated(task: KitchenTask)/
 /+ updateKitchenTasksRearranged(sheet: ServiceSheet)/</panel_attributes>
     <additional_attributes/>
@@ -509,14 +511,14 @@ fg=gray</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1060</x>
-      <y>2010</y>
+      <y>2030</y>
       <w>100</w>
-      <h>190</h>
+      <h>170</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 eventReceivers
 m1=0..n</panel_attributes>
-    <additional_attributes>10.0;170.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;150.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -614,14 +616,14 @@ m1=0..n</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1320</x>
-      <y>2010</y>
+      <y>2030</y>
       <w>110</w>
-      <h>270</h>
+      <h>250</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 openSheets
 m1=0..n</panel_attributes>
-    <additional_attributes>90.0;250.0;10.0;250.0;10.0;10.0</additional_attributes>
+    <additional_attributes>90.0;230.0;10.0;230.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>

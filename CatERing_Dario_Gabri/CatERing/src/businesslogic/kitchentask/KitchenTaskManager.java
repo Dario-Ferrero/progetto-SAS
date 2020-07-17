@@ -48,6 +48,40 @@ public class KitchenTaskManager {
         return openedSheet;
     }
 
+    public ServiceSheet resetServiceSheet(ServiceSheet sheet) throws UseCaseLogicException {
+        User user = CatERing.getInstance().getUserManager().getCurrentUser();
+        if (!user.isChef() || !openSheets.contains(sheet)) {
+            System.err.println("Error in resetServiceSheet");
+            throw new UseCaseLogicException();
+        }
+
+        ArrayList<KitchenTask> tasksToDelete = new ArrayList<>();
+        for (KitchenTask task : sheet.getAllTasks()) {
+            if (!sheet.getService().getApprovedMenu().hasRecipe(task.getKitchenProcedure())) {
+                System.out.println("ID: " + task.getId() + ". POS: " + sheet.getAllTasks().indexOf(task) + "° : FIRST");
+                tasksToDelete.add(task);
+            } else {
+                System.out.println("ID: " + task.getId() + ". POS: " + sheet.getAllTasks().indexOf(task) + "°: SECOND");
+                task.setTimeRequired(0);
+                task.setPrepared(false);
+                task.setQuantity("");
+                task.setCook(null);
+                if (task.getKitchenShift() != null) {
+                    task.getKitchenShift().unassignKitchenTask(task);
+                    task.setKitchenShift(null);
+                }
+
+                notifyKitchenTaskReset(sheet, task);
+            }
+        }
+
+        for (KitchenTask task : tasksToDelete) {
+            deleteKitchenTask(sheet, task);
+        }
+
+        return sheet;
+    }
+
     public KitchenTask insertKitchenTask(ServiceSheet sheet, KitchenProcedure proc) throws UseCaseLogicException {
         User user = CatERing.getInstance().getUserManager().getCurrentUser();
         if (!user.isChef() || !openSheets.contains(sheet)) {
@@ -60,6 +94,19 @@ public class KitchenTaskManager {
         notifyKitchenTaskAdded(sheet, newTask);
 
         return newTask;
+    }
+
+    public void deleteKitchenTask(ServiceSheet sheet, KitchenTask task) throws UseCaseLogicException {
+        User user = CatERing.getInstance().getUserManager().getCurrentUser();
+        if (!user.isChef() || !openSheets.contains(sheet) || !sheet.hasKitchenTask(task)) {
+            System.err.println("Error in deleteKitchenTask");
+            throw new UseCaseLogicException();
+        }
+        sheet.removeKitchenTask(task);
+        if (task.getKitchenShift() != null) {
+            task.getKitchenShift().unassignKitchenTask(task);
+        }
+        notifyKitchenTaskDeleted(sheet, task);
     }
 
     public void moveKitchenTask(ServiceSheet sheet, KitchenTask task, int position) throws UseCaseLogicException, KitchenTaskException {
@@ -103,49 +150,39 @@ public class KitchenTaskManager {
         if (quantity != null)
             task.setQuantity(quantity);
 
-        notifyKitchenTaskAssigned(task, shift);
+        notifyKitchenTaskAssigned(task);
     }
     
-    public ServiceSheet resetServiceSheet(ServiceSheet sheet) throws UseCaseLogicException {
-        User user = CatERing.getInstance().getUserManager().getCurrentUser();
-        if (!user.isChef() || !openSheets.contains(sheet)) {
-            System.err.println("Error in resetServiceSheet");
-            throw new UseCaseLogicException();
-        }
-
-        for (KitchenTask task : sheet.getAllTasks()) {
-            if (!sheet.getService().getApprovedMenu().hasRecipe(task.getKitchenProcedure())) {
-                deleteKitchenTask(sheet, task);
-            } else {
-                task.setTimeRequired(0);
-                task.setPrepared(false);
-                task.setQuantity("");
-                task.setCook(null);
-                if (task.getKitchenShift() != null) {
-                    task.getKitchenShift().unassignKitchenTask(task);
-                    task.setKitchenShift(null);
-                }
-
-                notifyKitchenTaskUpdated(task);
-            }
-        }
-
-        return sheet;
-    }
-
-
-
-    public void deleteKitchenTask(ServiceSheet sheet, KitchenTask task) throws UseCaseLogicException {
+    public void modifyCook(ServiceSheet sheet, KitchenTask task, User cook) throws UseCaseLogicException, KitchenTaskException {
         User user = CatERing.getInstance().getUserManager().getCurrentUser();
         if (!user.isChef() || !openSheets.contains(sheet) || !sheet.hasKitchenTask(task)) {
-            System.err.println("Error in deleteKitchenTask");
+            throw new UseCaseLogicException();
+        } else if (cook != null && task.getKitchenShift() != null && !task.getKitchenShift().hasCookAvailable(cook)) {
+            throw new KitchenTaskException();
+        }
+
+        task.setCook(cook);
+        notifyKitchenTaskUpdated(task);
+    }
+
+    public void modifyTimeRequired(ServiceSheet sheet, KitchenTask task, int timeRequired) throws UseCaseLogicException {
+        User user = CatERing.getInstance().getUserManager().getCurrentUser();
+        if (!user.isChef() || !openSheets.contains(sheet) || !sheet.hasKitchenTask(task)) {
             throw new UseCaseLogicException();
         }
-        sheet.removeKitchenTask(task);
-        if (task.getKitchenShift() != null) {
-            task.getKitchenShift().unassignKitchenTask(task);
+
+        task.setTimeRequired(timeRequired);
+        notifyKitchenTaskUpdated(task);
+    }
+
+    public void modifyQuantity(ServiceSheet sheet, KitchenTask task, String quantity) throws UseCaseLogicException {
+        User user = CatERing.getInstance().getUserManager().getCurrentUser();
+        if (!user.isChef() || !openSheets.contains(sheet) || !sheet.hasKitchenTask(task)) {
+            throw new UseCaseLogicException();
         }
-        notifyKitchenTaskDeleted(task);
+
+        task.setQuantity((quantity != null) ? quantity : "");
+        notifyKitchenTaskUpdated(task);
     }
 
 
@@ -171,9 +208,15 @@ public class KitchenTaskManager {
         }
     }
 
-    private void notifyKitchenTaskAssigned(KitchenTask task, KitchenShift shift) {
+    private void notifyKitchenTaskAssigned(KitchenTask task) {
         for (KitchenTaskEventReceiver er : this.eventReceivers) {
-            er.updateKitchenTaskAssigned(task, shift);
+            er.updateKitchenTaskAssigned(task);
+        }
+    }
+
+    private void notifyKitchenTaskReset(ServiceSheet sheet, KitchenTask task) {
+        for (KitchenTaskEventReceiver er : this.eventReceivers) {
+            er.updateKitchenTaskReset(sheet, task);
         }
     }
 
@@ -183,9 +226,9 @@ public class KitchenTaskManager {
         }
     }
 
-    private void notifyKitchenTaskDeleted(KitchenTask task) {
+    private void notifyKitchenTaskDeleted(ServiceSheet sheet, KitchenTask task) {
         for (KitchenTaskEventReceiver er : this.eventReceivers) {
-            er.updateKitchenTaskDeleted(task);
+            er.updateKitchenTaskDeleted(sheet, task);
         }
     }
 

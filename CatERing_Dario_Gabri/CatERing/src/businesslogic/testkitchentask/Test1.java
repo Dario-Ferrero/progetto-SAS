@@ -20,11 +20,13 @@ public class Test1 {
             instance.getUserManager().fakeLogin("Lidia");
             System.out.println("User: " + instance.getUserManager().getCurrentUser());
 
-            System.out.println("\r\n-- OPEN EXISTING SERVICE SHEET --\r\n");
+
             Event event = Event.loadEventById(3);
             System.out.println("EVENT LOADED: " + event.toString());
 
             ObservableList<Service> allServices = Service.loadServicesForEvent(event.getId());
+/*
+            System.out.println("\r\n-- OPEN EXISTING SERVICE SHEET --\r\n");
             Service service = allServices.get(0);
             System.out.println("SERVICE LOADED: " + service.toString());
 
@@ -47,7 +49,7 @@ public class Test1 {
             for (KitchenTask task : tasksAfter) {
                 System.out.println(tasksAfter.indexOf(task) + ". " + task.toString());
             }
-/*
+
             System.out.println("\r\n-- ASSIGN KITCHEN TASK --\r\n");
             KitchenShift shift = KitchenShift.loadKitchenShiftById(1);
             User cook = User.loadUser("Marinella");
@@ -56,20 +58,15 @@ public class Test1 {
             System.out.println("TASK ASSIGNED:");
             System.out.println(sheet.getAllTasks().get(0));
 
-            System.out.println("TEST 2. \r\n-- INSERT NEW KITCHEN TASK --\r\n");
-            Recipe rec = Recipe.loadRecipeById(10);
-            KitchenTask newTask =  instance.getKitchenTaskManager().insertKitchenTask(sheet, rec);
-            System.out.println("NEW TASK ADDED TO THE SHEET");
-            System.out.println(newTask.toString() + "\r\n");
 
-            System.out.println("TEST 3. \r\n-- CHANGE KITCHEN TASK POSITION--\r\n");
+            System.out.println("\r\n-- CHANGE KITCHEN TASK POSITION--\r\n");
             instance.getKitchenTaskManager().moveKitchenTask(sheet, newTask, 1);
             System.out.println("\r\nNEW DISPOSITION OF TASKS\r\n");
             ObservableList<KitchenTask> tasksAfter = sheet.getAllTasks();
             for (KitchenTask task : tasksAfter) {
                 System.out.println(tasksAfter.indexOf(task) + ". " + task.toString());
             }
-
+*/
             System.out.println("-- CREATE NEW DEFAULT SERVICE SHEET --");
             Service service2 = allServices.get(2);
             System.out.println("SERVICE LOADED: " + service2.toString());
@@ -79,11 +76,43 @@ public class Test1 {
             for (KitchenTask task : newSheet.getAllTasks()) {
                 System.out.println(task.toString());
             }
+
+            System.out.println("-- MODIFY COOKS, TIME, QUANTITY --");
+            User cook = User.loadUser("Marinella");
+            instance.getKitchenTaskManager().modifyCook(newSheet, newSheet.getAllTasks().get(0), null);
+            instance.getKitchenTaskManager().modifyCook(newSheet, newSheet.getAllTasks().get(2), null);
+            instance.getKitchenTaskManager().modifyCook(newSheet, newSheet.getAllTasks().get(4), null);
+
+            instance.getKitchenTaskManager().modifyTimeRequired(newSheet, newSheet.getAllTasks().get(0), 130);
+            instance.getKitchenTaskManager().modifyTimeRequired(newSheet, newSheet.getAllTasks().get(4), 25);
+
+            instance.getKitchenTaskManager().modifyQuantity(newSheet, newSheet.getAllTasks().get(2), null);
+            instance.getKitchenTaskManager().modifyQuantity(newSheet, newSheet.getAllTasks().get(3), "250kg");
+/*
+            System.out.println("\r\n-- INSERT NEW KITCHEN TASKS --\r\n");
+            Recipe rec = Recipe.loadRecipeById(10);
+            KitchenTask newTask =  instance.getKitchenTaskManager().insertKitchenTask(newSheet, rec);
+            System.out.println("NEW TASK ADDED TO THE SHEET");
+            System.out.println(newTask.toString() + "\r\n");
+
+            Recipe rec2 = Recipe.loadRecipeById(7);
+            KitchenTask newTask2 =  instance.getKitchenTaskManager().insertKitchenTask(newSheet, rec2);
+            System.out.println("NEW TASK ADDED TO THE SHEET");
+            System.out.println(newTask2.toString() + "\r\n");
+
+
+
+            System.out.println("\r\n-- RESET SERVICE SHEET --\r\n");
+            instance.getKitchenTaskManager().resetServiceSheet(newSheet);
+            System.out.println("TASKS");
+            for (KitchenTask task : newSheet.getAllTasks()) {
+                System.out.println(task.toString());
+            }
 */
         } catch (UseCaseLogicException e) {
             System.out.println("Errore di logica nello use case");
-        } /*catch (KitchenTaskException e) {
+        } catch (KitchenTaskException e) {
             System.out.println("Errore di KTE");
-        }*/
+        }
     }
 }
