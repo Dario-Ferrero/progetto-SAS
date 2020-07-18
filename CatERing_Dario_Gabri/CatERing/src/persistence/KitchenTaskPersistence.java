@@ -28,6 +28,11 @@ public class KitchenTaskPersistence implements KitchenTaskEventReceiver {
     }
 
     @Override
+    public void updateKitchenTaskReassigned(KitchenTask task) {
+        KitchenTask.updateTaskReassigned(task);
+    }
+
+    @Override
     public void updateKitchenTaskDeleted(ServiceSheet sheet, KitchenTask task) {
         KitchenTask.deleteKitchenTask(sheet, task);
     }
@@ -40,5 +45,10 @@ public class KitchenTaskPersistence implements KitchenTaskEventReceiver {
     @Override
     public void updateKitchenTaskAssigned(KitchenTask task) {
         KitchenTask.updateAssignedTask(task);
+    }
+
+    @Override
+    public void updateKitchenShiftUpdated(KitchenShift shift) {
+        KitchenShift.updateKitchenShift(shift);
     }
 }

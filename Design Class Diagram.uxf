@@ -463,6 +463,7 @@ fg=gray</panel_attributes>
 - notifyKitchenTaskDeleted(task: KitchenTask)
 - notifyKitchenTaskReset(task: KitchenTask)
 - notifyKitchenTaskUpdated(task: KitchenTask)
+- notifyKitchenTaskReassigned(task: KitchenTask)
 - notifyKitchenTasksRearranged(sheet: ServiceSheet)
 
 --
@@ -491,7 +492,7 @@ fg=gray</panel_attributes>
       <x>870</x>
       <y>2180</y>
       <w>410</w>
-      <h>150</h>
+      <h>160</h>
     </coordinates>
     <panel_attributes>KitchenTaskEventReceiver
 {interface}
@@ -504,6 +505,7 @@ fg=gray</panel_attributes>
 /+ updateKitchenTaskDeleted(task: KitchenTask)/
 /+ updateKitchenTaskReset(task: KitchenTask)/
 /+ updateKitchenTaskUpdated(task: KitchenTask)/
+/+ updateKitchenTaskReassigned(task: KitchenTask)/
 /+ updateKitchenTasksRearranged(sheet: ServiceSheet)/</panel_attributes>
     <additional_attributes/>
   </element>
@@ -697,14 +699,14 @@ fg=gray</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1940</x>
-      <y>1990</y>
+      <y>2010</y>
       <w>100</w>
-      <h>180</h>
+      <h>160</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 assignedTasks
 m1=0..n</panel_attributes>
-    <additional_attributes>10.0;160.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;140.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -853,14 +855,14 @@ m2=0..n</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>1890</x>
-      <y>1990</y>
+      <y>2010</y>
       <w>50</w>
-      <h>180</h>
+      <h>160</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 shift
 m1=0..1</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -881,13 +883,14 @@ m2=0..n</panel_attributes>
       <x>1770</x>
       <y>1890</y>
       <w>330</w>
-      <h>110</h>
+      <h>130</h>
     </coordinates>
     <panel_attributes>KitchenShift
 --
 - full: boolean
 --
 + assignKitchenTask(task: KitchenTask)
++ unassignKitchenTask(task: KitchenTask)
 + unassignKitchenTask(task: KitchenTask)
 + hasCookAvailable(cook: Cook): boolean
 + isFull(): booolean

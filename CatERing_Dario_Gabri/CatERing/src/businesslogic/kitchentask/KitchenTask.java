@@ -33,7 +33,6 @@ public class KitchenTask {
         this.timeRequired = 0;
     }
 
-
     public String toString() {
         return procedure + ": " + "quantity " + quantity + ", time required " + timeRequired + " minutes" +
                 "\ncook: " + ((this.cook != null)? this.cook.toString() : "") +
@@ -56,6 +55,7 @@ public class KitchenTask {
     }
     public KitchenShift getKitchenShift() { return this.shift; }
     public KitchenProcedure getKitchenProcedure() { return this.procedure; }
+    public User getCook() { return this.cook; }
 
     // SETTER METHODS
 
@@ -171,6 +171,12 @@ public class KitchenTask {
         updateKitchenTask(task);
         updateTaskAssigned(task);
     }
+
+    public static void updateTaskReassigned(KitchenTask task) {
+        updateTaskUnassigned(task);
+        updateKitchenTask(task);
+    }
+
 
     public static void updateTaskAssigned(KitchenTask task) {
         String assignment = "INSERT INTO AssignedTasks (kitchenshift_id, task_id) VALUES (" +

@@ -23,6 +23,8 @@ public class KitchenShift extends Shift {
         this.cooksAvailable = FXCollections.observableArrayList();
     }
 
+
+
     public String toString() {
         String result = "id: " + this.id + ", start time: " + this.startTime + ", end time: " + this.endTime + ", full: " + full + ".";
         result = result + "\nCOOKS AVAILABLE ("+ this.cooksAvailable.size() +")\n";
@@ -35,6 +37,7 @@ public class KitchenShift extends Shift {
         return result + "\n";
     }
 
+
     public boolean hasCookAvailable(User cook) {
         return this.cooksAvailable.contains(cook);
     }
@@ -46,10 +49,7 @@ public class KitchenShift extends Shift {
     }
     public void setFull(boolean full) { this.full = full; }
 
-    public void assignKitchenTask(KitchenTask task) {
-        this.assignedTasks.add(task);
-    }
-
+    public void assignKitchenTask(KitchenTask task) { this.assignedTasks.add(task); }
     public void unassignKitchenTask(KitchenTask task) {
         this.assignedTasks.remove(task);
     }
@@ -113,6 +113,10 @@ public class KitchenShift extends Shift {
         return result;
     }
 
-
-
+    public static void updateKitchenShift(KitchenShift shift) {
+        String shiftUpdate = "UPDATE KitchenShifts SET " +
+                "isFull = " + shift.full +
+                " WHERE id = " + shift.id;
+        PersistenceManager.executeUpdate(shiftUpdate);
+    }
 }

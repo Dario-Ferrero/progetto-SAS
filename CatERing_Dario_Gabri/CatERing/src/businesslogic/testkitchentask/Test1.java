@@ -14,12 +14,12 @@ import businesslogic.user.User;
 import javafx.collections.ObservableList;
 
 public class Test1 {
+
     public static void main(String[] args) {
         try {
             CatERing instance = CatERing.getInstance();
             instance.getUserManager().fakeLogin("Lidia");
             System.out.println("User: " + instance.getUserManager().getCurrentUser());
-
 
             Event event = Event.loadEventById(3);
             System.out.println("EVENT LOADED: " + event.toString());
@@ -88,7 +88,20 @@ public class Test1 {
 
             instance.getKitchenTaskManager().modifyQuantity(newSheet, newSheet.getAllTasks().get(2), null);
             instance.getKitchenTaskManager().modifyQuantity(newSheet, newSheet.getAllTasks().get(3), "250kg");
-/*
+
+            KitchenShift shiftOne = KitchenShift.loadKitchenShiftById(1);
+            KitchenShift shiftTwo = KitchenShift.loadKitchenShiftById(2);
+            instance.getKitchenTaskManager().modifyShift(newSheet, newSheet.getAllTasks().get(0), shiftOne);
+            instance.getKitchenTaskManager().modifyShift(newSheet, newSheet.getAllTasks().get(1), shiftTwo);
+
+            instance.getKitchenTaskManager().setKitchenShiftFull(shiftOne, true);
+            instance.getKitchenTaskManager().setKitchenShiftFull(shiftTwo, true);
+
+            for (int i = 2; i < 5; i++) {
+                instance.getKitchenTaskManager().setKitchenTaskPrepared(newSheet, newSheet.getAllTasks().get(i));
+            }
+
+            /*
             System.out.println("\r\n-- INSERT NEW KITCHEN TASKS --\r\n");
             Recipe rec = Recipe.loadRecipeById(10);
             KitchenTask newTask =  instance.getKitchenTaskManager().insertKitchenTask(newSheet, rec);

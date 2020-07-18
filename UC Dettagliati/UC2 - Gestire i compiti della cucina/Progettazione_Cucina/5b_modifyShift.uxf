@@ -4,8 +4,8 @@
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>304</x>
-      <y>64</y>
+      <x>312</x>
+      <y>40</y>
       <w>72</w>
       <h>56</h>
     </coordinates>
@@ -15,8 +15,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>328</x>
-      <y>112</y>
+      <x>336</x>
+      <y>88</y>
       <w>24</w>
       <h>576</h>
     </coordinates>
@@ -26,8 +26,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>328</x>
-      <y>152</y>
+      <x>336</x>
+      <y>128</y>
       <w>248</w>
       <h>32</h>
     </coordinates>
@@ -38,21 +38,21 @@ modifyShift(sheet, task, shift)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>560</x>
-      <y>112</y>
+      <x>568</x>
+      <y>88</y>
       <w>24</w>
-      <h>552</h>
+      <h>672</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;670.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;820.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>560</x>
-      <y>168</y>
+      <x>568</x>
+      <y>144</y>
       <w>16</w>
-      <h>432</h>
+      <h>600</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -60,8 +60,8 @@ modifyShift(sheet, task, shift)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>504</x>
-      <y>80</y>
+      <x>512</x>
+      <y>56</y>
       <w>128</w>
       <h>40</h>
     </coordinates>
@@ -72,8 +72,8 @@ KitchenTaskManager</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>328</x>
-      <y>232</y>
+      <x>336</x>
+      <y>208</y>
       <w>248</w>
       <h>32</h>
     </coordinates>
@@ -84,20 +84,20 @@ throw UseCaseLogicException</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>568</x>
-      <y>472</y>
-      <w>264</w>
+      <x>576</x>
+      <y>616</y>
+      <w>248</w>
       <h>48</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
-notifyKitchenTaskUpdated(sheet, task)</panel_attributes>
+notifyKitchenTaskReassigned(task)</panel_attributes>
     <additional_attributes>10.0;10.0;70.0;10.0;70.0;40.0;20.0;40.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>568</x>
-      <y>504</y>
+      <x>576</x>
+      <y>648</y>
       <w>16</w>
       <h>88</h>
     </coordinates>
@@ -107,21 +107,21 @@ notifyKitchenTaskUpdated(sheet, task)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>576</x>
-      <y>552</y>
-      <w>424</w>
+      <x>584</x>
+      <y>696</y>
+      <w>648</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-updateKitchenTaskUpdated(sheet, task)
+updateKitchenTaskReassigned(task)
 </panel_attributes>
-    <additional_attributes>510.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>790.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>984</x>
-      <y>568</y>
+      <x>1216</x>
+      <y>712</y>
       <w>16</w>
       <h>16</h>
     </coordinates>
@@ -132,20 +132,20 @@ updateKitchenTaskUpdated(sheet, task)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>984</x>
-      <y>184</y>
+      <x>1216</x>
+      <y>160</y>
       <w>24</w>
-      <h>432</h>
+      <h>600</h>
     </coordinates>
     <panel_attributes>lt=.
 </panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;520.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;730.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>920</x>
-      <y>152</y>
+      <x>1152</x>
+      <y>128</y>
       <w>152</w>
       <h>40</h>
     </coordinates>
@@ -158,10 +158,10 @@ KitchenTaskEventReceiver
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>32</x>
-      <y>216</y>
-      <w>1032</w>
-      <h>408</h>
+      <x>40</x>
+      <y>192</y>
+      <w>1272</w>
+      <h>576</h>
     </coordinates>
     <panel_attributes>alt 
 fg=#761C8C
@@ -183,8 +183,8 @@ fontsize=14
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>560</x>
-      <y>24</y>
+      <x>568</x>
+      <y>0</y>
       <w>272</w>
       <h>32</h>
     </coordinates>
@@ -198,8 +198,8 @@ fontsize=20
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>664</x>
-      <y>80</y>
+      <x>672</x>
+      <y>56</y>
       <w>96</w>
       <h>40</h>
     </coordinates>
@@ -211,8 +211,8 @@ UserManager
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>704</x>
-      <y>112</y>
+      <x>712</x>
+      <y>88</y>
       <w>24</w>
       <h>112</h>
     </coordinates>
@@ -222,8 +222,8 @@ UserManager
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>704</x>
-      <y>184</y>
+      <x>712</x>
+      <y>160</y>
       <w>16</w>
       <h>16</h>
     </coordinates>
@@ -233,8 +233,8 @@ UserManager
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>568</x>
-      <y>168</y>
+      <x>576</x>
+      <y>144</y>
       <w>152</w>
       <h>32</h>
     </coordinates>
@@ -245,8 +245,8 @@ getCurrentUser( )</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>568</x>
-      <y>184</y>
+      <x>576</x>
+      <y>160</y>
       <w>152</w>
       <h>32</h>
     </coordinates>
@@ -257,9 +257,9 @@ user</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>472</x>
-      <y>536</y>
-      <w>552</w>
+      <x>480</x>
+      <y>680</y>
+      <w>784</w>
       <h>64</h>
     </coordinates>
     <panel_attributes>for each
@@ -270,13 +270,13 @@ fg=blue</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>40</x>
-      <y>296</y>
+      <x>48</x>
+      <y>272</y>
       <w>288</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>[ shift != null &amp;&amp; (shift.isPastShift() ||  shift.isFull() || 
-(task.cook != null &amp;&amp; ! shift.hasCookAvailable(cook)) ]
+    <panel_attributes>[ shift == null || shift.isPastShift() ||  shift.isFull() || 
+(task.cook != null &amp;&amp; !shift.hasCookAvailable(cook)) ]
 style=wordwrap
 fontsize=14
 fg=#761C8C</panel_attributes>
@@ -285,8 +285,8 @@ fg=#761C8C</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>328</x>
-      <y>304</y>
+      <x>336</x>
+      <y>280</y>
       <w>248</w>
       <h>32</h>
     </coordinates>
@@ -297,8 +297,8 @@ throw KitchenTaskException</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>752</x>
-      <y>152</y>
+      <x>1048</x>
+      <y>72</y>
       <w>96</w>
       <h>40</h>
     </coordinates>
@@ -310,31 +310,31 @@ KitchenTask
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>568</x>
-      <y>352</y>
-      <w>240</w>
+      <x>576</x>
+      <y>528</y>
+      <w>528</w>
       <h>32</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 setShift(shift)</panel_attributes>
-    <additional_attributes>280.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>640.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>792</x>
-      <y>184</y>
+      <x>1088</x>
+      <y>104</y>
       <w>24</w>
-      <h>280</h>
+      <h>520</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;330.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;630.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>792</x>
-      <y>368</y>
+      <x>1088</x>
+      <y>544</y>
       <w>16</w>
       <h>56</h>
     </coordinates>
@@ -344,13 +344,213 @@ setShift(shift)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>800</x>
-      <y>376</y>
+      <x>1096</x>
+      <y>552</y>
       <w>128</w>
       <h>48</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 this.shift = shift</panel_attributes>
     <additional_attributes>10.0;40.0;50.0;40.0;50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>576</x>
+      <y>456</y>
+      <w>384</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+assignKitchenTask(task)</panel_attributes>
+    <additional_attributes>460.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>784</x>
+      <y>368</y>
+      <w>16</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>784</x>
+      <y>168</y>
+      <w>24</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;330.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>744</x>
+      <y>136</y>
+      <w>88</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>task.shift:
+KitchenShift
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>792</x>
+      <y>368</y>
+      <w>112</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+remove(task)</panel_attributes>
+    <additional_attributes>120.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>888</x>
+      <y>384</y>
+      <w>16</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>888</x>
+      <y>88</y>
+      <w>24</w>
+      <h>360</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;430.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>824</x>
+      <y>56</y>
+      <w>144</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>task.shift.assignedTasks:
+ArrayList&lt;KitchenTask&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>456</x>
+      <y>344</y>
+      <w>472</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>opt
+task.shift != null
+fg=#128C86
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>576</x>
+      <y>352</y>
+      <w>224</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+unassignKitchenTask(task)</panel_attributes>
+    <additional_attributes>260.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>944</x>
+      <y>472</y>
+      <w>16</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>952</x>
+      <y>472</y>
+      <w>96</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+add(task)</panel_attributes>
+    <additional_attributes>100.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1032</x>
+      <y>488</y>
+      <w>16</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>944</x>
+      <y>160</y>
+      <w>24</w>
+      <h>352</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;420.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1032</x>
+      <y>40</y>
+      <w>24</w>
+      <h>480</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;580.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>912</x>
+      <y>128</y>
+      <w>88</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>shift:
+KitchenShift
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>968</x>
+      <y>8</y>
+      <w>144</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>shift.assignedTasks:
+ArrayList&lt;KitchenTask&gt;</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>

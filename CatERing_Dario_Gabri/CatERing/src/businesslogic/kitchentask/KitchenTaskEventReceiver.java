@@ -16,4 +16,8 @@ public interface KitchenTaskEventReceiver {
     void updateKitchenTaskReset(ServiceSheet sheet, KitchenTask task);
 
     void updateKitchenTaskUpdated(KitchenTask task);
+
+    void updateKitchenTaskReassigned(KitchenTask task);
+
+    void updateKitchenShiftUpdated(KitchenShift shift);
 }
