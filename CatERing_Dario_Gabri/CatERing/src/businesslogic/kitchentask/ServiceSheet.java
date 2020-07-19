@@ -42,8 +42,8 @@ public class ServiceSheet {
 
     public int getId()                               { return this.id; }
     public Service getService()                      { return this.service; }
-    public ObservableList<KitchenTask> getAllTasks() { return this.tasks; }
-    public boolean hasKitchenTask(KitchenTask task)     { return this.tasks.contains(task); }
+    public ObservableList<KitchenTask> getAllTasks() { return FXCollections.unmodifiableObservableList(this.tasks); }
+    public boolean hasKitchenTask(KitchenTask task)  { return this.tasks.contains(task); }
 
     // OPERATION METHODS
 

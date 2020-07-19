@@ -6,4 +6,5 @@ public class EventManager {
     public ObservableList<Event> getEvents() {
         return Event.loadAllEvents();
     }
+
 }

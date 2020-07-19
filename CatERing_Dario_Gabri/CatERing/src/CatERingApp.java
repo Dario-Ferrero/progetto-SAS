@@ -13,9 +13,8 @@ public class CatERingApp extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) { // Stage: init by fx, dobbiamo solo specifcare delle cose
+    public void start(Stage primaryStage) {
         try {
-            // View principale della struttura ad albero
             Parent root = FXMLLoader.load(getClass().getResource("ui/main.fxml"));
             primaryStage.setTitle("Cat&Ring");
             primaryStage.setScene(new Scene(root, 1080, 720));

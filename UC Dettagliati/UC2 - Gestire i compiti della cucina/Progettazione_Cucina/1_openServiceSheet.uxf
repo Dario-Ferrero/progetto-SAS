@@ -191,8 +191,9 @@ KitchenTaskEventReceiver
     <panel_attributes>alt 
 fg=#761C8C
 [ ! user.isChef() ||
-    ev.getOrganizer() != user ||
-  ! ev.hasService(serv) 
+    ev.chef == null ||
+    ev.chef != user ||
+  ! ev.hasService(serv) ||
   ! serv.hasMenuApproved() ]
 --
 

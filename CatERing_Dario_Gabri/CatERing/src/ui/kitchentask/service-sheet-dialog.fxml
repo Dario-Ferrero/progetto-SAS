@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="457.0" prefWidth="596.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.kitchentask.ServiceSheetDialog">
+   <top>
+      <BorderPane prefHeight="66.0" prefWidth="600.0" BorderPane.alignment="CENTER_LEFT">
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </BorderPane.margin>
+         <top>
+            <Label fx:id="userLabel" alignment="TOP_LEFT" prefHeight="25.0" prefWidth="728.0" text="Info Utente" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <BorderPane.margin>
+                  <Insets top="5.0" />
+               </BorderPane.margin>
+            </Label>
+         </top>
+         <center>
+            <Label fx:id="serviceLabel" alignment="TOP_LEFT" prefHeight="25.0" prefWidth="530.0" text="Info Servizio" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <BorderPane.margin>
+                  <Insets top="5.0" />
+               </BorderPane.margin>
+            </Label>
+         </center>
+         <right>
+            <FlowPane alignment="CENTER" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="tabelloneTurniButton" mnemonicParsing="false" text="Tabellone Turni" />
+               </children>
+            </FlowPane>
+         </right>
+      </BorderPane>
+   </top>
+   <center>
+      <GridPane fx:id="centralPane" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #aaaaaa; -fx-border-width: 1;">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <GridPane.margin>
+                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+               </GridPane.margin>
+               <top>
+                  <Label prefHeight="21.0" prefWidth="361.0" text="Compiti:" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <BorderPane.margin>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                     </BorderPane.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+               </top>
+               <center>
+                  <ListView fx:id="taskList" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+               </center>
+               <bottom>
+                  <FlowPane alignment="CENTER" hgap="10.0" prefHeight="36.0" prefWidth="282.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button mnemonicParsing="false" text="+" />
+                        <Button fx:id="deleteTaskButton" disable="true" mnemonicParsing="false" text="-" />
+                        <Button fx:id="upTaskButton" disable="true" mnemonicParsing="false" text="Up" />
+                        <Button fx:id="downTaskButton" disable="true" mnemonicParsing="false" text="Down" />
+                     </children>
+                  </FlowPane>
+               </bottom></BorderPane>
+            <BorderPane fx:id="propertiesPane" prefHeight="303.0" prefWidth="300.0" style="-fx-border-color: #aaaaaa; -fx-border-width: 1;" GridPane.columnIndex="1">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <GridPane.margin>
+                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+               </GridPane.margin>
+               <top>
+                  <Label prefHeight="21.0" prefWidth="354.0" text="Proprietà:" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <BorderPane.margin>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                     </BorderPane.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding></Label>
+               </top>
+               <center>
+                  <ListView fx:id="propertiesList" prefHeight="208.0" prefWidth="282.0" BorderPane.alignment="CENTER" />
+               </center>
+               <bottom>
+                  <FlowPane alignment="CENTER" prefHeight="35.0" prefWidth="282.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button fx:id="modificaButton" disable="true" mnemonicParsing="false" text="Modifica" />
+                     </children>
+                  </FlowPane>
+               </bottom></BorderPane>
+         </children>
+      </GridPane>
+   </center>
+   <bottom>
+      <FlowPane alignment="CENTER" hgap="10.0" prefHeight="66.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="resetButton" mnemonicParsing="false" text="Reset" />
+            <Button fx:id="esciButton" mnemonicParsing="false" onAction="#esciButtonPressed" text="Esci" />
+         </children>
+      </FlowPane>
+   </bottom>
+</BorderPane>

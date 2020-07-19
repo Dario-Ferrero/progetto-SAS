@@ -4,7 +4,6 @@ import businesslogic.CatERing;
 import businesslogic.menu.Menu;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import ui.Main;
@@ -31,7 +30,6 @@ public class MenuManagement {
 
 
     public void initialize() {
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("menu-content.fxml"));
         try {
             menuContentPane = loader.load();
@@ -60,9 +58,7 @@ public class MenuManagement {
         containerPane.setCenter(menuListPane);
     }
 
-    public void endMenuManagement() {
-        mainPaneController.showStartPane();
-    }
+    public void endMenuManagement() { mainPaneController.showStartPane(); }
 
     public void setMainPaneController(Main main) {
         mainPaneController = main;

@@ -25,7 +25,7 @@ public class KitchenShift extends Shift {
 
 
 
-    public String toString() {
+    public String testString() {
         String result = "id: " + this.id + ", start time: " + this.startTime + ", end time: " + this.endTime + ", full: " + full + ".";
         result = result + "\nCOOKS AVAILABLE ("+ this.cooksAvailable.size() +")\n";
         for (User cook : cooksAvailable)
@@ -35,6 +35,11 @@ public class KitchenShift extends Shift {
             result = result + task.toString() + "\n";
 
         return result + "\n";
+    }
+
+    public String toString() {
+        return "start time: " + this.startTime +
+                ", end time: " + this.endTime + ", full: " + full + ".";
     }
 
 

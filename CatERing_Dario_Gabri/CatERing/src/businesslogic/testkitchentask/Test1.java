@@ -77,26 +77,33 @@ public class Test1 {
                 System.out.println(task.toString());
             }
 
-            System.out.println("-- MODIFY COOKS, TIME, QUANTITY --");
+            System.out.println("\r\n-- MODIFICATIONS --\r\n");
             User cook = User.loadUser("Marinella");
+            System.out.println("\r\n-- COOKS --\r\n");
             instance.getKitchenTaskManager().modifyCook(newSheet, newSheet.getAllTasks().get(0), null);
             instance.getKitchenTaskManager().modifyCook(newSheet, newSheet.getAllTasks().get(2), null);
             instance.getKitchenTaskManager().modifyCook(newSheet, newSheet.getAllTasks().get(4), null);
 
+            System.out.println("\r\n-- TIME --\r\n");
             instance.getKitchenTaskManager().modifyTimeRequired(newSheet, newSheet.getAllTasks().get(0), 130);
             instance.getKitchenTaskManager().modifyTimeRequired(newSheet, newSheet.getAllTasks().get(4), 25);
 
+            System.out.println("\r\n-- QUANTITY --\r\n");
             instance.getKitchenTaskManager().modifyQuantity(newSheet, newSheet.getAllTasks().get(2), null);
             instance.getKitchenTaskManager().modifyQuantity(newSheet, newSheet.getAllTasks().get(3), "250kg");
 
             KitchenShift shiftOne = KitchenShift.loadKitchenShiftById(1);
             KitchenShift shiftTwo = KitchenShift.loadKitchenShiftById(2);
+
+            System.out.println("\r\n-- FULL SHIFT --\r\n");
+            instance.getKitchenTaskManager().setKitchenShiftFull(shiftOne, false);
+            instance.getKitchenTaskManager().setKitchenShiftFull(shiftTwo, false);
+
+            System.out.println("\r\n-- SHIFT --\r\n");
             instance.getKitchenTaskManager().modifyShift(newSheet, newSheet.getAllTasks().get(0), shiftOne);
             instance.getKitchenTaskManager().modifyShift(newSheet, newSheet.getAllTasks().get(1), shiftTwo);
 
-            instance.getKitchenTaskManager().setKitchenShiftFull(shiftOne, true);
-            instance.getKitchenTaskManager().setKitchenShiftFull(shiftTwo, true);
-
+            System.out.println("\r\n-- PREPARED --\r\n");
             for (int i = 2; i < 5; i++) {
                 instance.getKitchenTaskManager().setKitchenTaskPrepared(newSheet, newSheet.getAllTasks().get(i));
             }
@@ -126,6 +133,7 @@ public class Test1 {
             System.out.println("Errore di logica nello use case");
         } catch (KitchenTaskException e) {
             System.out.println("Errore di KTE");
+            e.printStackTrace();
         }
     }
 }

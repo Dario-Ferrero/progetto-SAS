@@ -806,6 +806,7 @@ m1=0..1</panel_attributes>
 --
 + create(name: String, organizer: User, location: String, startDate: Date, guests: int, flags: String[])
 + getOrganizer(): User
++ getChef(): User
 + getFlagIndex(flag: String): int
 + addService(serv: Service)
 + removeService(serv: Service)

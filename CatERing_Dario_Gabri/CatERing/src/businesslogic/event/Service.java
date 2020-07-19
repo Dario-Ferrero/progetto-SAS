@@ -21,14 +21,15 @@ public class Service implements EventItemInfo {
     private Time timeStart;
     private Time timeEnd;
     private int participants;
-    private Menu proposedMenu, approvedMenu;  // TODO: loading del (dei) menu dal database
+    private Menu proposedMenu, approvedMenu;
 
     public Service(String name) {
         this.name = name;
     }
 
     public String toString() {
-        return name + ": " + date + " (" + timeStart + "-" + timeEnd + "), " + participants + " pp.";
+        return name + ": " + date + " (" + timeStart + "-" + timeEnd + "), " + participants + " pp."
+                + " menù approvato: " + ((this.approvedMenu != null) ? this.approvedMenu.getTitle() : "NO");
     }
 
     public int getId() { return this.id; }

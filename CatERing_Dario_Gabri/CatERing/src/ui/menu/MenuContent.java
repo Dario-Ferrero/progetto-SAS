@@ -47,6 +47,7 @@ public class MenuContent {
     Button upSectionButton;
     @FXML
     Button downSectionButton;
+
     @FXML
     Button upItemButton;
     @FXML
@@ -57,7 +58,6 @@ public class MenuContent {
     Button modificaItemButton;
     @FXML
     Button deleteItem;
-
     @FXML
     Button addItemButton;
 
@@ -75,7 +75,6 @@ public class MenuContent {
         Menu toview = CatERing.getInstance().getMenuManager().getCurrentMenu();
         if (toview != null) {
             titleLabel.setText(toview.getTitle());
-
             sectionList.setItems(toview.getSections());
         }
 

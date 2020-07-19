@@ -97,7 +97,7 @@
                   </BorderPane>
                </center>
                <bottom>
-                  <FlowPane alignment="CENTER" hgap="5.0" prefHeight="38.0" prefWidth="264.0" BorderPane.alignment="CENTER">
+                  <FlowPane alignment="CENTER" hgap="10.0" prefHeight="38.0" prefWidth="264.0" BorderPane.alignment="CENTER">
                      <children>
                         <Button mnemonicParsing="false" onAction="#addSectionPressed" text="+" />
                         <Button fx:id="deleteSectionButton" disable="true" mnemonicParsing="false" onAction="#deleteSectionButtonPressed" text="–" />

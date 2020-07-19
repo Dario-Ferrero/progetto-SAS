@@ -18,7 +18,8 @@ public class Event implements EventItemInfo {
     private Date dateStart;
     private Date dateEnd;
     private int participants;
-    private User organizer;
+    private User organizer,
+                 chef; // aggiungere in tabella DB + load dell'evento nel codice
 
     private ObservableList<Service> services;
 
@@ -41,6 +42,7 @@ public class Event implements EventItemInfo {
     public User getOrganizer() {
         return this.organizer;
     }
+    public User getChef() { return this.chef; }
 
     public boolean hasService(Service service) {
         return services.contains(service);
@@ -57,7 +59,7 @@ public class Event implements EventItemInfo {
 
         String query = "SELECT * FROM Events WHERE id=" + eventId;
         Event ev = new Event();
-        int[] org = new int[1];
+        int[] orgChefIds = new int[2];
         PersistenceManager.executeQuery(query, new ResultHandler() {
             @Override
             public void handle(ResultSet rs) throws SQLException {
@@ -66,12 +68,14 @@ public class Event implements EventItemInfo {
                 ev.dateStart = rs.getDate("date_start");
                 ev.dateEnd = rs.getDate("date_end");
                 ev.participants = rs.getInt("expected_participants");
-                org[0] = rs.getInt("organizer_id");
+                orgChefIds[0] = rs.getInt("organizer_id");
+                orgChefIds[1] = rs.getInt("chef_id");
             }
         });
 
         if (ev.id > 0) {
-            ev.organizer = User.loadUserById(org[0]);
+            ev.organizer = User.loadUserById(orgChefIds[0]);
+            ev.chef = (orgChefIds[1] > 0) ? User.loadUserById(orgChefIds[1]) : null;
             ev.services = Service.loadServicesForEvent(ev.id);
             loadedEvents.put(ev.id, ev);
         }
@@ -90,8 +94,10 @@ public class Event implements EventItemInfo {
                 e.dateStart = rs.getDate("date_start");
                 e.dateEnd = rs.getDate("date_end");
                 e.participants = rs.getInt("expected_participants");
-                int org = rs.getInt("organizer_id");
+                int org = rs.getInt("organizer_id"),
+                    ch = rs.getInt("chef_id");
                 e.organizer = User.loadUserById(org);
+                e.chef = (ch > 0) ? User.loadUserById(ch) : null;
                 all.add(e);
             }
         });

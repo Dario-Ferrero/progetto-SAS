@@ -12,7 +12,7 @@ public class Start {
     }
 
     @FXML
-    void beginKitchenTaskManagement() {}
+    void beginKitchenTaskManagement() { mainPaneController.startKitchenTaskManagement(); }
 
     public void setParent(Main main) {
         this.mainPaneController = main;

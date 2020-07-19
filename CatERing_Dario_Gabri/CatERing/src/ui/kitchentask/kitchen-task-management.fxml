@@ -5,19 +5,18 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane prefHeight="353.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.kitchentask.KitchenTaskManagement">
+<BorderPane fx:id="containerPane" prefHeight="393.0" prefWidth="495.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.kitchentask.KitchenTaskManagement">
    <top>
-      <Label prefHeight="25.0" prefWidth="512.0" text="Info Utente" BorderPane.alignment="CENTER">
+      <Label fx:id="userLabel" alignment="TOP_LEFT" prefHeight="17.0" prefWidth="484.0" text="Info Utente" BorderPane.alignment="TOP_LEFT">
          <font>
-            <Font size="16.0" />
+            <Font size="15.0" />
          </font>
          <BorderPane.margin>
-            <Insets top="5.0" />
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </BorderPane.margin>
       </Label>
    </top>
    <center>
-      <fx:include source="service-sheet-list.fxml" />
+      <fx:include fx:id="serviceListPane" source="service-list.fxml" />
    </center>
 </BorderPane>

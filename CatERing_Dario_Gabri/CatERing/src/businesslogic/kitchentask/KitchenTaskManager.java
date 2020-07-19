@@ -22,9 +22,13 @@ public class KitchenTaskManager {
         eventReceivers = new ArrayList<>();
     }
 
+    public ServiceSheet getRecentServiceSheet() {
+        return this.openSheets.get(0);
+    }
+
     public ServiceSheet openServiceSheet(Event event, Service service) throws UseCaseLogicException {
         User user = CatERing.getInstance().getUserManager().getCurrentUser();
-        if (!user.isChef() || !event.getOrganizer().equals(user) || !event.hasService(service)) {
+        if (!user.isChef() || event.getChef() == null || !event.getChef().equals(user) || !event.hasService(service)) {
             System.err.println("Error in openServiceSheet");
             throw new UseCaseLogicException();
         }
@@ -44,7 +48,7 @@ public class KitchenTaskManager {
             notifyServiceSheetCreated(openedSheet);
         }
 
-        openSheets.add(openedSheet);
+        openSheets.add(0, openedSheet);
         return openedSheet;
     }
 
