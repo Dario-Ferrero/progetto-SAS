@@ -433,6 +433,7 @@ public class MenuContent {
         if (result.isPresent() && !result.equals(mi.getDescription())) {
             try {
                 CatERing.getInstance().getMenuManager().editMenuItemDescription(mi, result.get());
+                CatERing.getInstance().getMenuManager().editMenuItemDescription(mi, result.get());
                 itemsList.refresh();
             } catch (UseCaseLogicException ex) {
                 ex.printStackTrace();

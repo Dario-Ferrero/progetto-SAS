@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="106.0" prefWidth="354.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.kitchentask.AddTaskDialog">
+   <center>
+      <VBox prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ComboBox fx:id="recipeCombo" onAction="#recipeComboSelection" prefHeight="27.0" prefWidth="354.0" promptText="Ricette">
+               <VBox.margin>
+                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding></ComboBox>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <FlowPane alignment="CENTER" hgap="10.0" prefHeight="58.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="aggiungiButton" mnemonicParsing="false" onAction="#aggiungiButtonPressed" text="Aggiungi">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#annullaButtonPressed" text="Annulla">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </FlowPane>
+   </bottom>
+</BorderPane>

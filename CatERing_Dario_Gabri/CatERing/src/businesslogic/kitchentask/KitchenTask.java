@@ -34,6 +34,10 @@ public class KitchenTask {
     }
 
     public String toString() {
+        return procedure.getName();
+    }
+
+    public String testString() {
         return procedure + ": " + "quantity " + quantity + ", time required " + timeRequired + " minutes" +
                 "\ncook: " + ((this.cook != null)? this.cook.toString() : "") +
                 "\nshift: " + ((this.shift != null)? this.shift.getId() : "") + "\n";

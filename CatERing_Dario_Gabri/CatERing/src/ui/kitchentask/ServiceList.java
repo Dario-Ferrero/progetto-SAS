@@ -4,6 +4,7 @@ import businesslogic.CatERing;
 import businesslogic.UseCaseLogicException;
 import businesslogic.event.Event;
 import businesslogic.event.Service;
+import businesslogic.kitchentask.ServiceSheet;
 import businesslogic.user.User;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -18,10 +19,8 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import ui.general.EventsInfoDialog;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ServiceList {
@@ -30,16 +29,14 @@ public class ServiceList {
     @FXML
     ListView<Service> serviceList;
 
+    ObservableList<Service> serviceListItems;
+
     @FXML
     Button apriButton;
-    @FXML
-    Button resetButton;
     @FXML
     Button fineButton;
 
     HashMap<BorderPane, ServiceSheetDialog> serviceSheetContentMap = new HashMap<>();
-
-    ObservableList<Service> serviceListItems;
 
     public void setParent(KitchenTaskManagement kitchenTaskManagement) {
         kitchenTaskManagementController = kitchenTaskManagement;
@@ -61,8 +58,7 @@ public class ServiceList {
                 @Override
                 public void changed(ObservableValue<? extends Service> observableValue, Service oldService, Service newService) {
                     User u = CatERing.getInstance().getUserManager().getCurrentUser();
-                    resetButton.setDisable(newService == null); // specificare la condizione su || "foglio non ancora aperto"
-                    apriButton.setDisable(newService == null);
+                    apriButton.setDisable(newService == null || newService.getApprovedMenu() == null);
                 }
             });
         } else {
@@ -82,11 +78,11 @@ public class ServiceList {
                     event = e;
                 }
             }
-            CatERing.getInstance().getKitchenTaskManager().openServiceSheet(event, service);
+            ServiceSheet sheet = CatERing.getInstance().getKitchenTaskManager().openServiceSheet(event, service);
 
             BorderPane pane = loader.load();
             ServiceSheetDialog controller = loader.getController();
-            serviceSheetContentMap.put(pane, controller);
+            serviceSheetContentMap.putIfAbsent(pane, controller);
 
             Stage stage = new Stage();
 
@@ -105,10 +101,6 @@ public class ServiceList {
         }
     }
 
-    @FXML
-    public void resetButtonPressed() {
-
-    }
 
     @FXML
     public void fineButtonPressed() { kitchenTaskManagementController.endKitchenTaskManagement(); }

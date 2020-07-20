@@ -82,10 +82,10 @@
                <bottom>
                   <FlowPane alignment="CENTER" hgap="10.0" prefHeight="36.0" prefWidth="282.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button mnemonicParsing="false" text="+" />
-                        <Button fx:id="deleteTaskButton" disable="true" mnemonicParsing="false" text="-" />
-                        <Button fx:id="upTaskButton" disable="true" mnemonicParsing="false" text="Up" />
-                        <Button fx:id="downTaskButton" disable="true" mnemonicParsing="false" text="Down" />
+                        <Button mnemonicParsing="false" onAction="#addTaskButtonPressed" text="+" />
+                        <Button fx:id="deleteTaskButton" disable="true" mnemonicParsing="false" onAction="#deleteTaskButtonPressed" text="-" />
+                        <Button fx:id="upTaskButton" disable="true" mnemonicParsing="false" onAction="#upTaskButtonPressed" text="Up" />
+                        <Button fx:id="downTaskButton" disable="true" mnemonicParsing="false" onAction="#downTaskButtonPressed" text="Down" />
                      </children>
                   </FlowPane>
                </bottom></BorderPane>
@@ -124,7 +124,7 @@
    <bottom>
       <FlowPane alignment="CENTER" hgap="10.0" prefHeight="66.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="resetButton" mnemonicParsing="false" text="Reset" />
+            <Button fx:id="resetButton" mnemonicParsing="false" onAction="#resetButtonPressed" text="Reset" />
             <Button fx:id="esciButton" mnemonicParsing="false" onAction="#esciButtonPressed" text="Esci" />
          </children>
       </FlowPane>
