@@ -4,8 +4,8 @@
   <element>
     <id>UMLPackage</id>
     <coordinates>
-      <x>180</x>
-      <y>90</y>
+      <x>198</x>
+      <y>153</y>
       <w>81</w>
       <h>63</h>
     </coordinates>
@@ -15,8 +15,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>207</x>
-      <y>144</y>
+      <x>225</x>
+      <y>207</y>
       <w>27</w>
       <h>342</h>
     </coordinates>
@@ -26,8 +26,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>207</x>
-      <y>189</y>
+      <x>225</x>
+      <y>252</y>
       <w>279</w>
       <h>36</h>
     </coordinates>
@@ -38,8 +38,8 @@ lookupShiftsBoard()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>468</x>
-      <y>144</y>
+      <x>486</x>
+      <y>207</y>
       <w>27</w>
       <h>333</h>
     </coordinates>
@@ -49,8 +49,8 @@ lookupShiftsBoard()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>468</x>
-      <y>207</y>
+      <x>486</x>
+      <y>270</y>
       <w>18</w>
       <h>225</h>
     </coordinates>
@@ -60,20 +60,20 @@ lookupShiftsBoard()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>405</x>
-      <y>108</y>
+      <x>423</x>
+      <y>171</y>
       <w>144</w>
       <h>45</h>
     </coordinates>
     <panel_attributes>ktm:
-KitchenTaskManager</panel_attributes>
+EventManager</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>207</x>
-      <y>279</y>
+      <x>225</x>
+      <y>342</y>
       <w>279</w>
       <h>36</h>
     </coordinates>
@@ -84,14 +84,14 @@ throw UseCaseLogicException</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>90</x>
-      <y>261</y>
-      <w>711</w>
+      <x>81</x>
+      <y>324</y>
+      <w>738</w>
       <h>180</h>
     </coordinates>
     <panel_attributes>alt 
 fg=#761C8C
-[ ! user.isChef() ]
+[ ! user.isOrganizer() ]
 --
 
 -.
@@ -102,13 +102,13 @@ fontsize=14
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>333</x>
-      <y>45</y>
+      <x>351</x>
+      <y>108</y>
       <w>306</w>
       <h>36</h>
     </coordinates>
     <panel_attributes>halign=center
-*4. lookupShiftsBoard*
+*1. lookupShiftsBoard*
 lw=0
 fontsize=20
 </panel_attributes>
@@ -117,8 +117,8 @@ fontsize=20
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>585</x>
-      <y>108</y>
+      <x>603</x>
+      <y>171</y>
       <w>108</w>
       <h>45</h>
     </coordinates>
@@ -130,8 +130,8 @@ UserManager
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>630</x>
-      <y>144</y>
+      <x>648</x>
+      <y>207</y>
       <w>27</w>
       <h>126</h>
     </coordinates>
@@ -141,8 +141,8 @@ UserManager
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>630</x>
-      <y>225</y>
+      <x>648</x>
+      <y>288</y>
       <w>18</w>
       <h>18</h>
     </coordinates>
@@ -152,8 +152,8 @@ UserManager
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>477</x>
-      <y>207</y>
+      <x>495</x>
+      <y>270</y>
       <w>171</w>
       <h>36</h>
     </coordinates>
@@ -164,8 +164,8 @@ getCurrentUser( )</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>477</x>
-      <y>225</y>
+      <x>495</x>
+      <y>288</y>
       <w>171</w>
       <h>36</h>
     </coordinates>
@@ -176,8 +176,8 @@ user</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>684</x>
-      <y>207</y>
+      <x>702</x>
+      <y>270</y>
       <w>108</w>
       <h>27</h>
     </coordinates>
@@ -187,8 +187,8 @@ user</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>477</x>
-      <y>324</y>
+      <x>495</x>
+      <y>387</y>
       <w>270</w>
       <h>36</h>
     </coordinates>
@@ -199,8 +199,8 @@ loadAllKitchenShifts()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>729</x>
-      <y>225</y>
+      <x>747</x>
+      <y>288</y>
       <w>27</w>
       <h>180</h>
     </coordinates>
@@ -210,8 +210,8 @@ loadAllKitchenShifts()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>729</x>
-      <y>342</y>
+      <x>747</x>
+      <y>405</y>
       <w>18</w>
       <h>27</h>
     </coordinates>
@@ -221,8 +221,8 @@ loadAllKitchenShifts()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>477</x>
-      <y>351</y>
+      <x>495</x>
+      <y>414</y>
       <w>270</w>
       <h>36</h>
     </coordinates>
@@ -233,8 +233,8 @@ shifts: ArrayList&lt;KitchenShift&gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>207</x>
-      <y>378</y>
+      <x>225</x>
+      <y>441</y>
       <w>279</w>
       <h>36</h>
     </coordinates>
