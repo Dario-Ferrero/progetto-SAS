@@ -114,7 +114,7 @@
                <bottom>
                   <FlowPane alignment="CENTER" prefHeight="35.0" prefWidth="282.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button fx:id="modificaButton" disable="true" mnemonicParsing="false" text="Modifica" />
+                        <Button fx:id="modificaButton" disable="true" mnemonicParsing="false" onAction="#modificaButtonPressed" text="Modifica" />
                      </children>
                   </FlowPane>
                </bottom></BorderPane>

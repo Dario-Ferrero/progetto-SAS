@@ -217,53 +217,25 @@ public class ServiceSheetDialog {
 
     @FXML
     public void modificaButtonPressed() {
-
-        // caso della modifica di un turno
         String property = propertiesList.getSelectionModel().getSelectedItem();
         String head = property.split(":")[0];
-
+        String result = null;
         switch (head) {
-        case "Turno ": // a metodo privato!
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("kitchen-shifts-dialog.fxml"));
-            KitchenShiftsDialog controller = null;
-            BorderPane pane = null;
-            try {
-                pane = loader.load();
-                controller = loader.getController();
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-            Stage stage = new Stage();
-            KitchenTask taskSel = taskList.getSelectionModel().getSelectedItem();
-            ObservableList<KitchenShift> allShifts = FXCollections.observableArrayList(),
-                    validShifts = FXCollections.observableArrayList();
-            try {
-                allShifts = CatERing.getInstance().getKitchenTaskManager().lookupShiftsBoard();
-            } catch (UseCaseLogicException ex) {
-                ex.printStackTrace();
-            }
-            for (KitchenShift ks : allShifts) {
-                if (!ks.isFull() && (taskSel.getCook() == null || ks.hasCookAvailable(taskSel.getCook()))) {
-                    validShifts.add(ks);
-                }
-            }
-            controller.setValidShifts(validShifts);
-            controller.setOwnStage(stage);
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("Scegli il nuovo Turno di Cucina per il Compito");
-            stage.setScene(new Scene(pane));
-            stage.showAndWait();
-
-
+            case "Turno":
+                result = modifyShift();
+                int i = propertiesList.getSelectionModel().getSelectedIndex();
+                propertiesList.getItems().remove(i);
+                propertiesList.getItems().add(i, head + ": " + result);
+                propertiesList.refresh();
             break;
         default:
-
+            break;
         }
     }
 
     private String modifyShift() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("kitchen-shifts-dialog.fxml"));
-        KitchenShiftsDialog controller = null;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("modify-shift-dialog.fxml"));
+        ModifyShiftDialog controller = null;
         BorderPane pane = null;
         try {
             pane = loader.load();
@@ -271,20 +243,26 @@ public class ServiceSheetDialog {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        Stage stage = new Stage();
-        KitchenTask taskSel = taskList.getSelectionModel().getSelectedItem();
+
+        KitchenTask taskSelected = taskList.getSelectionModel().getSelectedItem();
         ObservableList<KitchenShift> allShifts = FXCollections.observableArrayList(),
-                validShifts = FXCollections.observableArrayList();
+                                     validShifts = FXCollections.observableArrayList();
         try {
             allShifts = CatERing.getInstance().getKitchenTaskManager().lookupShiftsBoard();
         } catch (UseCaseLogicException ex) {
             ex.printStackTrace();
         }
         for (KitchenShift ks : allShifts) {
-            if (!ks.isFull() && (taskSel.getCook() == null || ks.hasCookAvailable(taskSel.getCook()))) {
+            System.err.print(ks.toString());
+            if (!ks.isFull() && (taskSelected.getCook() == null || ks.hasCookAvailable(taskSelected.getCook()))) {
+                System.err.println(" IS VALID");
                 validShifts.add(ks);
+            } else {
+                System.err.println();
             }
         }
+
+        Stage stage = new Stage();
         controller.setValidShifts(validShifts);
         controller.setOwnStage(stage);
         stage.initModality(Modality.APPLICATION_MODAL);
@@ -292,8 +270,33 @@ public class ServiceSheetDialog {
         stage.setScene(new Scene(pane));
         stage.showAndWait();
 
-        // set della proprietà con nuovo valore
+        Optional<KitchenShift> chosen = controller.getSelectedKitchenShift();
+        if (chosen.isPresent()) {
+            KitchenShift newShift = chosen.get();
+            try {
+                CatERing.getInstance().getKitchenTaskManager().modifyShift(currentSheet, taskSelected, newShift);
+            } catch (UseCaseLogicException | KitchenTaskException ex) {
+                ex.printStackTrace();
+            }
+            return newShift.toString();
+        }
 
+        return null;
+    }
+    
+    private String modifyCook() {
+        return null;
+    }
+    
+    private String modifyQuantity() {
+        return null;
+    }
+    
+    private String modifyTimeRequired() {
+        return null;
+    }
+
+    private String setPrepared() {
         return null;
     }
 
