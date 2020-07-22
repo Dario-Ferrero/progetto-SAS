@@ -39,11 +39,8 @@ public class Event implements EventItemInfo {
     public ObservableList<Service> getServices() {
         return FXCollections.unmodifiableObservableList(this.services);
     }
-    public User getOrganizer() {
-        return this.organizer;
-    }
     public User getChef() { return this.chef; }
-
+    public String getName() {return this.name; }
     public boolean hasService(Service service) {
         return services.contains(service);
     }

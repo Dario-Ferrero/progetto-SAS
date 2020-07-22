@@ -11,39 +11,29 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="457.0" prefWidth="596.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.kitchentask.ServiceSheetDialog">
+<BorderPane prefHeight="414.0" prefWidth="604.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.kitchentask.ServiceSheetDialog">
    <top>
       <BorderPane prefHeight="66.0" prefWidth="600.0" BorderPane.alignment="CENTER_LEFT">
          <BorderPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </BorderPane.margin>
-         <top>
-            <Label fx:id="userLabel" alignment="TOP_LEFT" prefHeight="25.0" prefWidth="728.0" text="Info Utente" BorderPane.alignment="CENTER">
-               <font>
-                  <Font size="16.0" />
-               </font>
-               <BorderPane.margin>
-                  <Insets top="5.0" />
-               </BorderPane.margin>
-            </Label>
-         </top>
-         <center>
-            <Label fx:id="serviceLabel" alignment="TOP_LEFT" prefHeight="25.0" prefWidth="530.0" text="Info Servizio" BorderPane.alignment="CENTER">
-               <font>
-                  <Font size="16.0" />
-               </font>
-               <BorderPane.margin>
-                  <Insets top="5.0" />
-               </BorderPane.margin>
-            </Label>
-         </center>
          <right>
             <FlowPane alignment="CENTER" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="tabelloneTurniButton" mnemonicParsing="false" text="Tabellone Turni" />
+                  <Button fx:id="tabelloneTurniButton" mnemonicParsing="false" onAction="#tabelloneTurniPressed" text="Tabellone Turni" />
                </children>
             </FlowPane>
          </right>
+         <left>
+            <Label fx:id="userLabel" alignment="TOP_LEFT" prefHeight="17.0" prefWidth="551.0" text="Info Utente" BorderPane.alignment="CENTER_LEFT">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <BorderPane.margin>
+                  <Insets top="5.0" />
+               </BorderPane.margin>
+            </Label>
+         </left>
       </BorderPane>
    </top>
    <center>

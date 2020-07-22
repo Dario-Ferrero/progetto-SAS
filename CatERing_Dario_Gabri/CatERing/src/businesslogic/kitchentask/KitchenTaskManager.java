@@ -62,10 +62,8 @@ public class KitchenTaskManager {
         ArrayList<KitchenTask> tasksToDelete = new ArrayList<>();
         for (KitchenTask task : sheet.getAllTasks()) {
             if (!sheet.getService().getApprovedMenu().hasRecipe(task.getKitchenProcedure())) {
-                System.out.println("ID: " + task.getId() + ". POS: " + sheet.getAllTasks().indexOf(task) + "° : FIRST");
                 tasksToDelete.add(task);
             } else {
-                System.out.println("ID: " + task.getId() + ". POS: " + sheet.getAllTasks().indexOf(task) + "°: SECOND");
                 task.setTimeRequired(0);
                 task.setPrepared(false);
                 task.setQuantity("");
@@ -127,34 +125,25 @@ public class KitchenTaskManager {
         notifyKitchenTasksRearranged(sheet);
     }
 
-    public ObservableList<KitchenShift> lookupShiftsBoard() throws UseCaseLogicException {
-        User user = CatERing.getInstance().getUserManager().getCurrentUser();
-        if (!user.isChef()) {
-            System.err.println("Error in lookupShiftsBoard");
-            throw new UseCaseLogicException();
-        }
-        return KitchenShift.loadAllKitchenShifts();
-    }
-
-    public void assignKitchenTask(ServiceSheet sheet, KitchenTask task, KitchenShift shift, User cook, int timeRequired, String quantity)
-            throws UseCaseLogicException, KitchenTaskException {
+    public void modifyShift(ServiceSheet sheet, KitchenTask task, KitchenShift shift) throws UseCaseLogicException, KitchenTaskException {
         User user = CatERing.getInstance().getUserManager().getCurrentUser();
         if (!user.isChef() || !openSheets.contains(sheet) || !sheet.hasKitchenTask(task)) {
             throw new UseCaseLogicException();
-        } else if ((cook != null && !shift.hasCookAvailable(cook)) || shift.isPastShift() || shift.isFull()) {
+        } else if (shift != null && (shift.isPastShift() || shift.isFull() ||
+                (task.getCook() != null && !shift.hasCookAvailable(task.getCook())))
+        ) {
             throw new KitchenTaskException();
         }
 
-        shift.assignKitchenTask(task);
+        if (task.getKitchenShift() != null) {
+            task.getKitchenShift().unassignKitchenTask(task);
+        }
+        if (shift != null) {
+            shift.assignKitchenTask(task);
+        }
         task.setKitchenShift(shift);
-        if (cook != null)
-            task.setCook(cook);
-        if (timeRequired > 0)
-            task.setTimeRequired(timeRequired);
-        if (quantity != null)
-            task.setQuantity(quantity);
 
-        notifyKitchenTaskAssigned(task);
+        notifyKitchenTaskReassigned(task);
     }
     
     public void modifyCook(ServiceSheet sheet, KitchenTask task, User cook) throws UseCaseLogicException, KitchenTaskException {
@@ -167,26 +156,6 @@ public class KitchenTaskManager {
 
         task.setCook(cook);
         notifyKitchenTaskUpdated(task);
-    }
-
-    public void modifyShift(ServiceSheet sheet, KitchenTask task, KitchenShift shift) throws UseCaseLogicException, KitchenTaskException {
-        User user = CatERing.getInstance().getUserManager().getCurrentUser();
-        if (!user.isChef() || !openSheets.contains(sheet) || !sheet.hasKitchenTask(task)) {
-            throw new UseCaseLogicException();
-        } else if (shift == null || shift.isPastShift() || shift.isFull() ||
-                  (task.getCook() != null && !shift.hasCookAvailable(task.getCook()))
-        ) {
-            throw new KitchenTaskException();
-        }
-
-        if (task.getKitchenShift() != null) {
-            task.getKitchenShift().unassignKitchenTask(task);
-        }
-        shift.assignKitchenTask(task);
-        task.setKitchenShift(shift);
-
-        notifyKitchenTaskReassigned(task);
-
     }
 
     public void modifyTimeRequired(ServiceSheet sheet, KitchenTask task, int timeRequired) throws UseCaseLogicException {
@@ -219,6 +188,15 @@ public class KitchenTaskManager {
 
         task.setPrepared(true);
         notifyKitchenTaskUpdated(task);
+    }
+
+    public ObservableList<KitchenShift> lookupShiftsBoard() throws UseCaseLogicException {
+        User user = CatERing.getInstance().getUserManager().getCurrentUser();
+        if (!user.isChef()) {
+            System.err.println("Error in lookupShiftsBoard");
+            throw new UseCaseLogicException();
+        }
+        return KitchenShift.loadAllKitchenShifts();
     }
 
     public void setKitchenShiftFull(KitchenShift shift, boolean full) throws UseCaseLogicException {

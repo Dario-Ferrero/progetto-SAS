@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="106.0" prefWidth="354.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.kitchentask.ModifyShiftDialog">
+<BorderPane prefHeight="106.0" prefWidth="368.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.kitchentask.ModifyShiftDialog">
     <center>
         <VBox prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
@@ -18,18 +18,24 @@
                     </VBox.margin>
                     <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                    </padding></ComboBox>
+                    </padding>
+                </ComboBox>
             </children>
         </VBox>
     </center>
     <bottom>
         <FlowPane alignment="CENTER" hgap="10.0" prefHeight="58.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
-                <Button fx:id="confermaButton" mnemonicParsing="false" onAction="#confermaButtonPressed" text="Conferma">
+                <Button fx:id="confermaButton" disable="true" mnemonicParsing="false" onAction="#confermaButtonPressed" text="Conferma">
                     <font>
                         <Font size="15.0" />
                     </font>
                 </Button>
+            <Button mnemonicParsing="false" onAction="#rimuoviAssegnamentoPressed" text="Rimuovi assegnamento">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
                 <Button mnemonicParsing="false" onAction="#annullaButtonPressed" text="Annulla">
                     <font>
                         <Font size="15.0" />

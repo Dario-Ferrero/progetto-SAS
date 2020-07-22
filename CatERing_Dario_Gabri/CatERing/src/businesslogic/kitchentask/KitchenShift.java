@@ -9,6 +9,7 @@ import persistence.ResultHandler;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 public class KitchenShift extends Shift {
@@ -99,6 +100,53 @@ public class KitchenShift extends Shift {
 
         return shift;
     }
+/*
+    public static ObservableList<KitchenShift> loadAllKitchenShifts() {
+        ObservableList<KitchenShift> all = FXCollections.observableArrayList();
+        String query = "SELECT * FROM KitchenShifts KS join AssignedTasks AT on (KS.id=AT.kitchenshift_id) " +
+                "join CooksAvailable CA on (KS.id=CA.kitchenshift_id)";
+        HashMap<Integer, ArrayList<Integer>> cookIdsMap = new HashMap<>(),
+                                             assignedTaskIdsMap = new HashMap<>();
+        HashMap<Integer, KitchenShift> shiftsMap = new HashMap<>();
+
+        PersistenceManager.executeQuery(query, new ResultHandler() {
+            @Override
+            public void handle(ResultSet rs) throws SQLException {
+                int id = rs.getInt("id");
+                cookIdsMap.putIfAbsent(id, new ArrayList<>());
+                assignedTaskIdsMap.putIfAbsent(id, new ArrayList<>());
+                if (!shiftsMap.containsKey(id)) {
+                    shiftsMap.put(id, new KitchenShift());
+                    KitchenShift shift = shiftsMap.get(id);
+                    shift.full = rs.getBoolean("isFull");
+                    shift.startTime = rs.getTime("start_time");
+                    shift.endTime = rs.getTime("end_time");
+                }
+                int taskId = rs.getInt("task_id");
+                if (!assignedTaskIdsMap.get(id).contains(taskId)) {
+                    assignedTaskIdsMap.get(id).add(taskId);
+                }
+                int cookId = rs.getInt("cook_id");
+                if (!cookIdsMap.get(id).contains(cookId)) {
+                    cookIdsMap.get(id).add(cookId);
+                }
+            }
+        });
+
+        for (Integer id : shiftsMap.keySet()) {
+            loadedKitchenShifts.putIfAbsent(id, shiftsMap.get(id));
+            KitchenShift shift = shiftsMap.get(id);
+            for (Integer cookId : cookIdsMap.get(id)) {
+                shift.cooksAvailable.add(User.loadUserById(cookId));
+            }
+            for (Integer taskId : assignedTaskIdsMap.get(id)) {
+                shift.assignedTasks.add(KitchenTask.loadKitchenTaskById(taskId));
+            }
+            all.add(shift);
+        }
+
+        return all;
+    }*/
 
     public static ObservableList<KitchenShift> loadAllKitchenShifts() {
         String query = "SELECT id FROM KitchenShifts";

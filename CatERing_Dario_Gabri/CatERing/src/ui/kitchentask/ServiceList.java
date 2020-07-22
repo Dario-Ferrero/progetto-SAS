@@ -85,13 +85,10 @@ public class ServiceList {
             serviceSheetContentMap.putIfAbsent(pane, controller);
 
             Stage stage = new Stage();
-
             controller.setOwnStage(stage);
-
             stage.initModality(Modality.NONE);
-            stage.setTitle("Foglio Riepilogativo");
-            stage.setScene(new Scene(pane, 1080, 720));
-
+            stage.setTitle("Evento: " + event.getName() + " | Servizio: " + service.getName());
+            stage.setScene(new Scene(pane, 760, 480));
             stage.show();
         } catch (IOException ex) {
             ex.printStackTrace();

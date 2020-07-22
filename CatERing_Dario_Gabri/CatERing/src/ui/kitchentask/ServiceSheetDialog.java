@@ -23,7 +23,6 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-
 import java.io.IOException;
 import java.util.Optional;
 
@@ -31,8 +30,6 @@ public class ServiceSheetDialog {
 
     @FXML
     Label userLabel;
-    @FXML
-    Label serviceLabel;
 
     @FXML
     ListView<KitchenTask> taskList;
@@ -71,7 +68,6 @@ public class ServiceSheetDialog {
         ServiceSheet toView = CatERing.getInstance().getKitchenTaskManager().getRecentServiceSheet();
         if (toView != null) {
             currentSheet = toView;
-            serviceLabel.setText(toView.getService().toString());
             taskList.setItems(toView.getAllTasks());
         }
 
@@ -92,7 +88,7 @@ public class ServiceSheetDialog {
                     properties.add("Cuoco: " + ((newTask.getCook() != null) ? newTask.getCook().toString() : "non assegnato"));
                     properties.add("Tempo Stimato: " + Integer.toString(newTask.getTimeRequired()) + " minuti");
                     properties.add("Quantità: " + ((!newTask.getQuantity().equals("")) ? newTask.getQuantity() : "0"));
-                    properties.add("Preparato : " + ((newTask.isPrepared()) ? "sì" : "no"));
+                    properties.add("Preparato: " + ((newTask.isPrepared()) ? "sì" : "no"));
                     propertiesList.setItems(properties);
 
                     int pos = taskList.getSelectionModel().getSelectedIndex();
@@ -114,7 +110,9 @@ public class ServiceSheetDialog {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String oldString, String newString) {
                 if (newString != null && !newString.equals(oldString)) {
-                    modificaButton.setDisable(false);
+                    KitchenTask taskSelected = taskList.getSelectionModel().getSelectedItem();
+                    modificaButton.setDisable(newString.split(":")[0].equals("Preparato")
+                                            && (taskSelected.getKitchenShift() != null || taskSelected.getCook() != null));
                 } else if (newString == null) {
                     modificaButton.setDisable(true);
                 }
@@ -194,6 +192,29 @@ public class ServiceSheetDialog {
     }
 
     @FXML
+    public void tabelloneTurniPressed() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("kitchen-shifts-board-dialog.fxml"));
+        try {
+            BorderPane pane = loader.load();
+            KitchenShiftsBoardDialog controller = loader.getController();
+
+            Stage stage = new Stage();
+
+            controller.setOwnStage(stage);
+
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle("Tabellone dei Turni");
+            stage.setScene(new Scene(pane));
+            stage.setWidth(720.0);
+
+
+            stage.showAndWait();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    @FXML
     public void upTaskButtonPressed() {
         this.changeTaskPosition(-1);
     }
@@ -218,18 +239,36 @@ public class ServiceSheetDialog {
     @FXML
     public void modificaButtonPressed() {
         String property = propertiesList.getSelectionModel().getSelectedItem();
-        String head = property.split(":")[0];
+        String[] splitProperty = property.split(":");
+        String head = splitProperty[0],
+               tail = splitProperty[1].substring(1);
         String result = null;
         switch (head) {
             case "Turno":
                 result = modifyShift();
-                int i = propertiesList.getSelectionModel().getSelectedIndex();
-                propertiesList.getItems().remove(i);
-                propertiesList.getItems().add(i, head + ": " + result);
-                propertiesList.refresh();
-            break;
-        default:
-            break;
+                break;
+            case "Cuoco":
+                result = modifyCook();
+                break;
+            case "Tempo Stimato":
+                result = modifyTimeRequired(tail.split(" ")[0]) + " minuti";
+                break;
+            case "Quantità":
+                result = modifyQuantity(tail);
+                break;
+            case "Preparato":
+                result = setTaskPrepared();
+                break;
+            default:
+                break;
+        }
+        // deassegnare turno / cuoco !
+        if (result != null) {
+            int i = propertiesList.getSelectionModel().getSelectedIndex();
+            propertiesList.getItems().remove(i);
+            propertiesList.getItems().add(i, head + ": " + result);
+            propertiesList.refresh();
+            propertiesList.getSelectionModel().select(i);
         }
     }
 
@@ -253,12 +292,8 @@ public class ServiceSheetDialog {
             ex.printStackTrace();
         }
         for (KitchenShift ks : allShifts) {
-            System.err.print(ks.toString());
             if (!ks.isFull() && (taskSelected.getCook() == null || ks.hasCookAvailable(taskSelected.getCook()))) {
-                System.err.println(" IS VALID");
                 validShifts.add(ks);
-            } else {
-                System.err.println();
             }
         }
 
@@ -271,32 +306,127 @@ public class ServiceSheetDialog {
         stage.showAndWait();
 
         Optional<KitchenShift> chosen = controller.getSelectedKitchenShift();
-        if (chosen.isPresent()) {
-            KitchenShift newShift = chosen.get();
-            try {
+        try {
+            if (chosen.isPresent()) {
+                KitchenShift newShift = chosen.get();
                 CatERing.getInstance().getKitchenTaskManager().modifyShift(currentSheet, taskSelected, newShift);
-            } catch (UseCaseLogicException | KitchenTaskException ex) {
-                ex.printStackTrace();
+                return newShift.toString();
+            } else {
+                CatERing.getInstance().getKitchenTaskManager().modifyShift(currentSheet, taskSelected, null);
+                return (controller.hasConfirmed()) ? "non assegnato" : null;
             }
-            return newShift.toString();
+        } catch (UseCaseLogicException | KitchenTaskException ex) {
+            ex.printStackTrace();
         }
-
         return null;
     }
     
     private String modifyCook() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("modify-cook-dialog.fxml"));
+        ModifyCookDialog controller = null;
+        BorderPane pane = null;
+        try {
+            pane = loader.load();
+            controller = loader.getController();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+        KitchenTask taskSelected = taskList.getSelectionModel().getSelectedItem();
+        ObservableList<User> allCooks = User.loadAllCooks(),
+                             validCooks = FXCollections.observableArrayList();
+
+        for (User cook : allCooks) {
+            if (taskSelected.getKitchenShift() == null || taskSelected.getKitchenShift().hasCookAvailable(cook)) {
+                validCooks.add(cook);
+            }
+        }
+
+        Stage stage = new Stage();
+        controller.setValidCooks(validCooks);
+        controller.setOwnStage(stage);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Scegli il nuovo Cuoco per il Compito");
+        stage.setScene(new Scene(pane));
+        stage.showAndWait();
+
+        Optional<User> chosen = controller.getSelectedCook();
+        try {
+            if (chosen.isPresent()) {
+                User newCook = chosen.get();
+                CatERing.getInstance().getKitchenTaskManager().modifyCook(currentSheet, taskSelected, newCook);
+                return newCook.toString();
+            } else {
+                CatERing.getInstance().getKitchenTaskManager().modifyCook(currentSheet, taskSelected, null);
+                return (controller.hasConfirmed()) ? "non assegnato" : null;
+            }
+        } catch (UseCaseLogicException | KitchenTaskException ex) {
+            ex.printStackTrace();
+        }
         return null;
     }
     
-    private String modifyQuantity() {
-        return null;
+    private String modifyQuantity(String initialText) {
+        TextInputDialog dial = new TextInputDialog(initialText);
+        dial.setTitle("Modifica Quantità");
+        dial.setHeaderText("Modifica la quantità per il Compito selezionato");
+        Optional<String> result = dial.showAndWait();
+
+        KitchenTask taskSelected = taskList.getSelectionModel().getSelectedItem();
+        if (result.isPresent()) {
+            try {
+                CatERing.getInstance().getKitchenTaskManager().modifyQuantity(currentSheet, taskSelected, result.get());
+                return result.get();
+            } catch (UseCaseLogicException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return initialText;
     }
     
-    private String modifyTimeRequired() {
-        return null;
+    private String modifyTimeRequired(String oldTime) {
+        TextInputDialog dial = new TextInputDialog(oldTime);
+        dial.setTitle("Modifica Tempo Stimato");
+        dial.setHeaderText("Modifica il tempo stimato per il Compito selezionato\nInserire un valore intero");
+
+        while (true) {
+            Optional<String> result = dial.showAndWait();
+            KitchenTask taskSelected = taskList.getSelectionModel().getSelectedItem();
+            if (result.isPresent()) {
+                try {
+                    int newTime = Integer.parseInt(result.get());
+                    CatERing.getInstance().getKitchenTaskManager().modifyTimeRequired(currentSheet, taskSelected, newTime);
+                    return result.get();
+                } catch (UseCaseLogicException ex) {
+                    ex.printStackTrace();
+                } catch (NumberFormatException ex) {
+
+                }
+            } else {
+                return oldTime;
+            }
+        }
     }
 
-    private String setPrepared() {
+    private String setTaskPrepared() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setHeaderText("Impostare il Compito come \"preparato\"?");
+        //alert.setContentText();
+
+        ButtonType buttonTypeConfirm = new ButtonType("Conferma");
+        ButtonType buttonTypeCancel = new ButtonType("Annulla", ButtonBar.ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().setAll(buttonTypeConfirm, buttonTypeCancel);
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.get() == buttonTypeConfirm) {
+            try {
+                KitchenTask taskSelected = taskList.getSelectionModel().getSelectedItem();
+                CatERing.getInstance().getKitchenTaskManager().setKitchenTaskPrepared(currentSheet, taskSelected);
+                return "sì";
+            } catch (UseCaseLogicException | KitchenTaskException ex) {
+                ex.printStackTrace();
+            }
+        }
         return null;
     }
 

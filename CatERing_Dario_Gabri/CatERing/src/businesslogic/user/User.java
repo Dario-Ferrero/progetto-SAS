@@ -1,15 +1,13 @@
 package businesslogic.user;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import persistence.PersistenceManager;
 import persistence.ResultHandler;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class User {
 
@@ -125,6 +123,24 @@ public class User {
             });
         }
         return u;
+    }
+
+    public static ObservableList<User> loadAllCooks() {
+        ArrayList<Integer> allIds = new ArrayList<>();
+        ObservableList<User> result = FXCollections.observableArrayList();
+
+        String query = "SELECT id FROM Users U join UserRoles UR on (U.id=UR.user_id) WHERE UR.role_id = 'c'";
+        PersistenceManager.executeQuery(query, new ResultHandler() {
+            @Override
+            public void handle(ResultSet rs) throws SQLException {
+                allIds.add(rs.getInt("id"));
+            }
+        });
+
+        for (Integer id : allIds) {
+            result.add(loadUserById(id));
+        }
+        return result;
     }
 
     @Override

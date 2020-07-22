@@ -50,6 +50,12 @@ public class ModifyShiftDialog {
     }
 
     @FXML
+    public void rimuoviAssegnamentoPressed() {
+        confirmed = true;
+        myStage.close();
+    }
+
+    @FXML
     public void annullaButtonPressed() {
         confirmed = false;
         myStage.close();
@@ -59,4 +65,6 @@ public class ModifyShiftDialog {
         if (!confirmed) selectedShift = null;
         return Optional.ofNullable(selectedShift);
     }
+
+    public boolean hasConfirmed() { return this.confirmed; }
 }
